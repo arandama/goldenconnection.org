@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blu Mascot - Complete Image Collection</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .blu-card {
+            background: #f8f9ff;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .blu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .blu-title {
+            color: #1565c0;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .blu-description {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .download-btn {
+            background: #4caf50;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+
+        /* Website Hero Blu - Exact Match */
+        .website-hero-blu {
+            width: 200px;
+            height: 240px;
+            margin: 0 auto 20px auto;
+            position: relative;
+            animation: hero-bounce 4s ease-in-out infinite;
+        }
+
+        .website-hero-blu .hare-body {
+            width: 80px;
+            height: 110px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 40px 40px 25px 25px;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -8px 15px rgba(0,0,0,0.1);
+        }
+
+        .website-hero-blu .hare-head {
+            width: 70px;
+            height: 65px;
+            background: linear-gradient(135deg, #64b5f6 0%, #2196f3 100%);
+            border-radius: 35px 35px 30px 30px;
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -4px 12px rgba(0,0,0,0.1);
+        }
+
+        .website-hero-blu .ear {
+            width: 18px;
+            height: 45px;
+            background: linear-gradient(135deg, #90caf9 0%, #42a5f5 100%);
+            border-radius: 9px 9px 4px 4px;
+            position: absolute;
+            top: 8px;
+        }
+
+        .website-hero-blu .ear-left { left: 15px; transform: rotate(-15deg); }
+        .website-hero-blu .ear-right { right: 15px; transform: rotate(15deg); }
+
+        .website-hero-blu .ear-inner {
+            width: 9px;
+            height: 25px;
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            border-radius: 4px;
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .website-hero-blu .eye {
+            width: 12px;
+            height: 15px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 25px;
+        }
+
+        .website-hero-blu .eye-left { left: 18px; }
+        .website-hero-blu .eye-right { right: 18px; }
+
+        .website-hero-blu .pupil {
+            width: 6px;
+            height: 8px;
+            background: #1565c0;
+            border-radius: 50%;
+            position: absolute;
+            top: 4px;
+            left: 3px;
+            animation: hero-blink 5s ease-in-out infinite;
+        }
+
+        .website-hero-blu .nose {
+            width: 6px;
+            height: 4px;
+            background: #f48fb1;
+            border-radius: 50%;
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .website-hero-blu .arm {
+            width: 25px;
+            height: 60px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 15px;
+            position: absolute;
+            top: 85px;
+        }
+
+        .website-hero-blu .arm-left { 
+            left: 55px; 
+            transform: rotate(-30deg);
+            animation: hero-wave-left 3s ease-in-out infinite;
+        }
+        .website-hero-blu .arm-right { 
+            right: 55px; 
+            transform: rotate(30deg);
+            animation: hero-wave-right 3s ease-in-out infinite;
+        }
+
+        .website-hero-blu .foot {
+            width: 22px;
+            height: 30px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 11px 11px 6px 6px;
+            position: absolute;
+            bottom: 20px;
+        }
+
+        .website-hero-blu .foot-left { left: 75px; }
+        .website-hero-blu .foot-right { right: 75px; }
+
+        .website-hero-blu .tail {
+            width: 18px;
+            height: 18px;
+            background: linear-gradient(135deg, #90caf9 0%, #64b5f6 100%);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 85px;
+            right: 60px;
+        }
+
+        /* Standard Blu */
+        .blue-hare {
+            width: 300px;
+            height: 350px;
+            margin: 0 auto 20px;
+            position: relative;
+            display: inline-block;
+            animation: gentle-bounce 3s ease-in-out infinite;
+            transform: scale(0.7);
+        }
+
+        .hare-body {
+            width: 120px;
+            height: 160px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 60px 60px 40px 40px;
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
+        }
+
+        .hare-head {
+            width: 100px;
+            height: 90px;
+            background: linear-gradient(135deg, #64b5f6 0%, #2196f3 100%);
+            border-radius: 50px 50px 40px 40px;
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -5px 15px rgba(0,0,0,0.1);
+        }
+
+        .ear {
+            width: 25px;
+            height: 60px;
+            background: linear-gradient(135deg, #90caf9 0%, #42a5f5 100%);
+            border-radius: 12px 12px 5px 5px;
+            position: absolute;
+            top: 10px;
+            box-shadow: inset 0 -3px 8px rgba(0,0,0,0.1);
+        }
+
+        .ear-left { left: 20px; transform: rotate(-15deg); }
+        .ear-right { right: 20px; transform: rotate(15deg); }
+
+        .ear-inner {
+            width: 12px;
+            height: 35px;
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            border-radius: 6px;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .eye {
+            width: 16px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 35px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .eye-left { left: 25px; }
+        .eye-right { right: 25px; }
+
+        .pupil {
+            width: 8px;
+            height: 10px;
+            background: #1565c0;
+            border-radius: 50%;
+            position: absolute;
+            top: 5px;
+            left: 4px;
+            animation: blink 4s ease-in-out infinite;
+        }
+
+        .nose {
+            width: 8px;
+            height: 6px;
+            background: #f48fb1;
+            border-radius: 50%;
+            position: absolute;
+            top: 55px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .arm {
+            width: 35px;
+            height: 80px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 20px;
+            position: absolute;
+            top: 120px;
+            box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+        }
+
+        .arm-left { 
+            left: 80px; 
+            transform: rotate(-20deg);
+            animation: wave 2s ease-in-out infinite;
+        }
+        .arm-right { 
+            right: 80px; 
+            transform: rotate(20deg);
+        }
+
+        .device {
+            width: 40px;
+            height: 60px;
+            background: linear-gradient(135deg, #424242 0%, #616161 100%);
+            border-radius: 8px;
+            position: absolute;
+            top: 180px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .device-screen {
+            width: 32px;
+            height: 45px;
+            background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
+            border-radius: 4px;
+            position: absolute;
+            top: 8px;
+            left: 4px;
+            animation: screen-glow 2s ease-in-out infinite alternate;
+        }
+
+        .foot {
+            width: 30px;
+            height: 40px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 15px 15px 8px 8px;
+            position: absolute;
+            bottom: 30px;
+            box-shadow: inset 0 -3px 8px rgba(0,0,0,0.1);
+        }
+
+        .foot-left { left: 115px; }
+        .foot-right { right: 115px; }
+
+        .tail {
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(135deg, #90caf9 0%, #64b5f6 100%);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 120px;
+            right: 85px;
+            box-shadow: inset 0 -2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Pose variations */
+        .pose-hare {
+            width: 200px;
+            height: 250px;
+            margin: 0 auto 20px;
+            position: relative;
+            display: inline-block;
+            animation: gentle-bounce 3s ease-in-out infinite;
+            transform: scale(0.8);
+        }
+
+        .pose-hare .hare-body {
+            width: 80px;
+            height: 110px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 40px 40px 25px 25px;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -8px 15px rgba(0,0,0,0.1);
+        }
+
+        .pose-hare .hare-head {
+            width: 70px;
+            height: 65px;
+            background: linear-gradient(135deg, #64b5f6 0%, #2196f3 100%);
+            border-radius: 35px 35px 30px 30px;
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -4px 12px rgba(0,0,0,0.1);
+        }
+
+        .pose-hare .ear {
+            width: 18px;
+            height: 45px;
+            background: linear-gradient(135deg, #90caf9 0%, #42a5f5 100%);
+            border-radius: 9px 9px 4px 4px;
+            position: absolute;
+            top: 8px;
+        }
+
+        .pose-hare .ear-left { left: 15px; transform: rotate(-15deg); }
+        .pose-hare .ear-right { right: 15px; transform: rotate(15deg); }
+
+        .pose-hare .ear-inner {
+            width: 9px;
+            height: 25px;
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            border-radius: 4px;
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .pose-hare .eye {
+            width: 12px;
+            height: 15px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 25px;
+        }
+
+        .pose-hare .eye-left { left: 18px; }
+        .pose-hare .eye-right { right: 18px; }
+
+        .pose-hare .pupil {
+            width: 6px;
+            height: 8px;
+            background: #1565c0;
+            border-radius: 50%;
+            position: absolute;
+            top: 4px;
+            left: 3px;
+        }
+
+        .pose-hare .nose {
+            width: 6px;
+            height: 4px;
+            background: #f48fb1;
+            border-radius: 50%;
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .pose-hare .arm {
+            width: 25px;
+            height: 60px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 15px;
+            position: absolute;
+            top: 85px;
+        }
+
+        .pose-hare .foot {
+            width: 22px;
+            height: 30px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 11px 11px 6px 6px;
+            position: absolute;
+            bottom: 20px;
+        }
+
+        .pose-hare .foot-left { left: 75px; }
+        .pose-hare .foot-right { right: 75px; }
+
+        .pose-hare .tail {
+            width: 18px;
+            height: 18px;
+            background: linear-gradient(135deg, #90caf9 0%, #64b5f6 100%);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 85px;
+            right: 60px;
+        }
+
+        /* Pose 1: Welcome Arms */
+        .pose1 .arm-left { 
+            left: 55px; 
+            transform: rotate(-45deg);
+            animation: welcome-wave 2s ease-in-out infinite;
+        }
+        .pose1 .arm-right { 
+            right: 55px; 
+            transform: rotate(45deg);
+            animation: welcome-wave 2s ease-in-out infinite reverse;
+        }
+
+        /* Pose 2: Teaching */
+        .pose2 .arm-left { 
+            left: 60px; 
+            transform: rotate(-10deg);
+        }
+        .pose2 .arm-right { 
+            right: 45px; 
+            transform: rotate(-70deg);
+            animation: point 2s ease-in-out infinite;
+        }
+
+        /* Pose 3: Phone */
+        .pose3 .arm-left { left: 65px; transform: rotate(20deg); }
+        .pose3 .arm-right { right: 65px; transform: rotate(-20deg); }
+        .pose3 .phone {
+            width: 25px;
+            height: 40px;
+            background: linear-gradient(135deg, #424242 0%, #616161 100%);
+            border-radius: 5px;
+            position: absolute;
+            top: 125px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .pose3 .phone-screen {
+            width: 20px;
+            height: 30px;
+            background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
+            border-radius: 3px;
+            position: absolute;
+            top: 5px;
+            left: 2.5px;
+        }
+
+        /* Pose 4: Thumbs Up */
+        .pose4 .arm-left { left: 60px; transform: rotate(-10deg); }
+        .pose4 .arm-right { 
+            right: 50px; 
+            transform: rotate(-90deg);
+        }
+        .pose4 .thumb {
+            width: 8px;
+            height: 12px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 4px 4px 2px 2px;
+            position: absolute;
+            top: 70px;
+            right: 45px;
+        }
+
+        /* Pose 5: Laptop */
+        .pose5 .arm-left { left: 50px; transform: rotate(30deg); }
+        .pose5 .arm-right { right: 50px; transform: rotate(-30deg); }
+        .pose5 .laptop {
+            width: 45px;
+            height: 30px;
+            background: linear-gradient(135deg, #424242 0%, #616161 100%);
+            border-radius: 5px;
+            position: absolute;
+            top: 130px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .pose5 .laptop-screen {
+            width: 40px;
+            height: 25px;
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            border-radius: 3px;
+            position: absolute;
+            top: 2.5px;
+            left: 2.5px;
+        }
+
+        /* Pose 6: Question */
+        .pose6 .arm-left { left: 70px; transform: rotate(10deg); }
+        .pose6 .arm-right { right: 60px; transform: rotate(-45deg); }
+        .pose6 .question {
+            font-size: 30px;
+            color: #1976d2;
+            position: absolute;
+            top: 60px;
+            right: 30px;
+        }
+
+        /* Letterhead Blu */
+        .blu-letterhead {
+            width: 80px;
+            height: 90px;
+            position: relative;
+            margin: 0 auto 20px;
+        }
+
+        .blu-letterhead .blu-body {
+            width: 40px;
+            height: 55px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 20px 20px 12px 12px;
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .blu-letterhead .blu-head {
+            width: 35px;
+            height: 32px;
+            background: linear-gradient(135deg, #64b5f6 0%, #2196f3 100%);
+            border-radius: 17px 17px 15px 15px;
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .blu-letterhead .blu-ear {
+            width: 8px;
+            height: 20px;
+            background: linear-gradient(135deg, #90caf9 0%, #42a5f5 100%);
+            border-radius: 4px 4px 2px 2px;
+            position: absolute;
+            top: 4px;
+        }
+
+        .blu-letterhead .blu-ear-left { left: 8px; transform: rotate(-15deg); }
+        .blu-letterhead .blu-ear-right { right: 8px; transform: rotate(15deg); }
+
+        .blu-letterhead .blu-eye {
+            width: 5px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 12px;
+        }
+
+        .blu-letterhead .blu-eye-left { left: 9px; }
+        .blu-letterhead .blu-eye-right { right: 9px; }
+
+        .blu-letterhead .blu-pupil {
+            width: 2px;
+            height: 3px;
+            background: #1565c0;
+            border-radius: 50%;
+            position: absolute;
+            top: 1.5px;
+            left: 1.5px;
+        }
+
+        .blu-letterhead .blu-nose {
+            width: 3px;
+            height: 2px;
+            background: #f48fb1;
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .blu-letterhead .blu-arms {
+            width: 12px;
+            height: 25px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 6px;
+            position: absolute;
+            top: 42px;
+        }
+
+        .blu-letterhead .blu-arm-left { left: 20px; transform: rotate(-20deg); }
+        .blu-letterhead .blu-arm-right { right: 20px; transform: rotate(20deg); }
+
+        /* Animations */
+        @keyframes gentle-bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes hero-bounce {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-15px) scale(1.05); }
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(-20deg); }
+            50% { transform: rotate(-35deg); }
+        }
+
+        @keyframes hero-wave-left {
+            0%, 100% { transform: rotate(-30deg); }
+            50% { transform: rotate(-50deg); }
+        }
+
+        @keyframes hero-wave-right {
+            0%, 100% { transform: rotate(30deg); }
+            50% { transform: rotate(50deg); }
+        }
+
+        @keyframes welcome-wave {
+            0%, 100% { transform: rotate(-45deg); }
+            50% { transform: rotate(-30deg); }
+        }
+
+        @keyframes point {
+            0%, 100% { transform: rotate(-70deg); }
+            50% { transform: rotate(-80deg); }
+        }
+
+        @keyframes blink {
+            0%, 90%, 100% { height: 10px; top: 5px; }
+            95% { height: 1px; top: 14px; }
+        }
+
+        @keyframes hero-blink {
+            0%, 85%, 100% { height: 8px; top: 4px; }
+            90% { height: 1px; top: 8px; }
+        }
+
+        @keyframes screen-glow {
+            0% { box-shadow: inset 0 0 10px rgba(255,255,255,0.3); }
+            100% { box-shadow: inset 0 0 20px rgba(255,255,255,0.6); }
+        }
+
+        @media (max-width: 768px) {
+            .collection-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+            
+            .blue-hare, .website-hero-blu, .pose-hare {
+                transform: scale(0.6);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .collection-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Blu Mascot - Complete Image Collection</h1>
+            <p>All poses and variations of Blu for Golden Connection</p>
+        </div>
+
+        <div class="collection-grid">
+            <!-- Website Hero Blu - Exact Match -->
+            <div class="blu-card">
+                <div class="blu-title">Website Hero Blu - Exact Match</div>
+                <div class="website-hero-blu">
+                    <div class="ear ear-left"><div class="ear-inner"></div></div>
+                    <div class="ear ear-right"><div class="ear-inner"></div></div>
+                    <div class="hare-head">
+                        <div class="eye eye-left"><div class="pupil"></div></div>
+                        <div class="eye eye-right"><div class="pupil"></div></div>
+                        <div class="nose"></div>
+                    </div>
+                    <div class="hare-body"></div>
+                    <div class="arm arm-left"></div>
+                    <div class="arm arm-right"></div>
+                    <div class="foot foot-left"></div>
+                    <div class="foot foot-right"></div>
+                    <div class="tail"></div>
+                </div>
+                <div class="blu-description">This is the exact Blu used in the Golden Connection website hero section. Same dimensions, animations, and styling as the live site.</div>
+                <button class="download-btn" onclick="downloadBlu('website-hero')">Download HTML</button>
+                <button class="download-btn" onclick="downloadBluSVG('website-hero')">Download SVG</button>
+            </div>
+
+            <!-- Standard Blu with Device -->
+            <div class="blu-card">
+                <div class="blu-title">Standard Blu - Tech Helper</div>
+                <div class="blue-hare">
+                    <div class="ear ear-left"><div class="ear-inner"></div></div>
+                    <div class="ear ear-right"><div class="ear-inner"></div></div>
+                    <div class="hare-head">
+                        <div class="eye eye-left"><div class="pupil"></div></div>
+                        <div class="eye eye-right"><div class="pupil"></div></div>
+                        <div class="nose"></div>
+                    </div>
+                    <div class="hare-body"></div>
+                    <div class="arm arm-left"></div>
+                    <div class="arm arm-right"></div>
+                    <div class="device"><div class="device-screen"></div></div>
+                    <div class="foot foot-left"></div>
+                    <div class="foot foot-right"></div>
+                    <div class="tail"></div>
+                </div>
+                <div class="blu-description">Classic Blu holding a device, perfect for showing the tech education mission.</div>
+                <button class="download-btn" onclick="downloadBlu('standard')">Download HTML</button>
+                <button class="download-btn" onclick="downloadBluSVG('standard')">Download SVG</button>
+            </div>
+
+            <!-- Welcome Pose -->
+            <div class="blu-card">
+                <div class="blu-title">Welcome Pose</div>
+                <div class="pose-hare pose1">
+                    <div class="ear ear-left"><div class="ear-inner"></div></div>
+                    <div class="ear ear-right"><div class="ear-inner"></div></div>
+                    <div class="hare-head">
+                        <div class="eye eye-left"><div class="pupil"></div></div>
+                        <div class="eye eye-right"><div class="pupil"></div></div>
+                        <div class="nose"></div>
+                    </div>
+                    <div class="hare-body"></div>
+                    <div class="arm arm-left"></div>
+                    <div class="arm arm-right"></div>
+                    <div class="foot foot-left"></div>
+                    <div class="foot foot-right"></div>
+                    <div class="tail"></div>
+                </div>
+                <div class="blu-description">Open, welcoming arms. Perfect for websites, welcome materials, event banners.</div>
+                <button class="download-btn" onclick="downloadBlu('welcome')">Download HTML</button>
+            </div>
+
+            <!-- Teaching Pose -->
+            <div class="blu-card">
+                <div class="blu-title">Teaching Pose</div>
+                <div class="pose-hare pose2">
+                    <div class="ear ear-left"><div class="ear-inner"></div></div>
+                    <div class="ear ear-right"><div class="ear-inner"></div></div>
+                    <div class="hare-head">
+                        <div class="eye eye-left"><div class="pupil"></div></div>
+                        <div class="eye eye-right"><div class="pupil"></div></div>
+                        <div class="nose"></div>
+                    </div>
+                    <div class="hare-body"></div>
+                    <div class="arm arm-left"></div>
+                    <div class="arm arm-right"></div>
+                    <div class="foot foot-left"></div>
+                    <div class="foot foot-right"></div>
+                    <div class="tail"></div>
+                </div>
+                <div class="blu-description">Pointing gesture for instructional materials, presentations, how-to guides.</div>
+                <button class="download-btn" onclick="downloadBlu('teaching')">Download HTML</button>
+            </div>
+
+            <!-- Smartphone Helper -->
+            <div class="blu-card">
+                <div class="blu-title">Smartphone Helper</div>
+                <div class="pose-hare pose3">
+                    <div class="ear ear-left"><div class="ear-inner"></div></div>
+                    <div class="ear ear-right"><div class="ear-inner"></div></div>
+                    <div class="hare-head">
+                        <div class="eye eye-left"><div class="pupil"></div></div>
+                        <div class="eye eye-right"><div class="pupil"></div></div>
+                        <div class="nose"></div>
+                    </div>
+                    <div class="hare-body"></div>
+                    <div class="arm arm-left"></div>
+                    <div class="arm arm-right"></div>
+                    <div class="phone"><div class="phone-screen"></div></div>
+                    <div class="foot foot-left"></div>
+                    <div class="foot foot-right"></div>
+                    <div class="tail"></div>
+                </div>
+                <div class="blu-description">Holding a smartphone. Perfect for phone tutorials, mobile app guides, texting workshops.</div>
+                <button class="download-btn" onclick="downloadBlu('smartphone')">Download HTML</button>
+            </div>
+
+            <!-- Encouragement Pose -->
+            <div class="blu-card">
+                <div class="blu-title">Encouragement Pose</div>
+                <div class="pose-hare pose4">
+                    <div class="ear ear-left"><div class="ear-inner"></div></div>
+                    <div class="ear ear-right"><div class="ear-inner"></div></div>
+                    <div class="hare-head">
+                        <div class="eye eye-left"><div class="pupil"></div></div>
+                        <div class="eye eye-right"><div class="pupil"></div></div>
+                        <div class="nose"></div>
+                    </div>
+                    <div class="hare-body"></div>
+                    <div class="arm arm-left"></div>
+                    <div class="arm arm-right"></div>
+                    <div class="thumb"></div>
+                    <div class="foot foot-left"></div>
+                    <div class="foot foot-right"></div>
+                    <div class="tail"></div>
+                </div>
+                <div class="blu-description">Thumbs up for success messages, completion certificates, social media.</div>
+                <button class="download-btn" onclick="downloadBlu('thumbsup')">Download HTML</button>
+            </div>
+
+            <!-- Computer Expert -->
+            <div class="blu-card">
+                <div class="blu-title">Computer Expert</div>
+                <div class="pose-hare pose5">
+                    <div class="ear ear-left"><div class="ear-inner"></div></div>
+                    <div class="ear ear-right"><div class="ear-inner"></div></div>
+                    <div class="hare-head">
+                        <div class="eye eye-left"><div class="pupil"></div></div>
+                        <div class="eye eye-right"><div class="pupil"></div></div>
+                        <div class="nose"></div>
+                    </div>
+                    <div class="hare-body"></div>
+                    <div class="arm arm-left"></div>
+                    <div class="arm arm-right"></div>
+                    <div class="laptop"><div class="laptop-screen"></div></div>
+                    <div class="foot foot-left"></div>
+                    <div class="foot foot-right"></div>
+                    <div class="tail"></div>
+                </div>
+                <div class="blu-description">Using a laptop. Perfect for computer classes, email workshops, internet safety.</div>
+                <button class="download-btn" onclick="downloadBlu('laptop')">Download HTML</button>
+            </div>
+
+            <!-- Q&A Helper -->
+            <div class="blu-card">
+                <div class="blu-title">Q&A Helper</div>
+                <div class="pose-hare pose6">
+                    <div class="ear ear-left"><div class="ear-inner"></div></div>
+                    <div class="ear ear-right"><div class="ear-inner"></div></div>
+                    <div class="hare-head">
+                        <div class="eye eye-left"><div class="pupil"></div></div>
+                        <div class="eye eye-right"><div class="pupil"></div></div>
+                        <div class="nose"></div>
+                    </div>
+                    <div class="hare-body"></div>
+                    <div class="arm arm-left"></div>
+                    <div class="arm arm-right"></div>
+                    <div class="question">?</div>
+                    <div class="foot foot-left"></div>
+                    <div class="foot foot-right"></div>
+                    <div class="tail"></div>
+                </div>
+                <div class="blu-description">Ready to answer questions. Perfect for FAQ sections, help desks, support materials.</div>
+                <button class="download-btn" onclick="downloadBlu('question')">Download HTML</button>
+            </div>
+
+            <!-- Letterhead Blu -->
+            <div class="blu-card">
+                <div class="blu-title">Letterhead Blu - Print Version</div>
+                <div class="blu-letterhead">
+                    <div class="blu-ear blu-ear-left"></div>
+                    <div class="blu-ear blu-ear-right"></div>
+                    <div class="blu-head">
+                        <div class="blu-eye blu-eye-left"><div class="blu-pupil"></div></div>
+                        <div class="blu-eye blu-eye-right"><div class="blu-pupil"></div></div>
+                        <div class="blu-nose"></div>
+                    </div>
+                    <div class="blu-body"></div>
+                    <div class="blu-arms blu-arm-left"></div>
+                    <div class="blu-arms blu-arm-right"></div>
+                </div>
+                <div class="blu-description">Simplified version for letterhead and professional documents. Print-optimized.</div>
+                <button class="download-btn" onclick="downloadBlu('letterhead')">Download HTML</button>
+                <button class="download-btn" onclick="downloadBluSVG('letterhead')">Download SVG</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadBlu(type) {
+            // This function would generate downloadable HTML files for each Blu version
+            alert(`Download feature for ${type} Blu would save the HTML/CSS code for this specific pose. In a real implementation, this would generate a downloadable file.`);
+        }
+
+        function downloadBluSVG(type) {
+            // This function would generate downloadable SVG files
+            alert(`Download feature for ${type} Blu SVG would save a vector graphics file. In a real implementation, this would generate a downloadable SVG.`);
+        }
+    </script>
+</body>
+</html>

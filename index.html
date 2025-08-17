@@ -1,3 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Connection - Technology Help for Seniors | Easy Tech Learning</title>
+    <meta name="description" content="Technology education for seniors 55+ in smaller communities. Patient, friendly instruction for smartphones, computers, and staying connected with family.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #222;
+            font-size: 18px;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Skip Navigation for Screen Readers */
+        .skip-nav {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 10000;
+        }
+
+        .skip-nav:focus {
+            top: 6px;
+        }
+
+        /* Font Size Controls */
+        .font-controls {
+            background: #f8f9fa;
+            padding: 0.5rem 0;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .font-controls button {
+            background: #1565c0;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        .font-controls button:hover {
+            background: #1976d2;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
         .nav {
             display: flex;
@@ -40,9 +120,20 @@
             transform: translateY(-2px);
         }
 
-        .office-hours {
+        .easter-egg-link {
+            color: #ffeb3b;
+            text-decoration: none;
             font-size: 0.9em;
             opacity: 0.9;
+            transition: all 0.3s;
+            padding: 0.5rem;
+            border-radius: 15px;
+        }
+
+        .easter-egg-link:hover {
+            opacity: 1;
+            background: rgba(255,235,59,0.1);
+            color: white;
         }
 
         .nav-links {
@@ -866,6 +957,35 @@
             line-height: 1.8;
         }
 
+        .easter-egg-hint {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            color: #2e7d32;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            margin-top: 1.5rem;
+            font-size: 1em;
+            text-align: center;
+            border: 2px solid #4caf50;
+        }
+
+        .easter-egg-hint a {
+            color: #1b5e20;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 0.5rem;
+            background: rgba(255,255,255,0.7);
+        }
+
+        .easter-egg-hint a:hover {
+            background: #4caf50;
+            color: white;
+            transform: translateY(-2px);
+        }
+
         /* Detailed Blu Animations */
         @keyframes gentle-bounce {
             0%, 100% { transform: translateY(0px); }
@@ -1450,9 +1570,9 @@
                 <a href="tel:+15551238324" class="header-phone" aria-label="Call us now">
                     📞 (555) 123-TECH
                 </a>
-                <div class="office-hours">
-                    Mon-Fri 9am-5pm
-                </div>
+                <a href="#easter-eggs" class="easter-egg-link">
+                    🥚 Discover Blu's Secrets
+                </a>
             </div>
 
             <ul class="nav-links">
@@ -1563,7 +1683,7 @@
                     <div class="step">
                         <div class="step-number">1</div>
                         <h3>Contact Us Today</h3>
-                        <p><strong>Call or email - we're friendly!</strong><br>Reach out via phone, email, or our simple contact form. We'll answer your questions and help you get started.</p>
+                        <p><strong>Call or email - we're friendly!</strong><br>Reach out via phone or email. We'll answer your questions and help you get started.</p>
                     </div>
                     <div class="step">
                         <div class="step-number">2</div>
@@ -1708,7 +1828,7 @@
         </section>
 
         <!-- Meet Blu Section -->
-        <section class="meet-blu" aria-labelledby="blu-title">
+        <section id="easter-eggs" class="meet-blu" aria-labelledby="blu-title">
             <div class="container">
                 <h2 id="blu-title" class="section-title">Meet Blu, Your Tech Helper</h2>
                 <p class="section-subtitle">Our friendly mascot embodies the patience and understanding that makes learning technology feel welcoming</p>
@@ -1759,6 +1879,11 @@
                         <h3>Your Friendly Tech Companion</h3>
                         <p>Meet Blu, our gentle blue hare mascot who embodies the patience and understanding that makes learning technology feel less intimidating. Just like our instructors, Blu is here to make your tech journey feel like connecting with a trusted friend!</p>
                         <p><strong>Why a blue hare?</strong> Blue represents trust and calm, while the gentle hare symbolizes patience and careful listening - exactly what you'll find in our classes.</p>
+                        
+                        <div class="easter-egg-hint">
+                            🎉 <strong>Fun Discovery:</strong> Blu has many hidden talents and surprises! Want to see all of Blu's amazing variations and secret features?
+                            <a href="blu-collection.html" target="_blank">🥚 Explore Blu's Secret Collection!</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1795,7 +1920,7 @@
                 
                 <div class="venue-contact-cta">
                     <h3>Contact us to arrange sessions at your location</h3>
-                    <p>We provide experienced instructors, all materials, and handle the setup. Just provide the space and we'll bring the expertise! <strong>Call (555) 123-TECH or email venue@goldenconnection.org</strong></p>
+                    <p>We provide experienced instructors, all materials, and handle the setup. Just provide the space and we'll bring the expertise! <strong>Call (555) 123-TECH or email hello@goldenconnection.org</strong></p>
                 </div>
             </div>
         </section>
@@ -1809,30 +1934,29 @@
                 <div class="contact-options">
                     <div class="contact-card">
                         <div class="contact-icon">📞</div>
-                        <h3>Call Us Now</h3>
-                        <p>Speak directly with our friendly team<br><strong>Monday-Friday, 9 AM - 5 PM</strong></p>
+                        <h3>Call Us</h3>
+                        <p>Speak directly with our friendly team<br><strong>Available for calls and questions</strong></p>
                         <a href="tel:+15551238324" class="contact-info contact-link">(555) 123-TECH</a>
                     </div>
                     <div class="contact-card">
                         <div class="contact-icon">✉️</div>
                         <h3>Email Us</h3>
-                        <p>Send us your questions anytime<br><strong>We respond within 24 hours</strong></p>
+                        <p>Send us your questions anytime<br><strong>We respond promptly</strong></p>
                         <a href="mailto:hello@goldenconnection.org" class="contact-info contact-link">hello@goldenconnection.org</a>
                     </div>
                     <div class="contact-card">
                         <div class="contact-icon">📝</div>
                         <h3>Venue Partnerships</h3>
                         <p>Arrange classes at your location<br><strong>We bring everything needed</strong></p>
-                        <a href="mailto:venue@goldenconnection.org?subject=Venue Partnership Request" class="contact-info contact-link">venue@goldenconnection.org</a>
+                        <a href="mailto:hello@goldenconnection.org?subject=Venue Partnership Request" class="contact-info contact-link">hello@goldenconnection.org</a>
                     </div>
                     <div class="contact-card">
                         <div class="contact-icon">🏢</div>
-                        <h3>Office Hours</h3>
-                        <p>Visit or call during business hours</p>
+                        <h3>Get Information</h3>
+                        <p>Learn more about our services and approach</p>
                         <div class="contact-info">
-                            <strong>Monday-Friday:</strong> 9 AM - 5 PM<br>
-                            <strong>Saturday:</strong> 10 AM - 2 PM<br>
-                            <strong>Sunday:</strong> Closed
+                            <strong>Contact us anytime via phone or email</strong><br>
+                            We're here to help you succeed with technology
                         </div>
                     </div>
                 </div>
@@ -1859,7 +1983,6 @@
                     <h4>Contact Information</h4>
                     <a href="tel:+15551238324">(555) 123-TECH</a>
                     <a href="mailto:hello@goldenconnection.org">hello@goldenconnection.org</a>
-                    <a href="mailto:venue@goldenconnection.org">venue@goldenconnection.org</a>
                 </div>
                 <div class="footer-section">
                     <h4>Service Areas</h4>
@@ -2005,5 +2128,4 @@
         }
     </script>
 </body>
-</html>
-
+        </html>

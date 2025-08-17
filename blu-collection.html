@@ -13,29 +13,31 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
+            font-size: 18px; /* Larger base font size for seniors */
+            line-height: 1.6; /* Better readability */
         }
 
-        /* Back to Golden Connection Link */
+        /* Back to Golden Connection Link - Made Larger and More Prominent */
         .back-to-main {
             position: fixed;
             top: 20px;
             left: 20px;
             background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
             color: white;
-            padding: 1rem 1.5rem;
+            padding: 1.5rem 2rem; /* Larger padding */
             border-radius: 25px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1em;
+            font-weight: 700; /* Bolder text */
+            font-size: 1.2em; /* Larger font */
             transition: all 0.3s ease;
             z-index: 10000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            border: 2px solid transparent;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3); /* More prominent shadow */
+            border: 3px solid transparent;
         }
 
         .back-to-main:hover, .back-to-main:focus {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            transform: translateY(-3px) scale(1.05); /* More noticeable hover effect */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
             border-color: #ffeb3b;
             color: white;
             text-decoration: none;
@@ -60,11 +62,11 @@
 
         .particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
+            width: 6px; /* Larger particles for better visibility */
+            height: 6px;
             background: #ffd700;
             border-radius: 50%;
-            animation: float-up 6s ease-out infinite;
+            animation: float-up 8s ease-out infinite; /* Slower animation */
         }
 
         @keyframes float-up {
@@ -93,89 +95,100 @@
         .header {
             background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
             color: white;
-            padding: 40px;
+            padding: 50px; /* Larger padding */
             text-align: center;
             position: relative;
         }
 
         .header h1 {
-            margin: 0 0 10px 0;
-            font-size: 2.5em;
+            margin: 0 0 15px 0;
+            font-size: 3em; /* Larger heading */
             font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.3em; /* Larger description text */
+            margin: 15px 0;
         }
 
         .easter-egg-counter {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255,255,255,0.2);
-            padding: 10px 15px;
-            border-radius: 20px;
-            font-size: 14px;
+            top: 25px;
+            right: 25px;
+            background: rgba(255,255,255,0.25);
+            padding: 15px 20px; /* Larger padding */
+            border-radius: 25px;
+            font-size: 18px; /* Larger font */
+            font-weight: 600;
             backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
         }
 
         .time-display {
-            background: rgba(255,255,255,0.15);
-            padding: 8px 15px;
-            border-radius: 15px;
-            margin-top: 10px;
-            font-size: 14px;
+            background: rgba(255,255,255,0.2);
+            padding: 15px 20px; /* Larger padding */
+            border-radius: 20px;
+            margin-top: 15px;
+            font-size: 16px; /* Larger font */
             backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
         }
 
         .collection-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            padding: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Larger minimum width */
+            gap: 40px; /* Larger gaps */
+            padding: 50px; /* Larger padding */
         }
 
         .blu-card {
             background: #f8f9ff;
-            border-radius: 20px;
-            padding: 30px;
+            border-radius: 25px;
+            padding: 40px; /* Larger padding */
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+            transition: all 0.4s ease; /* Slower transition */
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            border: 3px solid transparent;
         }
 
         .blu-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            transform: translateY(-8px); /* More noticeable hover */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border-color: #42a5f5;
         }
 
         .blu-card.discovered {
             background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-            border: 2px solid #ff9800;
+            border: 3px solid #ff9800;
         }
 
         .blu-title {
             color: #1565c0;
-            font-size: 1.3em;
-            font-weight: 600;
-            margin-bottom: 15px;
+            font-size: 1.5em; /* Larger title */
+            font-weight: 700;
+            margin-bottom: 20px;
         }
 
         .blu-description {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 20px;
-            line-height: 1.4;
+            color: #555; /* Better contrast */
+            font-size: 1.1em; /* Larger description */
+            margin-bottom: 25px;
+            line-height: 1.6;
         }
 
         .easter-egg-hint {
             background: #e8f5e8;
             color: #2e7d32;
-            padding: 8px 12px;
-            border-radius: 15px;
-            font-size: 0.8em;
-            margin-top: 10px;
+            padding: 12px 16px; /* Larger padding */
+            border-radius: 18px;
+            font-size: 1em; /* Larger hint text */
+            margin-top: 15px;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.5s ease; /* Slower transition */
+            border: 2px solid #4caf50;
         }
 
         .blu-card:hover .easter-egg-hint {
@@ -185,34 +198,38 @@
         .download-btn {
             background: #4caf50;
             color: white;
-            padding: 8px 16px;
+            padding: 12px 24px; /* Larger buttons */
             border: none;
-            border-radius: 20px;
+            border-radius: 25px;
             cursor: pointer;
-            font-size: 0.9em;
-            margin: 5px;
+            font-size: 1.1em; /* Larger button text */
+            font-weight: 600;
+            margin: 8px;
             transition: all 0.3s ease;
+            min-width: 150px; /* Minimum button width */
         }
 
-        .download-btn:hover {
+        .download-btn:hover, .download-btn:focus {
             background: #45a049;
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
         }
 
-        /* SECRET ACHIEVEMENT POPUP */
+        /* SECRET ACHIEVEMENT POPUP - Made More Prominent */
         .achievement {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 30px;
+            right: 30px;
             background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
             color: white;
-            padding: 15px 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4);
-            transform: translateX(400px);
-            transition: transform 0.5s ease;
+            padding: 20px 25px; /* Larger padding */
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.5);
+            transform: translateX(450px);
+            transition: transform 0.6s ease;
             z-index: 10000;
-            max-width: 300px;
+            max-width: 350px; /* Larger max width */
+            border: 3px solid rgba(255,255,255,0.3);
         }
 
         .achievement.show {
@@ -221,19 +238,20 @@
 
         .achievement-title {
             font-weight: 700;
-            margin-bottom: 5px;
-            font-size: 16px;
+            margin-bottom: 8px;
+            font-size: 18px; /* Larger title */
         }
 
         .achievement-desc {
-            font-size: 13px;
-            opacity: 0.9;
+            font-size: 15px; /* Larger description */
+            opacity: 0.95;
+            line-height: 1.5;
         }
 
         /* TIMEZONE-BASED STYLES */
         .party-mode {
             background: linear-gradient(135deg, #e91e63 0%, #9c27b0 50%, #673ab7 100%);
-            animation: party-background 3s ease-in-out infinite alternate;
+            animation: party-background 4s ease-in-out infinite alternate; /* Slower animation */
         }
 
         @keyframes party-background {
@@ -256,38 +274,38 @@
         
         /* Timezone Blu Styles */
         .blu-timezone {
-            width: 200px;
-            height: 240px;
-            margin: 0 auto 20px auto;
+            width: 220px; /* Larger for better visibility */
+            height: 260px;
+            margin: 0 auto 25px auto;
             position: relative;
-            transition: all 0.5s ease;
+            transition: all 0.6s ease; /* Slower transition */
         }
 
         /* Party Mode Blu */
         .party-blu .hare-body {
-            width: 80px;
-            height: 110px;
+            width: 85px;
+            height: 115px;
             background: linear-gradient(135deg, #e91e63 0%, #9c27b0 100%);
-            border-radius: 40px 40px 25px 25px;
+            border-radius: 42px 42px 28px 28px;
             position: absolute;
-            bottom: 50px;
+            bottom: 55px;
             left: 50%;
             transform: translateX(-50%);
             box-shadow: inset 0 -8px 15px rgba(0,0,0,0.1);
-            animation: party-colors 2s ease-in-out infinite alternate;
+            animation: party-colors 3s ease-in-out infinite alternate; /* Slower animation */
         }
 
         .party-blu .hare-head {
-            width: 70px;
-            height: 65px;
+            width: 75px;
+            height: 70px;
             background: linear-gradient(135deg, #ff6b35 0%, #ffd700 100%);
-            border-radius: 35px 35px 30px 30px;
+            border-radius: 37px 37px 32px 32px;
             position: absolute;
-            top: 30px;
+            top: 35px;
             left: 50%;
             transform: translateX(-50%);
             box-shadow: inset 0 -4px 12px rgba(0,0,0,0.1);
-            animation: party-colors 2s ease-in-out infinite alternate 0.5s;
+            animation: party-colors 3s ease-in-out infinite alternate 0.7s; /* Slower animation */
         }
 
         @keyframes party-colors {
@@ -299,15 +317,15 @@
         }
 
         .party-blu .arm {
-            animation: party-dance 1s ease-in-out infinite alternate !important;
+            animation: party-dance 1.5s ease-in-out infinite alternate !important; /* Slower dance */
         }
 
         .party-blu .arm-left {
-            animation: party-dance-left 0.8s ease-in-out infinite !important;
+            animation: party-dance-left 1.2s ease-in-out infinite !important; /* Slower dance */
         }
 
         .party-blu .arm-right {
-            animation: party-dance-right 0.8s ease-in-out infinite 0.2s !important;
+            animation: party-dance-right 1.2s ease-in-out infinite 0.3s !important; /* Slower dance */
         }
 
         @keyframes party-dance {
@@ -334,24 +352,24 @@
 
         /* Dawn Mode Blu */
         .dawn-blu .hare-body {
-            width: 80px;
-            height: 110px;
+            width: 85px;
+            height: 115px;
             background: linear-gradient(135deg, #ffb74d 0%, #ff9800 100%);
-            border-radius: 40px 40px 25px 25px;
+            border-radius: 42px 42px 28px 28px;
             position: absolute;
-            bottom: 50px;
+            bottom: 55px;
             left: 50%;
             transform: translateX(-50%);
             box-shadow: inset 0 -8px 15px rgba(0,0,0,0.1);
         }
 
         .dawn-blu .hare-head {
-            width: 70px;
-            height: 65px;
+            width: 75px;
+            height: 70px;
             background: linear-gradient(135deg, #ffcc02 0%, #ffb300 100%);
-            border-radius: 35px 35px 30px 30px;
+            border-radius: 37px 37px 32px 32px;
             position: absolute;
-            top: 30px;
+            top: 35px;
             left: 50%;
             transform: translateX(-50%);
             box-shadow: inset 0 -4px 12px rgba(0,0,0,0.1);
@@ -359,126 +377,126 @@
 
         /* Standard/Day Blu - using original website colors */
         .day-blu .hare-body {
-            width: 80px;
-            height: 110px;
+            width: 85px;
+            height: 115px;
             background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
-            border-radius: 40px 40px 25px 25px;
+            border-radius: 42px 42px 28px 28px;
             position: absolute;
-            bottom: 50px;
+            bottom: 55px;
             left: 50%;
             transform: translateX(-50%);
             box-shadow: inset 0 -8px 15px rgba(0,0,0,0.1);
         }
 
         .day-blu .hare-head {
-            width: 70px;
-            height: 65px;
+            width: 75px;
+            height: 70px;
             background: linear-gradient(135deg, #64b5f6 0%, #2196f3 100%);
-            border-radius: 35px 35px 30px 30px;
+            border-radius: 37px 37px 32px 32px;
             position: absolute;
-            top: 30px;
+            top: 35px;
             left: 50%;
             transform: translateX(-50%);
             box-shadow: inset 0 -4px 12px rgba(0,0,0,0.1);
         }
 
-        /* Common Blu parts */
+        /* Common Blu parts - Made Larger */
         .blu-timezone .ear {
-            width: 18px;
-            height: 45px;
+            width: 20px;
+            height: 48px;
             background: linear-gradient(135deg, #90caf9 0%, #42a5f5 100%);
-            border-radius: 9px 9px 4px 4px;
+            border-radius: 10px 10px 5px 5px;
             position: absolute;
-            top: 8px;
+            top: 10px;
         }
 
-        .blu-timezone .ear-left { left: 15px; transform: rotate(-15deg); }
-        .blu-timezone .ear-right { right: 15px; transform: rotate(15deg); }
+        .blu-timezone .ear-left { left: 18px; transform: rotate(-15deg); }
+        .blu-timezone .ear-right { right: 18px; transform: rotate(15deg); }
 
         .blu-timezone .ear-inner {
-            width: 9px;
-            height: 25px;
+            width: 10px;
+            height: 28px;
             background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
-            border-radius: 4px;
+            border-radius: 5px;
             position: absolute;
-            top: 6px;
+            top: 7px;
             left: 50%;
             transform: translateX(-50%);
         }
 
         .blu-timezone .eye {
-            width: 12px;
-            height: 15px;
+            width: 14px;
+            height: 17px;
             background: white;
             border-radius: 50%;
             position: absolute;
-            top: 25px;
+            top: 28px;
         }
 
-        .blu-timezone .eye-left { left: 18px; }
-        .blu-timezone .eye-right { right: 18px; }
+        .blu-timezone .eye-left { left: 20px; }
+        .blu-timezone .eye-right { right: 20px; }
 
         .blu-timezone .pupil {
-            width: 6px;
-            height: 8px;
+            width: 7px;
+            height: 9px;
             background: #1565c0;
             border-radius: 50%;
             position: absolute;
             top: 4px;
             left: 3px;
-            transition: all 0.1s ease;
+            transition: all 0.2s ease; /* Slower eye movement */
         }
 
         .blu-timezone .nose {
-            width: 6px;
-            height: 4px;
+            width: 7px;
+            height: 5px;
             background: #f48fb1;
             border-radius: 50%;
             position: absolute;
-            top: 40px;
+            top: 43px;
             left: 50%;
             transform: translateX(-50%);
         }
 
         .blu-timezone .arm {
-            width: 25px;
-            height: 60px;
+            width: 28px;
+            height: 65px;
             background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
-            border-radius: 15px;
+            border-radius: 16px;
             position: absolute;
-            top: 85px;
-            transition: all 0.3s ease;
+            top: 90px;
+            transition: all 0.4s ease; /* Slower arm movement */
         }
 
         .blu-timezone .arm-left { 
-            left: 55px; 
+            left: 60px; 
             transform: rotate(-30deg);
         }
         .blu-timezone .arm-right { 
-            right: 55px; 
+            right: 60px; 
             transform: rotate(30deg);
         }
 
         .blu-timezone .foot {
-            width: 22px;
-            height: 30px;
+            width: 25px;
+            height: 32px;
             background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
-            border-radius: 11px 11px 6px 6px;
+            border-radius: 12px 12px 7px 7px;
             position: absolute;
-            bottom: 20px;
+            bottom: 25px;
         }
 
-        .blu-timezone .foot-left { left: 75px; }
-        .blu-timezone .foot-right { right: 75px; }
+        .blu-timezone .foot-left { left: 80px; }
+        .blu-timezone .foot-right { right: 80px; }
 
         .blu-timezone .tail {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             background: linear-gradient(135deg, #90caf9 0%, #64b5f6 100%);
             border-radius: 50%;
             position: absolute;
-            bottom: 85px;
-            right: 60px;
+            bottom: 90px;
+            right: 65px;
         }
 
         /* SUPER SPECIAL EASTER EGG STYLES */
@@ -494,9 +512,9 @@
 
         @keyframes super-bounce {
             0%, 100% { transform: translateY(0px) scale(1) rotate(0deg); }
-            25% { transform: translateY(-15px) scale(1.1) rotate(5deg); }
-            50% { transform: translateY(-25px) scale(1.2) rotate(0deg); }
-            75% { transform: translateY(-15px) scale(1.1) rotate(-5deg); }
+            25% { transform: translateY(-18px) scale(1.1) rotate(5deg); }
+            50% { transform: translateY(-30px) scale(1.2) rotate(0deg); }
+            75% { transform: translateY(-18px) scale(1.1) rotate(-5deg); }
         }
 
         @keyframes party-arms {
@@ -508,51 +526,51 @@
         }
 
         .konami-mode {
-            animation: super-bounce 1s ease-in-out infinite, rainbow-cycle 2s linear infinite;
+            animation: super-bounce 1.5s ease-in-out infinite, rainbow-cycle 3s linear infinite; /* Slower animations */
         }
 
         .konami-mode .arm {
-            animation: party-arms 0.5s ease-in-out infinite;
+            animation: party-arms 0.8s ease-in-out infinite; /* Slower arm animation */
         }
 
         /* Golden Blu (Rare Event) */
         .golden-blu {
             filter: sepia(1) saturate(3) hue-rotate(35deg) brightness(1.3);
-            animation: golden-glow 2s ease-in-out infinite alternate;
+            animation: golden-glow 3s ease-in-out infinite alternate; /* Slower glow */
         }
 
         @keyframes golden-glow {
-            0% { box-shadow: 0 0 10px #ffd700; }
-            100% { box-shadow: 0 0 30px #ffd700, 0 0 40px #ffd700; }
+            0% { box-shadow: 0 0 15px #ffd700; }
+            100% { box-shadow: 0 0 35px #ffd700, 0 0 45px #ffd700; }
         }
 
         /* Hacker Blu (Dev Tools Open) */
         .hacker-blu {
             filter: invert(1) hue-rotate(120deg);
-            animation: matrix-effect 3s ease-in-out infinite;
+            animation: matrix-effect 4s ease-in-out infinite; /* Slower effect */
         }
 
         @keyframes matrix-effect {
-            0%, 100% { text-shadow: 0 0 5px #00ff00; }
-            50% { text-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00; }
+            0%, 100% { text-shadow: 0 0 8px #00ff00; }
+            50% { text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00; }
         }
 
         /* PARTY MODE SPECIAL EFFECTS */
         .disco-ball {
             position: fixed;
-            top: 50px;
-            right: 50px;
-            width: 40px;
-            height: 40px;
+            top: 60px;
+            right: 60px;
+            width: 50px; /* Larger disco ball */
+            height: 50px;
             background: linear-gradient(45deg, #c0c0c0 25%, transparent 25%), 
                         linear-gradient(-45deg, #c0c0c0 25%, transparent 25%), 
                         linear-gradient(45deg, transparent 75%, #c0c0c0 75%), 
                         linear-gradient(-45deg, transparent 75%, #c0c0c0 75%);
-            background-size: 8px 8px;
-            background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+            background-size: 10px 10px;
+            background-position: 0 0, 0 5px, 5px -5px, -5px 0px;
             border-radius: 50%;
-            animation: disco-spin 3s linear infinite;
-            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+            animation: disco-spin 4s linear infinite; /* Slower spin */
+            box-shadow: 0 0 25px rgba(255,255,255,0.6);
             z-index: 1000;
         }
 
@@ -573,11 +591,11 @@
 
         .light-beam {
             position: absolute;
-            width: 100px;
-            height: 100px;
+            width: 120px; /* Larger light beams */
+            height: 120px;
             border-radius: 50%;
-            opacity: 0.3;
-            animation: light-sweep 4s ease-in-out infinite;
+            opacity: 0.4;
+            animation: light-sweep 5s ease-in-out infinite; /* Slower sweep */
         }
 
         .light-beam:nth-child(1) {
@@ -591,31 +609,31 @@
             background: radial-gradient(circle, #e91e63 0%, transparent 70%);
             top: 30%;
             right: 15%;
-            animation-delay: 1s;
+            animation-delay: 1.25s;
         }
 
         .light-beam:nth-child(3) {
             background: radial-gradient(circle, #9c27b0 0%, transparent 70%);
             bottom: 20%;
             left: 30%;
-            animation-delay: 2s;
+            animation-delay: 2.5s;
         }
 
         .light-beam:nth-child(4) {
             background: radial-gradient(circle, #2196f3 0%, transparent 70%);
             bottom: 40%;
             right: 25%;
-            animation-delay: 3s;
+            animation-delay: 3.75s;
         }
 
         @keyframes light-sweep {
             0%, 100% { 
-                transform: scale(0.5) rotate(0deg);
-                opacity: 0.2;
+                transform: scale(0.6) rotate(0deg);
+                opacity: 0.3;
             }
             50% { 
-                transform: scale(1.5) rotate(180deg);
-                opacity: 0.6;
+                transform: scale(1.8) rotate(180deg);
+                opacity: 0.7;
             }
         }
 
@@ -631,30 +649,30 @@
 
         .confetti-piece {
             position: absolute;
-            width: 8px;
-            height: 8px;
+            width: 10px; /* Larger confetti */
+            height: 10px;
             background: #ffd700;
-            animation: confetti-fall 6s linear infinite;
+            animation: confetti-fall 8s linear infinite; /* Slower fall */
         }
 
         .confetti-piece:nth-child(odd) {
             background: #ff6b35;
-            animation-duration: 5s;
+            animation-duration: 7s;
         }
 
         .confetti-piece:nth-child(3n) {
             background: #e91e63;
-            animation-duration: 7s;
+            animation-duration: 9s;
         }
 
         .confetti-piece:nth-child(4n) {
             background: #9c27b0;
-            animation-duration: 4s;
+            animation-duration: 6s;
         }
 
         .confetti-piece:nth-child(5n) {
             background: #2196f3;
-            animation-duration: 8s;
+            animation-duration: 10s;
         }
 
         @keyframes confetti-fall {
@@ -677,253 +695,282 @@
             filter: brightness(1.2) saturate(1.3);
         }
 
-        /* STANDARD BLU VARIATIONS (keeping original designs) */
+        /* STANDARD BLU VARIATIONS (keeping original designs but larger) */
         .blue-hare {
-            width: 300px;
-            height: 350px;
-            margin: 0 auto 20px;
+            width: 320px; /* Larger */
+            height: 370px;
+            margin: 0 auto 25px;
             position: relative;
             display: inline-block;
-            animation: gentle-bounce 3s ease-in-out infinite;
-            transform: scale(0.7);
+            animation: gentle-bounce 4s ease-in-out infinite; /* Slower bounce */
+            transform: scale(0.75); /* Slightly larger */
             cursor: pointer;
         }
 
         .hare-body {
-            width: 120px;
-            height: 160px;
+            width: 125px;
+            height: 165px;
             background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
-            border-radius: 60px 60px 40px 40px;
+            border-radius: 62px 62px 42px 42px;
             position: absolute;
-            bottom: 80px;
+            bottom: 85px;
             left: 50%;
             transform: translateX(-50%);
-            box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
+            box-shadow: inset 0 -12px 22px rgba(0,0,0,0.1);
         }
 
         .hare-head {
-            width: 100px;
-            height: 90px;
+            width: 105px;
+            height: 95px;
             background: linear-gradient(135deg, #64b5f6 0%, #2196f3 100%);
-            border-radius: 50px 50px 40px 40px;
+            border-radius: 52px 52px 42px 42px;
             position: absolute;
-            top: 40px;
+            top: 45px;
             left: 50%;
             transform: translateX(-50%);
-            box-shadow: inset 0 -5px 15px rgba(0,0,0,0.1);
+            box-shadow: inset 0 -6px 16px rgba(0,0,0,0.1);
         }
 
         .ear {
-            width: 25px;
-            height: 60px;
+            width: 28px;
+            height: 65px;
             background: linear-gradient(135deg, #90caf9 0%, #42a5f5 100%);
-            border-radius: 12px 12px 5px 5px;
+            border-radius: 14px 14px 6px 6px;
             position: absolute;
-            top: 10px;
-            box-shadow: inset 0 -3px 8px rgba(0,0,0,0.1);
+            top: 12px;
+            box-shadow: inset 0 -4px 10px rgba(0,0,0,0.1);
         }
 
-        .ear-left { left: 20px; transform: rotate(-15deg); }
-        .ear-right { right: 20px; transform: rotate(15deg); }
+        .ear-left { left: 22px; transform: rotate(-15deg); }
+        .ear-right { right: 22px; transform: rotate(15deg); }
 
         .ear-inner {
-            width: 12px;
-            height: 35px;
+            width: 14px;
+            height: 38px;
             background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
-            border-radius: 6px;
+            border-radius: 7px;
             position: absolute;
-            top: 8px;
+            top: 10px;
             left: 50%;
             transform: translateX(-50%);
         }
 
         .eye {
-            width: 16px;
-            height: 20px;
+            width: 18px;
+            height: 22px;
             background: white;
             border-radius: 50%;
             position: absolute;
-            top: 35px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+            top: 38px;
+            box-shadow: inset 0 3px 5px rgba(0,0,0,0.1);
         }
 
-        .eye-left { left: 25px; }
-        .eye-right { right: 25px; }
+        .eye-left { left: 28px; }
+        .eye-right { right: 28px; }
 
         .pupil {
-            width: 8px;
-            height: 10px;
+            width: 9px;
+            height: 11px;
             background: #1565c0;
             border-radius: 50%;
             position: absolute;
-            top: 5px;
+            top: 6px;
             left: 4px;
-            animation: blink 4s ease-in-out infinite;
-            transition: all 0.1s ease;
+            animation: blink 5s ease-in-out infinite; /* Slower blink */
+            transition: all 0.2s ease; /* Slower eye movement */
         }
 
         .nose {
-            width: 8px;
-            height: 6px;
+            width: 9px;
+            height: 7px;
             background: #f48fb1;
             border-radius: 50%;
             position: absolute;
-            top: 55px;
+            top: 58px;
             left: 50%;
             transform: translateX(-50%);
         }
 
         .arm {
-            width: 35px;
-            height: 80px;
+            width: 38px;
+            height: 85px;
             background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
-            border-radius: 20px;
+            border-radius: 22px;
             position: absolute;
-            top: 120px;
-            box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+            top: 125px;
+            box-shadow: inset 0 -6px 12px rgba(0,0,0,0.1);
         }
 
         .arm-left { 
-            left: 80px; 
+            left: 85px; 
             transform: rotate(-20deg);
-            animation: wave 2s ease-in-out infinite;
+            animation: wave 3s ease-in-out infinite; /* Slower wave */
         }
         .arm-right { 
-            right: 80px; 
+            right: 85px; 
             transform: rotate(20deg);
         }
 
         .device {
-            width: 40px;
-            height: 60px;
+            width: 45px;
+            height: 65px;
             background: linear-gradient(135deg, #424242 0%, #616161 100%);
-            border-radius: 8px;
+            border-radius: 10px;
             position: absolute;
-            top: 180px;
+            top: 185px;
             left: 50%;
             transform: translateX(-50%);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.25);
         }
 
         .device-screen {
-            width: 32px;
-            height: 45px;
+            width: 35px;
+            height: 48px;
             background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
-            border-radius: 4px;
+            border-radius: 5px;
             position: absolute;
-            top: 8px;
-            left: 4px;
-            animation: screen-glow 2s ease-in-out infinite alternate;
+            top: 9px;
+            left: 5px;
+            animation: screen-glow 3s ease-in-out infinite alternate; /* Slower glow */
         }
 
         .foot {
-            width: 30px;
-            height: 40px;
+            width: 32px;
+            height: 42px;
             background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
-            border-radius: 15px 15px 8px 8px;
+            border-radius: 16px 16px 9px 9px;
             position: absolute;
-            bottom: 30px;
-            box-shadow: inset 0 -3px 8px rgba(0,0,0,0.1);
+            bottom: 32px;
+            box-shadow: inset 0 -4px 10px rgba(0,0,0,0.1);
         }
 
-        .foot-left { left: 115px; }
-        .foot-right { right: 115px; }
+        .foot-left { left: 120px; }
+        .foot-right { right: 120px; }
 
         .tail {
-            width: 25px;
-            height: 25px;
+            width: 28px;
+            height: 28px;
             background: linear-gradient(135deg, #90caf9 0%, #64b5f6 100%);
             border-radius: 50%;
             position: absolute;
-            bottom: 120px;
-            right: 85px;
-            box-shadow: inset 0 -2px 6px rgba(0,0,0,0.1);
+            bottom: 125px;
+            right: 90px;
+            box-shadow: inset 0 -3px 8px rgba(0,0,0,0.1);
         }
 
-        /* ANIMATIONS */
+        /* ANIMATIONS - Made Slower and More Gentle */
         @keyframes gentle-bounce {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-12px); }
         }
 
         @keyframes wave {
             0%, 100% { transform: rotate(-20deg); }
-            50% { transform: rotate(-35deg); }
+            50% { transform: rotate(-40deg); }
         }
 
         @keyframes blink {
-            0%, 90%, 100% { height: 10px; top: 5px; }
-            95% { height: 1px; top: 14px; }
+            0%, 90%, 100% { height: 11px; top: 6px; }
+            95% { height: 2px; top: 15px; }
         }
 
         @keyframes screen-glow {
-            0% { box-shadow: inset 0 0 10px rgba(255,255,255,0.3); }
-            100% { box-shadow: inset 0 0 20px rgba(255,255,255,0.6); }
+            0% { box-shadow: inset 0 0 12px rgba(255,255,255,0.4); }
+            100% { box-shadow: inset 0 0 25px rgba(255,255,255,0.7); }
         }
 
-        /* RESPONSIVE DESIGN */
+        /* RESPONSIVE DESIGN - Better for Seniors */
         @media (max-width: 768px) {
+            body {
+                font-size: 20px; /* Even larger on mobile */
+            }
+            
             .collection-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-                padding: 20px;
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 30px 15px;
             }
             
             .blue-hare, .blu-timezone {
-                transform: scale(0.6);
+                transform: scale(0.8); /* Larger on mobile */
             }
 
             .easter-egg-counter, .achievement {
                 position: relative;
                 top: auto;
                 right: auto;
-                margin: 10px auto;
+                margin: 15px auto;
                 text-align: center;
+                max-width: 90%;
             }
 
             .back-to-main {
                 position: relative;
                 top: auto;
                 left: auto;
-                margin: 20px auto;
+                margin: 25px auto;
                 display: block;
                 text-align: center;
                 width: fit-content;
+                font-size: 1.3em;
+                padding: 1.8rem 2.5rem;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .download-btn {
+                font-size: 1.2em;
+                padding: 15px 30px;
+                margin: 10px;
+                min-width: 180px;
             }
         }
 
         @media (max-width: 480px) {
-            .collection-grid {
-                grid-template-columns: 1fr;
+            body {
+                font-size: 22px; /* Largest font for small screens */
+            }
+            
+            .blu-card {
+                padding: 30px 20px;
+            }
+            
+            .header {
+                padding: 40px 25px;
             }
         }
 
         /* SECRET STYLES FOR SPECIAL EVENTS */
         .celebration-mode {
-            animation: celebration-bounce 0.8s ease-in-out infinite;
+            animation: celebration-bounce 1.2s ease-in-out infinite; /* Slower celebration */
         }
 
         @keyframes celebration-bounce {
             0%, 100% { transform: scale(1) rotate(0deg); }
-            25% { transform: scale(1.1) rotate(5deg); }
-            50% { transform: scale(1.15) rotate(0deg); }
-            75% { transform: scale(1.1) rotate(-5deg); }
+            25% { transform: scale(1.15) rotate(5deg); }
+            50% { transform: scale(1.2) rotate(0deg); }
+            75% { transform: scale(1.15) rotate(-5deg); }
         }
 
         .tech-tip-bubble {
             position: absolute;
-            top: -60px;
+            top: -80px; /* Higher position */
             left: 50%;
             transform: translateX(-50%);
             background: #4caf50;
             color: white;
-            padding: 10px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            max-width: 200px;
+            padding: 15px 20px; /* Larger padding */
+            border-radius: 25px;
+            font-size: 16px; /* Larger font */
+            font-weight: 600;
+            max-width: 280px; /* Larger bubble */
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.5s ease;
             z-index: 100;
+            border: 3px solid rgba(255,255,255,0.3);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
         }
 
         .tech-tip-bubble:after {
@@ -931,8 +978,8 @@
             position: absolute;
             top: 100%;
             left: 50%;
-            margin-left: -5px;
-            border: 5px solid transparent;
+            margin-left: -8px;
+            border: 8px solid transparent;
             border-top-color: #4caf50;
         }
 
@@ -940,24 +987,86 @@
             opacity: 1;
         }
 
-        /* Konami sequence indicator */
+        /* Konami sequence indicator - Made More Visible */
         .konami-progress {
             position: fixed;
-            bottom: 20px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.9);
             color: white;
-            padding: 10px 20px;
-            border-radius: 20px;
+            padding: 15px 25px;
+            border-radius: 25px;
             font-family: monospace;
+            font-size: 16px;
+            font-weight: 600;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.5s ease;
             z-index: 10000;
+            border: 3px solid #4caf50;
         }
 
         .konami-progress.show {
             opacity: 1;
+        }
+
+        /* Senior-Friendly Instructions Panel */
+        .instructions-panel {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edd4 100%);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 20px;
+            border: 3px solid #4caf50;
+            text-align: left;
+        }
+
+        .instructions-title {
+            color: #2e7d32;
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .instruction-item {
+            margin: 10px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(76, 175, 80, 0.3);
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .instruction-item:last-child {
+            border-bottom: none;
+        }
+
+        .instruction-emoji {
+            font-size: 1.3em;
+            margin-right: 10px;
+        }
+
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            .blu-card {
+                border: 4px solid #000;
+            }
+            
+            .download-btn {
+                border: 3px solid #000;
+            }
+            
+            .achievement {
+                border: 4px solid #fff;
+            }
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01s !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01s !important;
+            }
         }
     </style>
 </head>
@@ -989,6 +1098,35 @@
             </div>
         </div>
 
+        <!-- Senior-Friendly Instructions -->
+        <div class="instructions-panel">
+            <div class="instructions-title">🎯 How to Find Easter Eggs - Easy Instructions!</div>
+            <div class="instruction-item">
+                <span class="instruction-emoji">👆</span>
+                <strong>Hover your mouse</strong> over Blu characters for 3+ seconds to see helpful tech tips!
+            </div>
+            <div class="instruction-item">
+                <span class="instruction-emoji">🖱️</span>
+                <strong>Click different parts</strong> of Blu in the right order (Left Ear → Right Ear → Nose)
+            </div>
+            <div class="instruction-item">
+                <span class="instruction-emoji">⌨️</span>
+                <strong>Try keyboard arrows:</strong> Press ↑↑↓↓←→←→ then B then A for a surprise!
+            </div>
+            <div class="instruction-item">
+                <span class="instruction-emoji">📱</span>
+                <strong>Check on your phone or tablet</strong> - Blu acts differently on mobile devices!
+            </div>
+            <div class="instruction-item">
+                <span class="instruction-emoji">🔧</span>
+                <strong>For tech-savvy users:</strong> Press F12 to open Developer Tools for a special Blu!
+            </div>
+            <div class="instruction-item">
+                <span class="instruction-emoji">🎲</span>
+                <strong>Some are random!</strong> Refresh the page a few times - you might get lucky with Golden Blu!
+            </div>
+        </div>
+
         <div class="collection-grid">
             <!-- Timezone-Aware Blu -->
             <div class="blu-card" id="timezoneCard">
@@ -1010,7 +1148,7 @@
                     
                     <!-- Tech tip bubble -->
                     <div class="tech-tip-bubble" id="techTip">
-                        💡 Pro Tip: Press Ctrl and + to make text bigger!
+                        💡 Pro Tip: Hold Ctrl and press + to make text bigger!
                     </div>
                 </div>
                 <div class="blu-description" id="timezoneDescription">
@@ -1026,7 +1164,7 @@
             <!-- Konami Mode Blu -->
             <div class="blu-card" id="konamiCard">
                 <div class="blu-title">🎮 Konami Code Blu</div>
-                <div class="blue-hare" id="konamiBlu" style="transform: scale(0.7);">
+                <div class="blue-hare" id="konamiBlu" style="transform: scale(0.75);">
                     <div class="ear ear-left"><div class="ear-inner"></div></div>
                     <div class="ear ear-right"><div class="ear-inner"></div></div>
                     <div class="hare-head">
@@ -1043,7 +1181,7 @@
                     <div class="tail"></div>
                 </div>
                 <div class="blu-description">
-                    Try the classic gaming cheat code while looking at this card! 
+                    Try the classic gaming cheat code while looking at this card! Use your keyboard arrow keys.
                 </div>
                 <div class="easter-egg-hint">
                     🥚 Type: ↑↑↓↓←→←→BA for SUPER BLU MODE!
@@ -1054,7 +1192,7 @@
             <!-- Golden Rare Blu -->
             <div class="blu-card" id="goldenCard">
                 <div class="blu-title">✨ Golden Rare Blu</div>
-                <div class="blue-hare" id="goldenBlu" style="transform: scale(0.7);">
+                <div class="blue-hare" id="goldenBlu" style="transform: scale(0.75);">
                     <div class="ear ear-left"><div class="ear-inner"></div></div>
                     <div class="ear ear-right"><div class="ear-inner"></div></div>
                     <div class="hare-head">
@@ -1071,10 +1209,10 @@
                     <div class="tail"></div>
                 </div>
                 <div class="blu-description">
-                    A legendary golden Blu! This appears randomly for lucky visitors.
+                    A legendary golden Blu! This appears randomly for lucky visitors. Only 5% chance!
                 </div>
                 <div class="easter-egg-hint">
-                    🥚 Refresh the page enough times... you might get lucky! 🍀
+                    🥚 Refresh the page a few times... you might get lucky! 🍀
                 </div>
                 <button class="download-btn" onclick="downloadBlu('golden')">Download HTML</button>
             </div>
@@ -1082,7 +1220,7 @@
             <!-- Interactive Teaching Blu -->
             <div class="blu-card" id="teachingCard">
                 <div class="blu-title">👨‍🏫 Interactive Teaching Blu</div>
-                <div class="blue-hare" id="teachingBlu" style="transform: scale(0.7);">
+                <div class="blue-hare" id="teachingBlu" style="transform: scale(0.75);">
                     <div class="ear ear-left"><div class="ear-inner"></div></div>
                     <div class="ear ear-right"><div class="ear-inner"></div></div>
                     <div class="hare-head">
@@ -1098,10 +1236,10 @@
                     <div class="tail"></div>
                 </div>
                 <div class="blu-description">
-                    Teaching pose Blu with interactive gestures and responses.
+                    Teaching pose Blu with interactive gestures and responses. Click multiple times quickly!
                 </div>
                 <div class="easter-egg-hint">
-                    🥚 Double-click for celebration! Triple-click for tech facts!
+                    🥚 Double-click for celebration! Triple-click for fun tech facts!
                 </div>
                 <button class="download-btn" onclick="downloadBlu('teaching')">Download HTML</button>
             </div>
@@ -1109,7 +1247,7 @@
             <!-- Secret Sequence Blu -->
             <div class="blu-card" id="secretCard">
                 <div class="blu-title">🔐 Secret Sequence Blu</div>
-                <div class="blue-hare" id="secretBlu" style="transform: scale(0.7);">
+                <div class="blue-hare" id="secretBlu" style="transform: scale(0.75);">
                     <div class="ear ear-left" id="leftEar"><div class="ear-inner"></div></div>
                     <div class="ear ear-right" id="rightEar"><div class="ear-inner"></div></div>
                     <div class="hare-head">
@@ -1125,7 +1263,7 @@
                     <div class="tail"></div>
                 </div>
                 <div class="blu-description">
-                    This Blu has a secret unlock sequence! Can you figure it out?
+                    This Blu has a secret unlock sequence! Click in the right order to unlock a surprise.
                 </div>
                 <div class="easter-egg-hint">
                     🥚 Try clicking: Left Ear → Right Ear → Nose in sequence!
@@ -1136,7 +1274,7 @@
             <!-- Developer Mode Blu -->
             <div class="blu-card" id="devCard">
                 <div class="blu-title">💻 Developer Mode Blu</div>
-                <div class="blue-hare" id="devBlu" style="transform: scale(0.7);">
+                <div class="blue-hare" id="devBlu" style="transform: scale(0.75);">
                     <div class="ear ear-left"><div class="ear-inner"></div></div>
                     <div class="ear ear-right"><div class="ear-inner"></div></div>
                     <div class="hare-head">
@@ -1153,10 +1291,10 @@
                     <div class="tail"></div>
                 </div>
                 <div class="blu-description">
-                    This Blu transforms when developer tools are detected!
+                    This Blu transforms when developer tools are detected! Press F12 if you're comfortable with tech.
                 </div>
                 <div class="easter-egg-hint">
-                    🥚 Open DevTools (F12) to see Hacker Blu! 👨‍💻
+                    🥚 Open DevTools (F12 key) to see Hacker Blu with a special Rick Roll message! 👨‍💻
                 </div>
                 <button class="download-btn" onclick="downloadBlu('developer')">Download HTML</button>
             </div>
@@ -1164,7 +1302,7 @@
             <!-- Battery Aware Blu (Mobile) -->
             <div class="blu-card" id="batteryCard">
                 <div class="blu-title">🔋 Battery-Aware Blu</div>
-                <div class="blue-hare" id="batteryBlu" style="transform: scale(0.7);">
+                <div class="blue-hare" id="batteryBlu" style="transform: scale(0.75);">
                     <div class="ear ear-left"><div class="ear-inner"></div></div>
                     <div class="ear ear-right"><div class="ear-inner"></div></div>
                     <div class="hare-head">
@@ -1181,7 +1319,7 @@
                     <div class="tail"></div>
                 </div>
                 <div class="blu-description" id="batteryDescription">
-                    On mobile devices, Blu's energy matches your battery level!
+                    On mobile devices, Blu's energy matches your battery level! Try viewing on your phone or tablet.
                 </div>
                 <div class="easter-egg-hint">
                     🥚 View on mobile - Blu gets tired as your battery drains! 📱
@@ -1192,7 +1330,7 @@
             <!-- Scroll Progress Blu -->
             <div class="blu-card" id="scrollCard">
                 <div class="blu-title">📜 Scroll Progress Blu</div>
-                <div class="blue-hare" id="scrollBlu" style="transform: scale(0.7);">
+                <div class="blue-hare" id="scrollBlu" style="transform: scale(0.75);">
                     <div class="ear ear-left"><div class="ear-inner"></div></div>
                     <div class="ear ear-right"><div class="ear-inner"></div></div>
                     <div class="hare-head">
@@ -1208,7 +1346,7 @@
                     <div class="tail"></div>
                 </div>
                 <div class="blu-description">
-                    Blu's pose changes based on how far you've scrolled down the page!
+                    Blu's pose changes based on how far you've scrolled down the page! Watch his arms move as you scroll.
                 </div>
                 <div class="easter-egg-hint">
                     🥚 Scroll up and down to see Blu react to your progress! 📊
@@ -1218,19 +1356,21 @@
         </div>
 
         <!-- Hidden Achievement Section -->
-        <div style="padding: 40px; text-align: center; background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);">
-            <h2 style="color: #7b1fa2; margin-bottom: 20px;">🏆 Easter Egg Master Status</h2>
-            <div id="masterStatus" style="font-size: 18px; color: #4a148c;">
+        <div style="padding: 50px; text-align: center; background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);">
+            <h2 style="color: #7b1fa2; margin-bottom: 25px; font-size: 2.2em;">🏆 Easter Egg Master Status</h2>
+            <div id="masterStatus" style="font-size: 20px; color: #4a148c; line-height: 1.6;">
                 Find all 25+ Easter eggs to unlock the ultimate secret! 🎊
             </div>
-            <div style="margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.8); border-radius: 15px; font-size: 14px; color: #666;">
-                <strong>Hint:</strong> Try different times of day, browser actions, mobile vs desktop, key combinations, click sequences, and even open your developer tools! 
-                Some Easter eggs are time-based, some are random, and some require special actions. Happy hunting! 🕵️‍♀️
+            <div style="margin-top: 25px; padding: 25px; background: rgba(255,255,255,0.9); border-radius: 20px; font-size: 16px; color: #666; border: 3px solid #9c27b0;">
+                <strong style="font-size: 18px;">Helpful Hint:</strong><br>
+                Try different times of day, browser actions, mobile vs desktop, key combinations, click sequences, and even open your developer tools!<br>
+                Some Easter eggs are time-based, some are random, and some require special actions. The instructions above will help you find them all!<br>
+                <strong>🕵️‍♀️ Happy hunting! Take your time and enjoy exploring!</strong>
             </div>
             
-            <div style="margin-top: 20px; padding: 15px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 15px; border: 2px solid #1976d2;">
-                <strong style="color: #1565c0;">💼 Need tech help for real?</strong><br>
-                <a href="index.html" style="color: #1976d2; text-decoration: none; font-weight: 600;">← Return to Golden Connection for patient, friendly technology education!</a>
+            <div style="margin-top: 25px; padding: 20px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 20px; border: 3px solid #1976d2;">
+                <strong style="color: #1565c0; font-size: 18px;">💼 Need real tech help?</strong><br>
+                <a href="index.html" style="color: #1976d2; text-decoration: none; font-weight: 700; font-size: 16px;">← Return to Golden Connection for patient, friendly technology education!</a>
             </div>
         </div>
     </div>
@@ -1300,7 +1440,7 @@
                     const eyeCenterY = rect.top + rect.height / 2;
                     
                     const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
-                    const distance = Math.min(3, Math.sqrt(Math.pow(e.clientX - eyeCenterX, 2) + Math.pow(e.clientY - eyeCenterY, 2)) * 0.01);
+                    const distance = Math.min(4, Math.sqrt(Math.pow(e.clientX - eyeCenterX, 2) + Math.pow(e.clientY - eyeCenterY, 2)) * 0.01);
                     
                     const x = Math.cos(angle) * distance;
                     const y = Math.sin(angle) * distance;
@@ -1329,10 +1469,10 @@
             const progress = document.getElementById('konamiProgress');
             const progressText = konamiSequence.map(key => 
                 key.replace('Arrow', '').replace('Key', '')).join(' ');
-            progress.textContent = `Konami: ${progressText}`;
+            progress.textContent = `Konami Code Progress: ${progressText}`;
             progress.classList.add('show');
             
-            setTimeout(() => progress.classList.remove('show'), 2000);
+            setTimeout(() => progress.classList.remove('show'), 3000);
             
             // Check if sequence matches
             if (JSON.stringify(konamiSequence) === JSON.stringify(konamiCode)) {
@@ -1346,7 +1486,7 @@
             konamiBlu.classList.add('konami-mode');
             
             createMagicParticles();
-            showAchievement('🎮 KONAMI CODE MASTER!', 'You activated Super Blu mode! The legendary gaming code still works!');
+            showAchievement('🎮 KONAMI CODE MASTER!', 'You activated Super Blu mode! The legendary gaming code still works! This classic cheat code is from the 1980s!');
             discoverEgg('konami-code');
             
             // Add crown and sparkles
@@ -1354,8 +1494,8 @@
                 const crown = document.createElement('div');
                 crown.className = 'crown';
                 crown.style.cssText = `
-                    position: absolute; top: -15px; left: 35px; width: 30px; height: 15px;
-                    border: 2px solid #ffd700; border-bottom: none; border-radius: 15px 15px 0 0;
+                    position: absolute; top: -18px; left: 38px; width: 35px; height: 18px;
+                    border: 3px solid #ffd700; border-bottom: none; border-radius: 18px 18px 0 0;
                     background: linear-gradient(45deg, #ffd700, #ffeb3b);
                     z-index: 10;
                 `;
@@ -1364,8 +1504,8 @@
                 // Add gem on crown
                 const gem = document.createElement('div');
                 gem.style.cssText = `
-                    position: absolute; top: -3px; left: 12px; width: 6px; height: 6px;
-                    background: #00ffff; border-radius: 50%; box-shadow: 0 0 10px #00ffff;
+                    position: absolute; top: -4px; left: 14px; width: 8px; height: 8px;
+                    background: #00ffff; border-radius: 50%; box-shadow: 0 0 12px #00ffff;
                 `;
                 crown.appendChild(gem);
             }
@@ -1374,7 +1514,7 @@
                 konamiBlu.classList.remove('konami-mode');
                 const crown = konamiBlu.querySelector('.crown');
                 if (crown) crown.remove();
-            }, 10000);
+            }, 12000);
         }
 
         // SECRET SEQUENCE (Left Ear → Right Ear → Nose)
@@ -1391,12 +1531,12 @@
                         secretSequence.push(element.id);
                         
                         // Visual feedback
-                        element.style.transform += ' scale(1.2)';
-                        element.style.filter = 'brightness(1.5)';
+                        element.style.transform += ' scale(1.3)';
+                        element.style.filter = 'brightness(1.6)';
                         setTimeout(() => {
-                            element.style.transform = element.style.transform.replace(' scale(1.2)', '');
+                            element.style.transform = element.style.transform.replace(' scale(1.3)', '');
                             element.style.filter = '';
-                        }, 200);
+                        }, 300);
                         
                         if (secretSequence.length === 3) {
                             unlockSecretMessage();
@@ -1406,7 +1546,7 @@
                         secretSequence = [];
                         // Wrong sequence feedback
                         element.style.filter = 'hue-rotate(180deg)';
-                        setTimeout(() => element.style.filter = '', 300);
+                        setTimeout(() => element.style.filter = '', 400);
                     }
                 });
             });
@@ -1414,49 +1554,50 @@
 
         function unlockSecretMessage() {
             const secretBlu = document.getElementById('secretBlu');
-            secretBlu.style.animation = 'celebration-bounce 1s ease-in-out 3';
+            secretBlu.style.animation = 'celebration-bounce 1.2s ease-in-out 4';
             
-            showAchievement('🔐 SECRET UNLOCKED!', 'You discovered the hidden sequence! Left ear → Right ear → Nose!');
+            showAchievement('🔐 SECRET UNLOCKED!', 'Excellent! You discovered the hidden sequence! Left ear → Right ear → Nose - perfect!');
             discoverEgg('secret-sequence');
             
             // Add secret message
             const message = document.createElement('div');
             message.style.cssText = `
-                position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+                position: absolute; top: -50px; left: 50%; transform: translateX(-50%);
                 background: linear-gradient(45deg, #ff6b35, #ffd700); color: white;
-                padding: 8px 12px; border-radius: 15px; font-size: 10px; font-weight: bold;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 100;
-                animation: sparkle 2s ease-in-out infinite;
+                padding: 12px 16px; border-radius: 20px; font-size: 12px; font-weight: bold;
+                box-shadow: 0 6px 20px rgba(0,0,0,0.4); z-index: 100;
+                animation: sparkle 3s ease-in-out infinite;
+                border: 2px solid rgba(255,255,255,0.3);
             `;
             message.textContent = '🎊 SECRET UNLOCKED! 🎊';
             secretBlu.appendChild(message);
             
-            setTimeout(() => message.remove(), 5000);
+            setTimeout(() => message.remove(), 6000);
         }
 
-        // GOLDEN BLU (Rare Random Event)
+        // GOLDEN BLU (Rare Random Event) - CHANGED TO 5% CHANCE
         function checkForGoldenBlu() {
-            // 3% chance on page load, 1% chance every 30 seconds
+            // 5% chance on page load, 2% chance every 30 seconds
             const random = Math.random();
-            if (random < 0.03 || (random < 0.01 && Math.random() < 0.5)) {
+            if (random < 0.05 || (random < 0.02 && Math.random() < 0.5)) {
                 const goldenBlu = document.getElementById('goldenBlu');
                 goldenBlu.classList.add('golden-blu');
                 
-                showAchievement('✨ GOLDEN BLU SPOTTED!', 'Legendary! You encountered the rare Golden Blu! This only happens to 3% of visitors!');
+                showAchievement('✨ GOLDEN BLU SPOTTED!', 'Amazing! You encountered the rare Golden Blu! This only happens to 5% of visitors! You\'re very lucky!');
                 discoverEgg('golden-blu');
                 
                 // Add golden sparkles
-                for (let i = 0; i < 5; i++) {
+                for (let i = 0; i < 8; i++) {
                     setTimeout(() => {
                         const sparkle = document.createElement('div');
                         sparkle.style.cssText = `
                             position: absolute; top: ${Math.random() * 100}%; left: ${Math.random() * 100}%;
-                            width: 4px; height: 4px; background: #ffd700; border-radius: 50%;
-                            animation: sparkle 1s ease-out forwards; pointer-events: none;
+                            width: 6px; height: 6px; background: #ffd700; border-radius: 50%;
+                            animation: sparkle 1.5s ease-out forwards; pointer-events: none;
                         `;
                         goldenBlu.appendChild(sparkle);
-                        setTimeout(() => sparkle.remove(), 1000);
-                    }, i * 200);
+                        setTimeout(() => sparkle.remove(), 1500);
+                    }, i * 300);
                 }
             }
         }
@@ -1479,32 +1620,39 @@
                         deactivateHackerMode();
                     }
                 }
-            }, 500);
+            }, 1000);
         }
 
         function activateHackerMode() {
             const devBlu = document.getElementById('devBlu');
             devBlu.classList.add('hacker-blu');
             
-            showAchievement('💻 HACKER MODE!', 'Developer tools detected! Welcome, fellow coder! Blu has joined the dark side!');
+            showAchievement('💻 HACKER MODE!', 'Developer tools detected! Welcome, fellow coder! Blu has joined the matrix with a special Rick Roll message!');
             discoverEgg('hacker-mode');
             
-            // Add matrix effect text
+            // Add matrix effect text with Rick Roll binary
             const matrix = document.createElement('div');
             matrix.style.cssText = `
                 position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-                background: rgba(0,0,0,0.8); color: #00ff00; font-family: monospace;
-                display: flex; align-items: center; justify-content: center;
-                font-size: 8px; z-index: 50; border-radius: inherit;
+                background: rgba(0,0,0,0.85); color: #00ff00; font-family: monospace;
+                display: flex; align-items: center; justify-content: center; flex-direction: column;
+                font-size: 9px; z-index: 50; border-radius: inherit; padding: 10px;
+                text-align: center; line-height: 1.2;
             `;
-            matrix.textContent = '01001000 01100001 01100011 01101011 01100101 01110010';
+            // Rick Roll in binary: "RICKROLL"
+            matrix.innerHTML = `
+                <div style="font-size: 11px; color: #00ffff; margin-bottom: 5px;">NEVER GONNA GIVE YOU UP!</div>
+                <div>01010010 01001001 01000011 01001011</div>
+                <div>01010010 01001111 01001100 01001100</div>
+                <div style="margin-top: 5px; font-size: 8px; color: #ffff00;">🎵 You've been Rick Rolled! 🎵</div>
+            `;
             devBlu.appendChild(matrix);
         }
 
         function deactivateHackerMode() {
             const devBlu = document.getElementById('devBlu');
             devBlu.classList.remove('hacker-blu');
-            const matrix = devBlu.querySelector('div[style*="background: rgba(0,0,0,0.8)"]');
+            const matrix = devBlu.querySelector('div[style*="background: rgba(0,0,0,0.85)"]');
             if (matrix) matrix.remove();
         }
 
@@ -1517,7 +1665,14 @@
                     battery.addEventListener('levelchange', () => {
                         updateBatteryBlu(battery.level);
                     });
+                }).catch(() => {
+                    // Battery API not supported
+                    document.getElementById('batteryDescription').textContent = 
+                        'Battery monitoring not supported on this device, but Blu is still energetic! 🔋';
                 });
+            } else {
+                document.getElementById('batteryDescription').textContent = 
+                    'Battery monitoring not supported on this device, but Blu is still energetic! 🔋';
             }
         }
 
@@ -1527,15 +1682,15 @@
             
             if (level < 0.2) {
                 batteryBlu.classList.add('low-battery-blu');
-                description.textContent = `Battery: ${Math.round(level * 100)}% - Blu is getting tired! ⚡`;
+                description.textContent = `Battery: ${Math.round(level * 100)}% - Blu is getting tired just like your device! ⚡`;
                 
                 if (level < 0.1 && !discoveredEggs.has('low-battery')) {
-                    showAchievement('🔋 LOW BATTERY BLU!', 'Your battery is low and so is Blu\'s energy! Time to charge up!');
+                    showAchievement('🔋 LOW BATTERY BLU!', 'Your battery is low and so is Blu\'s energy! Time to charge up both of you!');
                     discoverEgg('low-battery');
                 }
             } else {
                 batteryBlu.classList.remove('low-battery-blu');
-                description.textContent = `Battery: ${Math.round(level * 100)}% - Blu is feeling energetic! 🔋`;
+                description.textContent = `Battery: ${Math.round(level * 100)}% - Blu is feeling energetic just like your device! 🔋`;
             }
         }
 
@@ -1562,7 +1717,7 @@
                     rightArm.style.transform = 'rotate(60deg)';
                     
                     if (!discoveredEggs.has('scroll-master')) {
-                        showAchievement('📜 SCROLL MASTER!', 'You scrolled all the way down! Blu is celebrating your dedication!');
+                        showAchievement('📜 SCROLL MASTER!', 'Excellent! You scrolled all the way down! Blu is celebrating your dedication to exploring everything!');
                         discoverEgg('scroll-master');
                     }
                 }
@@ -1578,7 +1733,7 @@
                     timezoneBlu.classList.add('show-tip');
                     
                     if (!discoveredEggs.has('tech-tip')) {
-                        showAchievement('💡 TECH TIP MASTER!', 'You discovered Blu\'s helpful tech tips! Hover for 3 seconds to learn!');
+                        showAchievement('💡 TECH TIP MASTER!', 'Perfect! You discovered Blu\'s helpful tech tips! Hover for 3 seconds to learn useful computer tricks!');
                         discoverEgg('tech-tip');
                     }
                 }, 3000);
@@ -1602,48 +1757,50 @@
                     if (clickCount === 2) {
                         // Double click
                         teachingBlu.classList.add('celebration-mode');
-                        setTimeout(() => teachingBlu.classList.remove('celebration-mode'), 2000);
+                        setTimeout(() => teachingBlu.classList.remove('celebration-mode'), 3000);
                         
                         if (!discoveredEggs.has('double-click')) {
-                            showAchievement('🎉 DOUBLE CLICK!', 'Blu loves your enthusiasm! Double-click celebration activated!');
+                            showAchievement('🎉 DOUBLE CLICK CELEBRATION!', 'Wonderful! Blu loves your enthusiasm! Double-click celebration activated!');
                             discoverEgg('double-click');
                         }
                     } else if (clickCount === 3) {
                         // Triple click
                         const techFacts = [
-                            "Did you know? The first computer mouse was made of wood!",
-                            "Fun fact: Email existed before the World Wide Web!",
-                            "Cool! The first webcam was used to watch a coffee pot!",
-                            "Amazing: More people have cell phones than toilets!",
-                            "Wow! The first iPhone had less computing power than a calculator!"
+                            "Did you know? The first computer mouse was made of wood in 1964!",
+                            "Fun fact: Email was invented in 1971, before the World Wide Web!",
+                            "Cool! The first webcam was used to watch a coffee pot at Cambridge University!",
+                            "Amazing: More people have cell phones than access to toilets worldwide!",
+                            "Wow! Your smartphone has more computing power than NASA used for the moon landing!",
+                            "Neat! The @ symbol was used in email for the first time in 1971!",
+                            "Interesting: The word 'bug' in computer terms comes from an actual bug found in a computer in 1947!"
                         ];
                         
                         const fact = techFacts[Math.floor(Math.random() * techFacts.length)];
-                        showAchievement('🤓 TECH FACT!', fact);
+                        showAchievement('🤓 AMAZING TECH FACT!', fact);
                         discoverEgg('triple-click');
                     }
                     clickCount = 0;
-                }, 600);
+                }, 800);
             });
         }
 
         // IDLE ANIMATION
         function setupIdleAnimation() {
             setInterval(() => {
-                if (Date.now() - lastMouseMove > 30000) { // 30 seconds of no mouse movement
+                if (Date.now() - lastMouseMove > 45000) { // 45 seconds of no mouse movement
                     const idleBlu = document.querySelector('.blue-hare:not(.konami-mode):not(.golden-blu)');
                     if (idleBlu && !discoveredEggs.has('idle-discovered')) {
-                        idleBlu.style.animation = 'gentle-bounce 1s ease-in-out infinite, wave 2s ease-in-out infinite';
+                        idleBlu.style.animation = 'gentle-bounce 1.5s ease-in-out infinite, wave 3s ease-in-out infinite';
                         
-                        showAchievement('😴 IDLE DISCOVERY!', 'Blu noticed you went idle and started demonstrating phone use!');
+                        showAchievement('😴 IDLE DISCOVERY!', 'Blu noticed you went idle and started demonstrating how to use a phone! He\'s very patient, just like our tech support!');
                         discoverEgg('idle-discovered');
                         
                         setTimeout(() => {
-                            idleBlu.style.animation = 'gentle-bounce 3s ease-in-out infinite';
-                        }, 5000);
+                            idleBlu.style.animation = 'gentle-bounce 4s ease-in-out infinite';
+                        }, 6000);
                     }
                 }
-            }, 5000);
+            }, 10000);
         }
 
         // MAGIC PARTICLE EFFECTS
@@ -1651,19 +1808,19 @@
             const container = document.getElementById('magicParticles');
             container.classList.add('active');
             
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 30; i++) {
                 setTimeout(() => {
                     const particle = document.createElement('div');
                     particle.className = 'particle';
                     particle.style.left = Math.random() * 100 + '%';
-                    particle.style.animationDelay = Math.random() * 2 + 's';
+                    particle.style.animationDelay = Math.random() * 3 + 's';
                     container.appendChild(particle);
                     
-                    setTimeout(() => particle.remove(), 6000);
-                }, i * 100);
+                    setTimeout(() => particle.remove(), 8000);
+                }, i * 150);
             }
             
-            setTimeout(() => container.classList.remove('active'), 6000);
+            setTimeout(() => container.classList.remove('active'), 8000);
         }
 
         // ACHIEVEMENT SYSTEM
@@ -1673,7 +1830,7 @@
             document.getElementById('achievementDesc').textContent = description;
             
             achievement.classList.add('show');
-            setTimeout(() => achievement.classList.remove('show'), 4000);
+            setTimeout(() => achievement.classList.remove('show'), 5000);
         }
 
         function discoverEgg(eggId) {
@@ -1706,15 +1863,15 @@
                 
                 document.getElementById('masterStatus').innerHTML = `
                     🏆 <strong>EASTER EGG MASTER UNLOCKED!</strong> 🏆<br>
-                    <span style="font-size: 16px;">You've discovered ${discoveredEggs.size} Easter eggs! You are a true Golden Connection explorer!</span>
+                    <span style="font-size: 18px;">Congratulations! You've discovered ${discoveredEggs.size} Easter eggs! You are a true Golden Connection explorer and tech adventurer!</span>
                 `;
                 
-                showAchievement('🏆 ULTIMATE MASTER!', 'You found most of the Easter eggs! You are now an official Golden Connection Easter Egg Master!');
+                showAchievement('🏆 ULTIMATE MASTER!', 'Fantastic! You found most of the Easter eggs! You are now an official Golden Connection Easter Egg Master!');
                 
                 // Ultimate celebration
                 createMagicParticles();
-                setTimeout(createMagicParticles, 2000);
-                setTimeout(createMagicParticles, 4000);
+                setTimeout(createMagicParticles, 3000);
+                setTimeout(createMagicParticles, 6000);
             }
         }
 
@@ -1727,34 +1884,34 @@
             // Halloween (October)
             if (month === 9) {
                 setTimeout(() => {
-                    showAchievement('🎃 SPOOKY SEASON!', 'Halloween month detected! Blu is ready for some not-scary tech tricks!');
+                    showAchievement('🎃 SPOOKY SEASON!', 'Halloween month detected! Don\'t worry - Blu only does friendly tech tricks, no scary ones!');
                     discoverEgg('halloween-month');
-                }, 3000);
+                }, 4000);
             }
             
             // Christmas season (December)
             if (month === 11) {
                 setTimeout(() => {
-                    showAchievement('🎄 HOLIDAY CHEER!', 'December detected! Blu is spreading Christmas tech joy!');
+                    showAchievement('🎄 HOLIDAY CHEER!', 'December detected! Blu is spreading Christmas tech joy and digital holiday cheer!');
                     discoverEgg('christmas-month');
-                }, 3000);
+                }, 4000);
             }
             
             // Friday the 13th
             if (now.getDay() === 5 && day === 13) {
-                showAchievement('😱 FRIDAY THE 13TH!', 'Spooky day detected! Don\'t worry, Blu\'s tech help is still lucky!');
+                showAchievement('😱 FRIDAY THE 13TH!', 'Spooky day detected! Don\'t worry, Blu\'s tech help is still lucky and will protect you from computer gremlins!');
                 discoverEgg('friday-13th');
             }
         }
 
         // DOWNLOAD FUNCTIONS
         function downloadBlu(type) {
-            showAchievement('📥 DOWNLOAD READY!', `${type} Blu download prepared! In a real implementation, this would generate a file.`);
+            showAchievement('📥 DOWNLOAD READY!', `${type} Blu download prepared! In a real website, this would create a file for you to save.`);
             discoverEgg('download-attempt');
         }
 
         function downloadBluSVG(type) {
-            showAchievement('🎨 SVG DOWNLOAD!', `${type} Blu SVG prepared! Vector graphics version ready!`);
+            showAchievement('🎨 SVG DOWNLOAD!', `${type} Blu SVG prepared! This would be a special vector graphics version that stays crisp at any size!`);
             discoverEgg('svg-download');
         }
 
@@ -1763,17 +1920,23 @@
             const isChrome = /Chrome/.test(navigator.userAgent);
             const isFirefox = /Firefox/.test(navigator.userAgent);
             const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
+            const isEdge = /Edge/.test(navigator.userAgent);
             
             if (isFirefox && !discoveredEggs.has('firefox-user')) {
                 setTimeout(() => {
-                    showAchievement('🔥 FIREFOX USER!', 'Firefox detected! Blu approves of your browser choice!');
+                    showAchievement('🔥 FIREFOX USER!', 'Firefox detected! Blu approves of your excellent browser choice! Firefox is great for privacy!');
                     discoverEgg('firefox-user');
-                }, 2000);
+                }, 3000);
             } else if (isSafari && !discoveredEggs.has('safari-user')) {
                 setTimeout(() => {
-                    showAchievement('🧭 SAFARI EXPLORER!', 'Safari detected! Blu loves adventurous browsers!');
+                    showAchievement('🧭 SAFARI EXPLORER!', 'Safari detected! Blu loves adventurous browsers! Safari is known for being fast and secure!');
                     discoverEgg('safari-user');
-                }, 2000);
+                }, 3000);
+            } else if (isEdge && !discoveredEggs.has('edge-user')) {
+                setTimeout(() => {
+                    showAchievement('🌟 EDGE USER!', 'Microsoft Edge detected! Blu appreciates modern browsers! Edge has great security features!');
+                    discoverEgg('edge-user');
+                }, 3000);
             }
         }
 
@@ -1793,25 +1956,25 @@
             
             // Check for golden Blu
             checkForGoldenBlu();
-            setInterval(checkForGoldenBlu, 30000);
+            setInterval(checkForGoldenBlu, 45000);
             
             // Update time every minute
             setInterval(updateTimezoneDisplay, 60000);
             
             // Welcome message
             setTimeout(() => {
-                showAchievement('👋 WELCOME!', 'Welcome to the ultimate Blu collection! Can you find all the hidden Easter eggs?');
+                showAchievement('👋 WELCOME!', 'Welcome to the ultimate Blu collection! This page has many hidden surprises. Take your time exploring - there\'s no rush!');
                 discoverEgg('welcome');
-            }, 1000);
+            }, 1500);
         });
 
         // PAGE VISIBILITY API (for returning visitors)
         document.addEventListener('visibilitychange', () => {
             if (!document.hidden && !discoveredEggs.has('return-visitor')) {
                 setTimeout(() => {
-                    showAchievement('🔄 WELCOME BACK!', 'Blu missed you! Thanks for returning to explore more Easter eggs!');
+                    showAchievement('🔄 WELCOME BACK!', 'Blu missed you! Thanks for returning to explore more Easter eggs! Your progress is saved.');
                     discoverEgg('return-visitor');
-                }, 500);
+                }, 1000);
             }
         });
 
@@ -1820,11 +1983,24 @@
             const connection = navigator.connection;
             if (connection.effectiveType === '4g' && !discoveredEggs.has('fast-internet')) {
                 setTimeout(() => {
-                    showAchievement('⚡ SPEED DEMON!', 'Fast internet detected! Blu loads super quickly with your connection!');
+                    showAchievement('⚡ SPEED DEMON!', 'Fast internet detected! Blu loads super quickly with your excellent connection! 4G/5G is amazing!');
                     discoverEgg('fast-internet');
-                }, 4000);
+                }, 5000);
             }
         }
+
+        // SCREEN SIZE DETECTION
+        function checkScreenSize() {
+            if (window.innerWidth > 1920 && !discoveredEggs.has('big-screen')) {
+                setTimeout(() => {
+                    showAchievement('🖥️ BIG SCREEN!', 'Wow! You have a large screen! Blu looks extra impressive on your big display!');
+                    discoverEgg('big-screen');
+                }, 6000);
+            }
+        }
+
+        window.addEventListener('resize', checkScreenSize);
+        setTimeout(checkScreenSize, 2000);
     </script>
 </body>
-</html>
+                                            </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blu Mascot - Complete Image Collection</title>
+    <title>Blu Mascot - Ultimate Easter Egg Collection 🥚✨</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -11,6 +11,47 @@
             margin: 0;
             padding: 40px 20px;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Secret Background Effects */
+        .magic-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 2s ease;
+        }
+
+        .magic-particles.active {
+            opacity: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: float-up 6s ease-out infinite;
+        }
+
+        @keyframes float-up {
+            0% { 
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { 
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         .container {
@@ -20,6 +61,7 @@
             border-radius: 25px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             overflow: hidden;
+            position: relative;
         }
 
         .header {
@@ -27,12 +69,33 @@
             color: white;
             padding: 40px;
             text-align: center;
+            position: relative;
         }
 
         .header h1 {
             margin: 0 0 10px 0;
             font-size: 2.5em;
             font-weight: 700;
+        }
+
+        .easter-egg-counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            backdrop-filter: blur(10px);
+        }
+
+        .time-display {
+            background: rgba(255,255,255,0.15);
+            padding: 8px 15px;
+            border-radius: 15px;
+            margin-top: 10px;
+            font-size: 14px;
+            backdrop-filter: blur(10px);
         }
 
         .collection-grid {
@@ -49,11 +112,19 @@
             text-align: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
         }
 
         .blu-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .blu-card.discovered {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 2px solid #ff9800;
         }
 
         .blu-title {
@@ -70,6 +141,21 @@
             line-height: 1.4;
         }
 
+        .easter-egg-hint {
+            background: #e8f5e8;
+            color: #2e7d32;
+            padding: 8px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .blu-card:hover .easter-egg-hint {
+            opacity: 1;
+        }
+
         .download-btn {
             background: #4caf50;
             color: white;
@@ -79,6 +165,1625 @@
             cursor: pointer;
             font-size: 0.9em;
             margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+
+        /* SECRET ACHIEVEMENT POPUP */
+        .achievement {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4);
+            transform: translateX(400px);
+            transition: transform 0.5s ease;
+            z-index: 10000;
+            max-width: 300px;
+        }
+
+        .achievement.show {
+            transform: translateX(0);
+        }
+
+        .achievement-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .achievement-desc {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        /* TIMEZONE-BASED STYLES */
+        .party-mode {
+            background: linear-gradient(135deg, #e91e63 0%, #9c27b0 50%, #673ab7 100%);
+            animation: party-background 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes party-background {
+            0% { background: linear-gradient(135deg, #e91e63 0%, #9c27b0 50%, #673ab7 100%); }
+            25% { background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffd700 100%); }
+            50% { background: linear-gradient(135deg, #4caf50 0%, #8bc34a 50%, #cddc39 100%); }
+            75% { background: linear-gradient(135deg, #2196f3 0%, #03a9f4 50%, #00bcd4 100%); }
+            100% { background: linear-gradient(135deg, #e91e63 0%, #9c27b0 50%, #673ab7 100%); }
+        }
+
+        .dawn-mode {
+            background: linear-gradient(135deg, #ffeb3b 0%, #ffc107 50%, #ff9800 100%);
+        }
+
+        .sunset-mode {
+            background: linear-gradient(135deg, #ff5722 0%, #e91e63 50%, #9c27b0 100%);
+        }
+
+        /* SPECIAL BLU VARIATIONS */
+        
+        /* Timezone Blu Styles */
+        .blu-timezone {
+            width: 200px;
+            height: 240px;
+            margin: 0 auto 20px auto;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        /* Party Mode Blu */
+        .party-blu .hare-body {
+            width: 80px;
+            height: 110px;
+            background: linear-gradient(135deg, #e91e63 0%, #9c27b0 100%);
+            border-radius: 40px 40px 25px 25px;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -8px 15px rgba(0,0,0,0.1);
+            animation: party-colors 2s ease-in-out infinite alternate;
+        }
+
+        .party-blu .hare-head {
+            width: 70px;
+            height: 65px;
+            background: linear-gradient(135deg, #ff6b35 0%, #ffd700 100%);
+            border-radius: 35px 35px 30px 30px;
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -4px 12px rgba(0,0,0,0.1);
+            animation: party-colors 2s ease-in-out infinite alternate 0.5s;
+        }
+
+        @keyframes party-colors {
+            0% { filter: hue-rotate(0deg) saturate(1.2) brightness(1.1); }
+            25% { filter: hue-rotate(90deg) saturate(1.3) brightness(1.2); }
+            50% { filter: hue-rotate(180deg) saturate(1.4) brightness(1.3); }
+            75% { filter: hue-rotate(270deg) saturate(1.3) brightness(1.2); }
+            100% { filter: hue-rotate(360deg) saturate(1.2) brightness(1.1); }
+        }
+
+        .party-blu .arm {
+            animation: party-dance 1s ease-in-out infinite alternate !important;
+        }
+
+        .party-blu .arm-left {
+            animation: party-dance-left 0.8s ease-in-out infinite !important;
+        }
+
+        .party-blu .arm-right {
+            animation: party-dance-right 0.8s ease-in-out infinite 0.2s !important;
+        }
+
+        @keyframes party-dance {
+            0% { transform: rotate(-45deg) scale(1); }
+            50% { transform: rotate(45deg) scale(1.1); }
+            100% { transform: rotate(-30deg) scale(1); }
+        }
+
+        @keyframes party-dance-left {
+            0% { transform: rotate(-60deg); }
+            25% { transform: rotate(-20deg); }
+            50% { transform: rotate(-50deg); }
+            75% { transform: rotate(-10deg); }
+            100% { transform: rotate(-40deg); }
+        }
+
+        @keyframes party-dance-right {
+            0% { transform: rotate(60deg); }
+            25% { transform: rotate(20deg); }
+            50% { transform: rotate(50deg); }
+            75% { transform: rotate(10deg); }
+            100% { transform: rotate(40deg); }
+        }
+
+        /* Dawn Mode Blu */
+        .dawn-blu .hare-body {
+            width: 80px;
+            height: 110px;
+            background: linear-gradient(135deg, #ffb74d 0%, #ff9800 100%);
+            border-radius: 40px 40px 25px 25px;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -8px 15px rgba(0,0,0,0.1);
+        }
+
+        .dawn-blu .hare-head {
+            width: 70px;
+            height: 65px;
+            background: linear-gradient(135deg, #ffcc02 0%, #ffb300 100%);
+            border-radius: 35px 35px 30px 30px;
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Standard/Day Blu - using original website colors */
+        .day-blu .hare-body {
+            width: 80px;
+            height: 110px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 40px 40px 25px 25px;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -8px 15px rgba(0,0,0,0.1);
+        }
+
+        .day-blu .hare-head {
+            width: 70px;
+            height: 65px;
+            background: linear-gradient(135deg, #64b5f6 0%, #2196f3 100%);
+            border-radius: 35px 35px 30px 30px;
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Common Blu parts */
+        .blu-timezone .ear {
+            width: 18px;
+            height: 45px;
+            background: linear-gradient(135deg, #90caf9 0%, #42a5f5 100%);
+            border-radius: 9px 9px 4px 4px;
+            position: absolute;
+            top: 8px;
+        }
+
+        .blu-timezone .ear-left { left: 15px; transform: rotate(-15deg); }
+        .blu-timezone .ear-right { right: 15px; transform: rotate(15deg); }
+
+        .blu-timezone .ear-inner {
+            width: 9px;
+            height: 25px;
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            border-radius: 4px;
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .blu-timezone .eye {
+            width: 12px;
+            height: 15px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 25px;
+        }
+
+        .blu-timezone .eye-left { left: 18px; }
+        .blu-timezone .eye-right { right: 18px; }
+
+        .blu-timezone .pupil {
+            width: 6px;
+            height: 8px;
+            background: #1565c0;
+            border-radius: 50%;
+            position: absolute;
+            top: 4px;
+            left: 3px;
+            transition: all 0.1s ease;
+        }
+
+        .blu-timezone .nose {
+            width: 6px;
+            height: 4px;
+            background: #f48fb1;
+            border-radius: 50%;
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .blu-timezone .arm {
+            width: 25px;
+            height: 60px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 15px;
+            position: absolute;
+            top: 85px;
+            transition: all 0.3s ease;
+        }
+
+        .blu-timezone .arm-left { 
+            left: 55px; 
+            transform: rotate(-30deg);
+        }
+        .blu-timezone .arm-right { 
+            right: 55px; 
+            transform: rotate(30deg);
+        }
+
+        .blu-timezone .foot {
+            width: 22px;
+            height: 30px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 11px 11px 6px 6px;
+            position: absolute;
+            bottom: 20px;
+        }
+
+        .blu-timezone .foot-left { left: 75px; }
+        .blu-timezone .foot-right { right: 75px; }
+
+        .blu-timezone .tail {
+            width: 18px;
+            height: 18px;
+            background: linear-gradient(135deg, #90caf9 0%, #64b5f6 100%);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 85px;
+            right: 60px;
+        }
+
+        /* SUPER SPECIAL EASTER EGG STYLES */
+        
+        /* Rainbow Blu (Konami Mode) */
+        @keyframes rainbow-cycle {
+            0% { filter: hue-rotate(0deg) saturate(1.5) brightness(1.2); }
+            25% { filter: hue-rotate(90deg) saturate(1.5) brightness(1.2); }
+            50% { filter: hue-rotate(180deg) saturate(1.5) brightness(1.2); }
+            75% { filter: hue-rotate(270deg) saturate(1.5) brightness(1.2); }
+            100% { filter: hue-rotate(360deg) saturate(1.5) brightness(1.2); }
+        }
+
+        @keyframes super-bounce {
+            0%, 100% { transform: translateY(0px) scale(1) rotate(0deg); }
+            25% { transform: translateY(-15px) scale(1.1) rotate(5deg); }
+            50% { transform: translateY(-25px) scale(1.2) rotate(0deg); }
+            75% { transform: translateY(-15px) scale(1.1) rotate(-5deg); }
+        }
+
+        @keyframes party-arms {
+            0% { transform: rotate(-60deg); }
+            25% { transform: rotate(60deg); }
+            50% { transform: rotate(-45deg); }
+            75% { transform: rotate(45deg); }
+            100% { transform: rotate(-60deg); }
+        }
+
+        .konami-mode {
+            animation: super-bounce 1s ease-in-out infinite, rainbow-cycle 2s linear infinite;
+        }
+
+        .konami-mode .arm {
+            animation: party-arms 0.5s ease-in-out infinite;
+        }
+
+        /* Golden Blu (Rare Event) */
+        .golden-blu {
+            filter: sepia(1) saturate(3) hue-rotate(35deg) brightness(1.3);
+            animation: golden-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes golden-glow {
+            0% { box-shadow: 0 0 10px #ffd700; }
+            100% { box-shadow: 0 0 30px #ffd700, 0 0 40px #ffd700; }
+        }
+
+        /* Hacker Blu (Dev Tools Open) */
+        .hacker-blu {
+            filter: invert(1) hue-rotate(120deg);
+            animation: matrix-effect 3s ease-in-out infinite;
+        }
+
+        @keyframes matrix-effect {
+            0%, 100% { text-shadow: 0 0 5px #00ff00; }
+            50% { text-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00; }
+        }
+
+        /* PARTY MODE SPECIAL EFFECTS */
+        .disco-ball {
+            position: fixed;
+            top: 50px;
+            right: 50px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #c0c0c0 25%, transparent 25%), 
+                        linear-gradient(-45deg, #c0c0c0 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, #c0c0c0 75%), 
+                        linear-gradient(-45deg, transparent 75%, #c0c0c0 75%);
+            background-size: 8px 8px;
+            background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+            border-radius: 50%;
+            animation: disco-spin 3s linear infinite;
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+            z-index: 1000;
+        }
+
+        @keyframes disco-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .party-lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .light-beam {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: light-sweep 4s ease-in-out infinite;
+        }
+
+        .light-beam:nth-child(1) {
+            background: radial-gradient(circle, #ff6b35 0%, transparent 70%);
+            top: 10%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .light-beam:nth-child(2) {
+            background: radial-gradient(circle, #e91e63 0%, transparent 70%);
+            top: 30%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .light-beam:nth-child(3) {
+            background: radial-gradient(circle, #9c27b0 0%, transparent 70%);
+            bottom: 20%;
+            left: 30%;
+            animation-delay: 2s;
+        }
+
+        .light-beam:nth-child(4) {
+            background: radial-gradient(circle, #2196f3 0%, transparent 70%);
+            bottom: 40%;
+            right: 25%;
+            animation-delay: 3s;
+        }
+
+        @keyframes light-sweep {
+            0%, 100% { 
+                transform: scale(0.5) rotate(0deg);
+                opacity: 0.2;
+            }
+            50% { 
+                transform: scale(1.5) rotate(180deg);
+                opacity: 0.6;
+            }
+        }
+
+        .party-confetti {
+            position: fixed;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #ffd700;
+            animation: confetti-fall 6s linear infinite;
+        }
+
+        .confetti-piece:nth-child(odd) {
+            background: #ff6b35;
+            animation-duration: 5s;
+        }
+
+        .confetti-piece:nth-child(3n) {
+            background: #e91e63;
+            animation-duration: 7s;
+        }
+
+        .confetti-piece:nth-child(4n) {
+            background: #9c27b0;
+            animation-duration: 4s;
+        }
+
+        .confetti-piece:nth-child(5n) {
+            background: #2196f3;
+            animation-duration: 8s;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Weather-based styles */
+        .rainy-blu {
+            filter: hue-rotate(200deg) saturate(0.8);
+        }
+
+        .sunny-blu {
+            filter: brightness(1.2) saturate(1.3);
+        }
+
+        /* STANDARD BLU VARIATIONS (keeping original designs) */
+        .blue-hare {
+            width: 300px;
+            height: 350px;
+            margin: 0 auto 20px;
+            position: relative;
+            display: inline-block;
+            animation: gentle-bounce 3s ease-in-out infinite;
+            transform: scale(0.7);
+            cursor: pointer;
+        }
+
+        .hare-body {
+            width: 120px;
+            height: 160px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 60px 60px 40px 40px;
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
+        }
+
+        .hare-head {
+            width: 100px;
+            height: 90px;
+            background: linear-gradient(135deg, #64b5f6 0%, #2196f3 100%);
+            border-radius: 50px 50px 40px 40px;
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -5px 15px rgba(0,0,0,0.1);
+        }
+
+        .ear {
+            width: 25px;
+            height: 60px;
+            background: linear-gradient(135deg, #90caf9 0%, #42a5f5 100%);
+            border-radius: 12px 12px 5px 5px;
+            position: absolute;
+            top: 10px;
+            box-shadow: inset 0 -3px 8px rgba(0,0,0,0.1);
+        }
+
+        .ear-left { left: 20px; transform: rotate(-15deg); }
+        .ear-right { right: 20px; transform: rotate(15deg); }
+
+        .ear-inner {
+            width: 12px;
+            height: 35px;
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            border-radius: 6px;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .eye {
+            width: 16px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 35px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .eye-left { left: 25px; }
+        .eye-right { right: 25px; }
+
+        .pupil {
+            width: 8px;
+            height: 10px;
+            background: #1565c0;
+            border-radius: 50%;
+            position: absolute;
+            top: 5px;
+            left: 4px;
+            animation: blink 4s ease-in-out infinite;
+            transition: all 0.1s ease;
+        }
+
+        .nose {
+            width: 8px;
+            height: 6px;
+            background: #f48fb1;
+            border-radius: 50%;
+            position: absolute;
+            top: 55px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .arm {
+            width: 35px;
+            height: 80px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 20px;
+            position: absolute;
+            top: 120px;
+            box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+        }
+
+        .arm-left { 
+            left: 80px; 
+            transform: rotate(-20deg);
+            animation: wave 2s ease-in-out infinite;
+        }
+        .arm-right { 
+            right: 80px; 
+            transform: rotate(20deg);
+        }
+
+        .device {
+            width: 40px;
+            height: 60px;
+            background: linear-gradient(135deg, #424242 0%, #616161 100%);
+            border-radius: 8px;
+            position: absolute;
+            top: 180px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .device-screen {
+            width: 32px;
+            height: 45px;
+            background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
+            border-radius: 4px;
+            position: absolute;
+            top: 8px;
+            left: 4px;
+            animation: screen-glow 2s ease-in-out infinite alternate;
+        }
+
+        .foot {
+            width: 30px;
+            height: 40px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 15px 15px 8px 8px;
+            position: absolute;
+            bottom: 30px;
+            box-shadow: inset 0 -3px 8px rgba(0,0,0,0.1);
+        }
+
+        .foot-left { left: 115px; }
+        .foot-right { right: 115px; }
+
+        .tail {
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(135deg, #90caf9 0%, #64b5f6 100%);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 120px;
+            right: 85px;
+            box-shadow: inset 0 -2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* ANIMATIONS */
+        @keyframes gentle-bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(-20deg); }
+            50% { transform: rotate(-35deg); }
+        }
+
+        @keyframes blink {
+            0%, 90%, 100% { height: 10px; top: 5px; }
+            95% { height: 1px; top: 14px; }
+        }
+
+        @keyframes screen-glow {
+            0% { box-shadow: inset 0 0 10px rgba(255,255,255,0.3); }
+            100% { box-shadow: inset 0 0 20px rgba(255,255,255,0.6); }
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .collection-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+            
+            .blue-hare, .blu-timezone {
+                transform: scale(0.6);
+            }
+
+            .easter-egg-counter, .achievement {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 10px auto;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .collection-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* SECRET STYLES FOR SPECIAL EVENTS */
+        .celebration-mode {
+            animation: celebration-bounce 0.8s ease-in-out infinite;
+        }
+
+        @keyframes celebration-bounce {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.1) rotate(5deg); }
+            50% { transform: scale(1.15) rotate(0deg); }
+            75% { transform: scale(1.1) rotate(-5deg); }
+        }
+
+        .tech-tip-bubble {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            max-width: 200px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 100;
+        }
+
+        .tech-tip-bubble:after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border: 5px solid transparent;
+            border-top-color: #4caf50;
+        }
+
+        .show-tip .tech-tip-bubble {
+            opacity: 1;
+        }
+
+        /* Konami sequence indicator */
+        .konami-progress {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-family: monospace;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10000;
+        }
+
+        .konami-progress.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Magic particle background -->
+    <div class="magic-particles" id="magicParticles"></div>
+    
+    <!-- Konami code progress -->
+    <div class="konami-progress" id="konamiProgress"></div>
+    
+    <!-- Achievement popup -->
+    <div class="achievement" id="achievement">
+        <div class="achievement-title" id="achievementTitle"></div>
+        <div class="achievement-desc" id="achievementDesc"></div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="easter-egg-counter">
+                🥚 Easter Eggs Found: <span id="eggCount">0</span>/25
+            </div>
+            <h1>Blu Mascot - Ultimate Easter Egg Collection 🎊</h1>
+            <p>All poses and variations of Blu for Golden Connection + Secret Features!</p>
+            <div class="time-display" id="timeDisplay">
+                Loading timezone magic... ⏰
+            </div>
+        </div>
+
+        <div class="collection-grid">
+            <!-- Timezone-Aware Blu -->
+            <div class="blu-card" id="timezoneCard">
+                <div class="blu-title">🌍 Timezone-Aware Blu</div>
+                <div class="blu-timezone" id="timezoneBlu">
+                    <div class="ear ear-left"><div class="ear-inner"></div></div>
+                    <div class="ear ear-right"><div class="ear-inner"></div></div>
+                    <div class="hare-head">
+                        <div class="eye eye-left"><div class="pupil" id="pupilLeft"></div></div>
+                        <div class="eye eye-right"><div class="pupil" id="pupilRight"></div></div>
+                        <div class="nose"></div>
+                    </div>
+                    <div class="hare-body"></div>
+                    <div class="arm arm-left" id="leftArm"></div>
+                    <div class="arm arm-right" id="rightArm"></div>
+                    <div class="foot foot-left"></div>
+                    <div class="foot foot-right"></div>
+                    <div class="tail"></div>
+                    
+                    <!-- Tech tip bubble -->
+                    <div class="tech-tip-bubble" id="techTip">
+                        💡 Pro Tip: Press Ctrl and + to make text bigger!
+                    </div>
+                </div>
+                <div class="blu-description" id="timezoneDescription">
+                    This Blu changes throughout the day based on your timezone! Watch him transform from dawn to night.
+                </div>
+                <div class="easter-egg-hint">
+                    🥚 Hover for 3+ seconds for a tech tip! Move mouse to make eyes follow!
+                </div>
+                <button class="download-btn" onclick="downloadBlu('timezone')">Download HTML</button>
+                <button class="download-btn" onclick="downloadBluSVG('timezone')">Download SVG</button>
+            </div>
+
+            <!-- Konami Mode Blu -->
+            <div class="blu-card" id="konamiCard">
+                <div class="blu-title">🎮 Konami Code Blu</div>
+                <div class="blue-hare" id="konamiBlu" style="transform: scale(0.7);">
+                    <div class="ear ear-left"><div class="ear-inner"></div></div>
+                    <div class="ear ear-right"><div class="ear-inner"></div></div>
+                    <div class="hare-head">
+                        <div class="eye eye-left"><div class="pupil"></div></div>
+                        <div class="eye eye-right"><div class="pupil"></div></div>
+                        <div class="nose"></div>
+                    </div>
+                    <div class="hare-body"></div>
+                    <div class="arm arm-left"></div>
+                    <div class="arm arm-right"></div>
+                    <div class="device"><div class="device-screen"></div></div>
+                    <div class="foot foot-left"></div>
+                    <div class="foot foot-right"></div>
+                    <div class="tail"></div>
+                </div>
+                <div class="blu-description">
+                    Try the classic gaming cheat code while looking at this card! 
+                </div>
+                <div class="easter-egg-hint">
+                    🥚 Type: ↑↑↓↓←→←→BA for SUPER BLU MODE!
+                </div>
+                <button class="download-btn" onclick="downloadBlu('konami')">Download HTML</button>
+            </div>
+
+            <!-- Golden Rare Blu -->
+            <div class="blu-card" id="goldenCard">
+                <div class="blu-title">✨ Golden Rare Blu</div>
+                <div class="blue-hare" id="goldenBlu" style="transform: scale(0.7);">
+                    <div class="ear ear-left"><div class="ear-inner"></div></div>
+                    <div class="ear ear-right"><div class="ear-inner"></div></div>
+                    <div class="hare-head">
+                        <div class="eye eye-left"><div class="pupil"></div></div>
+                        <div class="eye eye-right"><div class="pupil"></div></div>
+                        <div class="nose"></div>
+                    </div>
+                    <div class="hare-body"></div>
+                    <div class="arm arm-left"></div>
+                    <div class="arm arm-right"></div>
+                    <div class="device"><div class="device-screen"></div></div>
+                    <div class="foot foot-left"></div>
+                    <div class="foot foot-right"></div>
+                    <div class="tail"></div>
+                </div>
+                <div class="blu-description">
+                    A legendary golden Blu! This appears randomly for lucky visitors.
+                </div>
+                <div class="easter-egg-hint">
+                    🥚 Refresh the page enough times... you might get lucky! 🍀
+                </div>
+                <button class="download-btn" onclick="downloadBlu('golden')">Download HTML</button>
+            </div>
+
+            <!-- Interactive Teaching Blu -->
+            <div class="blu-card" id="teachingCard">
+                <div class="blu-title">👨‍🏫 Interactive Teaching Blu</div>
+                <div class="blue-hare" id="teachingBlu" style="transform: scale(0.7);">
+                    <div class="ear ear-left"><div class="ear-inner"></div></div>
+                    <div class="ear ear-right"><div class="ear-inner"></div></div>
+                    <div class="hare-head">
+                        <div class="eye eye-left"><div class="pupil"></div></div>
+                        <div class="eye eye-right"><div class="pupil"></div></div>
+                        <div class="nose"></div>
+                    </div>
+                    <div class="hare-body"></div>
+                    <div class="arm arm-left"></div>
+                    <div class="arm arm-right" style="transform: rotate(-70deg);"></div>
+                    <div class="foot foot-left"></div>
+                    <div class="foot foot-right"></div>
+                    <div class="tail"></div>
+                </div>
+                <div class="blu-description">
+                    Teaching pose Blu with interactive gestures and responses.
+                </div>
+                <div class="easter-egg-hint">
+                    🥚 Double-click for celebration! Triple-click for tech facts!
+                </div>
+                <button class="download-btn" onclick="downloadBlu('teaching')">Download HTML</button>
+            </div>
+
+            <!-- Secret Sequence Blu -->
+            <div class="blu-card" id="secretCard">
+                <div class="blu-title">🔐 Secret Sequence Blu</div>
+                <div class="blue-hare" id="secretBlu" style="transform: scale(0.7);">
+                    <div class="ear ear-left" id="leftEar"><div class="ear-inner"></div></div>
+                    <div class="ear ear-right" id="rightEar"><div class="ear-inner"></div></div>
+                    <div class="hare-head">
+                        <div class="eye eye-left"><div class="pupil"></div></div>
+                        <div class="eye eye-right"><div class="pupil"></div></div>
+                        <div class="nose" id="bluNose"></div>
+                    </div>
+                    <div class="hare-body"></div>
+                    <div class="arm arm-left"></div>
+                    <div class="arm arm-right"></div>
+                    <div class="foot foot-left"></div>
+                    <div class="foot foot-right"></div>
+                    <div class="tail"></div>
+                </div>
+                <div class="blu-description">
+                    This Blu has a secret unlock sequence! Can you figure it out?
+                </div>
+                <div class="easter-egg-hint">
+                    🥚 Try clicking: Left Ear → Right Ear → Nose in sequence!
+                </div>
+                <button class="download-btn" onclick="downloadBlu('secret')">Download HTML</button>
+            </div>
+
+            <!-- Developer Mode Blu -->
+            <div class="blu-card" id="devCard">
+                <div class="blu-title">💻 Developer Mode Blu</div>
+                <div class="blue-hare" id="devBlu" style="transform: scale(0.7);">
+                    <div class="ear ear-left"><div class="ear-inner"></div></div>
+                    <div class="ear ear-right"><div class="ear-inner"></div></div>
+                    <div class="hare-head">
+                        <div class="eye eye-left"><div class="pupil"></div></div>
+                        <div class="eye eye-right"><div class="pupil"></div></div>
+                        <div class="nose"></div>
+                    </div>
+                    <div class="hare-body"></div>
+                    <div class="arm arm-left"></div>
+                    <div class="arm arm-right"></div>
+                    <div class="device"><div class="device-screen"></div></div>
+                    <div class="foot foot-left"></div>
+                    <div class="foot foot-right"></div>
+                    <div class="tail"></div>
+                </div>
+                <div class="blu-description">
+                    This Blu transforms when developer tools are detected!
+                </div>
+                <div class="easter-egg-hint">
+                    🥚 Open DevTools (F12) to see Hacker Blu! 👨‍💻
+                </div>
+                <button class="download-btn" onclick="downloadBlu('developer')">Download HTML</button>
+            </div>
+
+            <!-- Battery Aware Blu (Mobile) -->
+            <div class="blu-card" id="batteryCard">
+                <div class="blu-title">🔋 Battery-Aware Blu</div>
+                <div class="blue-hare" id="batteryBlu" style="transform: scale(0.7);">
+                    <div class="ear ear-left"><div class="ear-inner"></div></div>
+                    <div class="ear ear-right"><div class="ear-inner"></div></div>
+                    <div class="hare-head">
+                        <div class="eye eye-left"><div class="pupil"></div></div>
+                        <div class="eye eye-right"><div class="pupil"></div></div>
+                        <div class="nose"></div>
+                    </div>
+                    <div class="hare-body"></div>
+                    <div class="arm arm-left"></div>
+                    <div class="arm arm-right"></div>
+                    <div class="device"><div class="device-screen"></div></div>
+                    <div class="foot foot-left"></div>
+                    <div class="foot foot-right"></div>
+                    <div class="tail"></div>
+                </div>
+                <div class="blu-description" id="batteryDescription">
+                    On mobile devices, Blu's energy matches your battery level!
+                </div>
+                <div class="easter-egg-hint">
+                    🥚 View on mobile - Blu gets tired as your battery drains! 📱
+                </div>
+                <button class="download-btn" onclick="downloadBlu('battery')">Download HTML</button>
+            </div>
+
+            <!-- Scroll Progress Blu -->
+            <div class="blu-card" id="scrollCard">
+                <div class="blu-title">📜 Scroll Progress Blu</div>
+                <div class="blue-hare" id="scrollBlu" style="transform: scale(0.7);">
+                    <div class="ear ear-left"><div class="ear-inner"></div></div>
+                    <div class="ear ear-right"><div class="ear-inner"></div></div>
+                    <div class="hare-head">
+                        <div class="eye eye-left"><div class="pupil"></div></div>
+                        <div class="eye eye-right"><div class="pupil"></div></div>
+                        <div class="nose"></div>
+                    </div>
+                    <div class="hare-body"></div>
+                    <div class="arm arm-left" id="scrollArmLeft"></div>
+                    <div class="arm arm-right" id="scrollArmRight"></div>
+                    <div class="foot foot-left"></div>
+                    <div class="foot foot-right"></div>
+                    <div class="tail"></div>
+                </div>
+                <div class="blu-description">
+                    Blu's pose changes based on how far you've scrolled down the page!
+                </div>
+                <div class="easter-egg-hint">
+                    🥚 Scroll up and down to see Blu react to your progress! 📊
+                </div>
+                <button class="download-btn" onclick="downloadBlu('scroll')">Download HTML</button>
+            </div>
+        </div>
+
+        <!-- Hidden Achievement Section -->
+        <div style="padding: 40px; text-align: center; background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);">
+            <h2 style="color: #7b1fa2; margin-bottom: 20px;">🏆 Easter Egg Master Status</h2>
+            <div id="masterStatus" style="font-size: 18px; color: #4a148c;">
+                Find all 25+ Easter eggs to unlock the ultimate secret! 🎊
+            </div>
+            <div style="margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.8); border-radius: 15px; font-size: 14px; color: #666;">
+                <strong>Hint:</strong> Try different times of day, browser actions, mobile vs desktop, key combinations, click sequences, and even open your developer tools! 
+                Some Easter eggs are time-based, some are random, and some require special actions. Happy hunting! 🕵️‍♀️
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // EASTER EGG SYSTEM
+        let discoveredEggs = new Set();
+        let konamiSequence = [];
+        let secretSequence = [];
+        let longHoverTimer = null;
+        let lastMouseMove = Date.now();
+        let clickCount = 0;
+        let clickTimer = null;
+
+        // TIMEZONE AND TIME MANAGEMENT
+        function updateTimezoneDisplay() {
+            const now = new Date();
+            const hour = now.getHours();
+            const timeStr = now.toLocaleTimeString();
+            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            
+            let timeOfDay, greeting, bluMode;
+            
+            if (hour >= 5 && hour < 8) {
+                timeOfDay = "🌅 Dawn";
+                greeting = "Rise and shine! Early bird tech sessions available!";
+                bluMode = "dawn";
+                document.body.className = "dawn-mode";
+            } else if (hour >= 8 && hour < 17) {
+                timeOfDay = "☀️ Day";
+                greeting = "Perfect time for tech learning!";
+                bluMode = "day";
+                document.body.className = "";
+            } else if (hour >= 17 && hour < 20) {
+                timeOfDay = "🌅 Sunset";
+                greeting = "Winding down with some evening tech tips!";
+                bluMode = "sunset";
+                document.body.className = "sunset-mode";
+            } else {
+                timeOfDay = "🎉 Party Time";
+                greeting = "After hours = PARTY TIME! Blu is dancing the night away!";
+                bluMode = "party";
+                document.body.className = "party-mode";
+            }
+            
+            document.getElementById('timeDisplay').innerHTML = `
+                ${timeOfDay} • ${timeStr}<br>
+                <small style="opacity: 0.8;">${timezone} • ${greeting}</small>
+            `;
+            
+            // Update timezone Blu appearance
+            const timezoneBlu = document.getElementById('timezoneBlu');
+            timezoneBlu.className = `blu-timezone ${bluMode}-blu`;
+            
+            document.getElementById('timezoneDescription').textContent = 
+                `Currently showing ${timeOfDay.toLowerCase()} mode for ${timezone}. ${greeting}`;
+        }
+
+        // MOUSE TRACKING FOR EYES
+        function setupEyeTracking() {
+            document.addEventListener('mousemove', (e) => {
+                const pupils = document.querySelectorAll('.pupil');
+                pupils.forEach(pupil => {
+                    const eye = pupil.parentElement;
+                    const rect = eye.getBoundingClientRect();
+                    const eyeCenterX = rect.left + rect.width / 2;
+                    const eyeCenterY = rect.top + rect.height / 2;
+                    
+                    const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
+                    const distance = Math.min(3, Math.sqrt(Math.pow(e.clientX - eyeCenterX, 2) + Math.pow(e.clientY - eyeCenterY, 2)) * 0.01);
+                    
+                    const x = Math.cos(angle) * distance;
+                    const y = Math.sin(angle) * distance;
+                    
+                    pupil.style.transform = `translate(${x}px, ${y}px)`;
+                });
+                
+                lastMouseMove = Date.now();
+            });
+        }
+
+        // KONAMI CODE DETECTION
+        const konamiCode = [
+            'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+            'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+            'KeyB', 'KeyA'
+        ];
+
+        document.addEventListener('keydown', (e) => {
+            konamiSequence.push(e.code);
+            if (konamiSequence.length > konamiCode.length) {
+                konamiSequence.shift();
+            }
+            
+            // Show progress
+            const progress = document.getElementById('konamiProgress');
+            const progressText = konamiSequence.map(key => 
+                key.replace('Arrow', '').replace('Key', '')).join(' ');
+            progress.textContent = `Konami: ${progressText}`;
+            progress.classList.add('show');
+            
+            setTimeout(() => progress.classList.remove('show'), 2000);
+            
+            // Check if sequence matches
+            if (JSON.stringify(konamiSequence) === JSON.stringify(konamiCode)) {
+                activateKonamiMode();
+                konamiSequence = [];
+            }
+        });
+
+        function activateKonamiMode() {
+            const konamiBlu = document.getElementById('konamiBlu');
+            konamiBlu.classList.add('konami-mode');
+            
+            createMagicParticles();
+            showAchievement('🎮 KONAMI CODE MASTER!', 'You activated Super Blu mode! The legendary gaming code still works!');
+            discoverEgg('konami-code');
+            
+            // Add crown and sparkles
+            if (!konamiBlu.querySelector('.crown')) {
+                const crown = document.createElement('div');
+                crown.className = 'crown';
+                crown.style.cssText = `
+                    position: absolute; top: -15px; left: 35px; width: 30px; height: 15px;
+                    border: 2px solid #ffd700; border-bottom: none; border-radius: 15px 15px 0 0;
+                    background: linear-gradient(45deg, #ffd700, #ffeb3b);
+                    z-index: 10;
+                `;
+                konamiBlu.appendChild(crown);
+                
+                // Add gem on crown
+                const gem = document.createElement('div');
+                gem.style.cssText = `
+                    position: absolute; top: -3px; left: 12px; width: 6px; height: 6px;
+                    background: #00ffff; border-radius: 50%; box-shadow: 0 0 10px #00ffff;
+                `;
+                crown.appendChild(gem);
+            }
+            
+            setTimeout(() => {
+                konamiBlu.classList.remove('konami-mode');
+                const crown = konamiBlu.querySelector('.crown');
+                if (crown) crown.remove();
+            }, 10000);
+        }
+
+        // SECRET SEQUENCE (Left Ear → Right Ear → Nose)
+        function setupSecretSequence() {
+            const leftEar = document.getElementById('leftEar');
+            const rightEar = document.getElementById('rightEar');
+            const nose = document.getElementById('bluNose');
+            
+            [leftEar, rightEar, nose].forEach((element, index) => {
+                element.addEventListener('click', () => {
+                    const expectedSequence = ['leftEar', 'rightEar', 'bluNose'];
+                    
+                    if (element.id === expectedSequence[secretSequence.length]) {
+                        secretSequence.push(element.id);
+                        
+                        // Visual feedback
+                        element.style.transform += ' scale(1.2)';
+                        element.style.filter = 'brightness(1.5)';
+                        setTimeout(() => {
+                            element.style.transform = element.style.transform.replace(' scale(1.2)', '');
+                            element.style.filter = '';
+                        }, 200);
+                        
+                        if (secretSequence.length === 3) {
+                            unlockSecretMessage();
+                            secretSequence = [];
+                        }
+                    } else {
+                        secretSequence = [];
+                        // Wrong sequence feedback
+                        element.style.filter = 'hue-rotate(180deg)';
+                        setTimeout(() => element.style.filter = '', 300);
+                    }
+                });
+            });
+        }
+
+        function unlockSecretMessage() {
+            const secretBlu = document.getElementById('secretBlu');
+            secretBlu.style.animation = 'celebration-bounce 1s ease-in-out 3';
+            
+            showAchievement('🔐 SECRET UNLOCKED!', 'You discovered the hidden sequence! Left ear → Right ear → Nose!');
+            discoverEgg('secret-sequence');
+            
+            // Add secret message
+            const message = document.createElement('div');
+            message.style.cssText = `
+                position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+                background: linear-gradient(45deg, #ff6b35, #ffd700); color: white;
+                padding: 8px 12px; border-radius: 15px; font-size: 10px; font-weight: bold;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 100;
+                animation: sparkle 2s ease-in-out infinite;
+            `;
+            message.textContent = '🎊 SECRET UNLOCKED! 🎊';
+            secretBlu.appendChild(message);
+            
+            setTimeout(() => message.remove(), 5000);
+        }
+
+        // GOLDEN BLU (Rare Random Event)
+        function checkForGoldenBlu() {
+            // 3% chance on page load, 1% chance every 30 seconds
+            const random = Math.random();
+            if (random < 0.03 || (random < 0.01 && Math.random() < 0.5)) {
+                const goldenBlu = document.getElementById('goldenBlu');
+                goldenBlu.classList.add('golden-blu');
+                
+                showAchievement('✨ GOLDEN BLU SPOTTED!', 'Legendary! You encountered the rare Golden Blu! This only happens to 3% of visitors!');
+                discoverEgg('golden-blu');
+                
+                // Add golden sparkles
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        const sparkle = document.createElement('div');
+                        sparkle.style.cssText = `
+                            position: absolute; top: ${Math.random() * 100}%; left: ${Math.random() * 100}%;
+                            width: 4px; height: 4px; background: #ffd700; border-radius: 50%;
+                            animation: sparkle 1s ease-out forwards; pointer-events: none;
+                        `;
+                        goldenBlu.appendChild(sparkle);
+                        setTimeout(() => sparkle.remove(), 1000);
+                    }, i * 200);
+                }
+            }
+        }
+
+        // DEVELOPER MODE DETECTION
+        function detectDevTools() {
+            let devtools = false;
+            const threshold = 160;
+            
+            setInterval(() => {
+                if (window.outerHeight - window.innerHeight > threshold || 
+                    window.outerWidth - window.innerWidth > threshold) {
+                    if (!devtools) {
+                        devtools = true;
+                        activateHackerMode();
+                    }
+                } else {
+                    if (devtools) {
+                        devtools = false;
+                        deactivateHackerMode();
+                    }
+                }
+            }, 500);
+        }
+
+        function activateHackerMode() {
+            const devBlu = document.getElementById('devBlu');
+            devBlu.classList.add('hacker-blu');
+            
+            showAchievement('💻 HACKER MODE!', 'Developer tools detected! Welcome, fellow coder! Blu has joined the dark side!');
+            discoverEgg('hacker-mode');
+            
+            // Add matrix effect text
+            const matrix = document.createElement('div');
+            matrix.style.cssText = `
+                position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.8); color: #00ff00; font-family: monospace;
+                display: flex; align-items: center; justify-content: center;
+                font-size: 8px; z-index: 50; border-radius: inherit;
+            `;
+            matrix.textContent = '01001000 01100001 01100011 01101011 01100101 01110010';
+            devBlu.appendChild(matrix);
+        }
+
+        function deactivateHackerMode() {
+            const devBlu = document.getElementById('devBlu');
+            devBlu.classList.remove('hacker-blu');
+            const matrix = devBlu.querySelector('div[style*="background: rgba(0,0,0,0.8)"]');
+            if (matrix) matrix.remove();
+        }
+
+        // BATTERY LEVEL DETECTION (Mobile)
+        function setupBatteryMonitoring() {
+            if ('getBattery' in navigator) {
+                navigator.getBattery().then(battery => {
+                    updateBatteryBlu(battery.level);
+                    
+                    battery.addEventListener('levelchange', () => {
+                        updateBatteryBlu(battery.level);
+                    });
+                });
+            }
+        }
+
+        function updateBatteryBlu(level) {
+            const batteryBlu = document.getElementById('batteryBlu');
+            const description = document.getElementById('batteryDescription');
+            
+            if (level < 0.2) {
+                batteryBlu.classList.add('low-battery-blu');
+                description.textContent = `Battery: ${Math.round(level * 100)}% - Blu is getting tired! ⚡`;
+                
+                if (level < 0.1 && !discoveredEggs.has('low-battery')) {
+                    showAchievement('🔋 LOW BATTERY BLU!', 'Your battery is low and so is Blu\'s energy! Time to charge up!');
+                    discoverEgg('low-battery');
+                }
+            } else {
+                batteryBlu.classList.remove('low-battery-blu');
+                description.textContent = `Battery: ${Math.round(level * 100)}% - Blu is feeling energetic! 🔋`;
+            }
+        }
+
+        // SCROLL PROGRESS TRACKING
+        function setupScrollTracking() {
+            window.addEventListener('scroll', () => {
+                const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                const scrollBlu = document.getElementById('scrollBlu');
+                const leftArm = document.getElementById('scrollArmLeft');
+                const rightArm = document.getElementById('scrollArmRight');
+                
+                // Change arm positions based on scroll
+                if (scrollPercent < 25) {
+                    leftArm.style.transform = 'rotate(-20deg)';
+                    rightArm.style.transform = 'rotate(20deg)';
+                } else if (scrollPercent < 50) {
+                    leftArm.style.transform = 'rotate(-35deg)';
+                    rightArm.style.transform = 'rotate(35deg)';
+                } else if (scrollPercent < 75) {
+                    leftArm.style.transform = 'rotate(-50deg)';
+                    rightArm.style.transform = 'rotate(50deg)';
+                } else {
+                    leftArm.style.transform = 'rotate(-60deg)';
+                    rightArm.style.transform = 'rotate(60deg)';
+                    
+                    if (!discoveredEggs.has('scroll-master')) {
+                        showAchievement('📜 SCROLL MASTER!', 'You scrolled all the way down! Blu is celebrating your dedication!');
+                        discoverEgg('scroll-master');
+                    }
+                }
+            });
+        }
+
+        // LONG HOVER TECH TIPS
+        function setupLongHover() {
+            const timezoneBlu = document.getElementById('timezoneBlu');
+            
+            timezoneBlu.addEventListener('mouseenter', () => {
+                longHoverTimer = setTimeout(() => {
+                    timezoneBlu.classList.add('show-tip');
+                    
+                    if (!discoveredEggs.has('tech-tip')) {
+                        showAchievement('💡 TECH TIP MASTER!', 'You discovered Blu\'s helpful tech tips! Hover for 3 seconds to learn!');
+                        discoverEgg('tech-tip');
+                    }
+                }, 3000);
+            });
+            
+            timezoneBlu.addEventListener('mouseleave', () => {
+                clearTimeout(longHoverTimer);
+                timezoneBlu.classList.remove('show-tip');
+            });
+        }
+
+        // MULTI-CLICK DETECTION
+        function setupMultiClick() {
+            const teachingBlu = document.getElementById('teachingBlu');
+            
+            teachingBlu.addEventListener('click', () => {
+                clickCount++;
+                clearTimeout(clickTimer);
+                
+                clickTimer = setTimeout(() => {
+                    if (clickCount === 2) {
+                        // Double click
+                        teachingBlu.classList.add('celebration-mode');
+                        setTimeout(() => teachingBlu.classList.remove('celebration-mode'), 2000);
+                        
+                        if (!discoveredEggs.has('double-click')) {
+                            showAchievement('🎉 DOUBLE CLICK!', 'Blu loves your enthusiasm! Double-click celebration activated!');
+                            discoverEgg('double-click');
+                        }
+                    } else if (clickCount === 3) {
+                        // Triple click
+                        const techFacts = [
+                            "Did you know? The first computer mouse was made of wood!",
+                            "Fun fact: Email existed before the World Wide Web!",
+                            "Cool! The first webcam was used to watch a coffee pot!",
+                            "Amazing: More people have cell phones than toilets!",
+                            "Wow! The first iPhone had less computing power than a calculator!"
+                        ];
+                        
+                        const fact = techFacts[Math.floor(Math.random() * techFacts.length)];
+                        showAchievement('🤓 TECH FACT!', fact);
+                        discoverEgg('triple-click');
+                    }
+                    clickCount = 0;
+                }, 600);
+            });
+        }
+
+        // IDLE ANIMATION
+        function setupIdleAnimation() {
+            setInterval(() => {
+                if (Date.now() - lastMouseMove > 30000) { // 30 seconds of no mouse movement
+                    const idleBlu = document.querySelector('.blue-hare:not(.konami-mode):not(.golden-blu)');
+                    if (idleBlu && !discoveredEggs.has('idle-discovered')) {
+                        idleBlu.style.animation = 'gentle-bounce 1s ease-in-out infinite, wave 2s ease-in-out infinite';
+                        
+                        showAchievement('😴 IDLE DISCOVERY!', 'Blu noticed you went idle and started demonstrating phone use!');
+                        discoverEgg('idle-discovered');
+                        
+                        setTimeout(() => {
+                            idleBlu.style.animation = 'gentle-bounce 3s ease-in-out infinite';
+                        }, 5000);
+                    }
+                }
+            }, 5000);
+        }
+
+        // MAGIC PARTICLE EFFECTS
+        function createMagicParticles() {
+            const container = document.getElementById('magicParticles');
+            container.classList.add('active');
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 2 + 's';
+                    container.appendChild(particle);
+                    
+                    setTimeout(() => particle.remove(), 6000);
+                }, i * 100);
+            }
+            
+            setTimeout(() => container.classList.remove('active'), 6000);
+        }
+
+        // ACHIEVEMENT SYSTEM
+        function showAchievement(title, description) {
+            const achievement = document.getElementById('achievement');
+            document.getElementById('achievementTitle').textContent = title;
+            document.getElementById('achievementDesc').textContent = description;
+            
+            achievement.classList.add('show');
+            setTimeout(() => achievement.classList.remove('show'), 4000);
+        }
+
+        function discoverEgg(eggId) {
+            if (!discoveredEggs.has(eggId)) {
+                discoveredEggs.add(eggId);
+                updateEggCounter();
+                
+                // Mark card as discovered
+                const cards = document.querySelectorAll('.blu-card');
+                cards.forEach(card => {
+                    if (card.id.includes(eggId.split('-')[0])) {
+                        card.classList.add('discovered');
+                    }
+                });
+                
+                // Check for master achievement
+                if (discoveredEggs.size >= 15) {
+                    unlockMasterAchievement();
+                }
+            }
+        }
+
+        function updateEggCounter() {
+            document.getElementById('eggCount').textContent = discoveredEggs.size;
+        }
+
+        function unlockMasterAchievement() {
+            if (!discoveredEggs.has('master-unlocked')) {
+                discoverEgg('master-unlocked');
+                
+                document.getElementById('masterStatus').innerHTML = `
+                    🏆 <strong>EASTER EGG MASTER UNLOCKED!</strong> 🏆<br>
+                    <span style="font-size: 16px;">You've discovered ${discoveredEggs.size} Easter eggs! You are a true Golden Connection explorer!</span>
+                `;
+                
+                showAchievement('🏆 ULTIMATE MASTER!', 'You found most of the Easter eggs! You are now an official Golden Connection Easter Egg Master!');
+                
+                // Ultimate celebration
+                createMagicParticles();
+                setTimeout(createMagicParticles, 2000);
+                setTimeout(createMagicParticles, 4000);
+            }
+        }
+
+        // SEASONAL EASTER EGGS
+        function checkSeasonalEggs() {
+            const now = new Date();
+            const month = now.getMonth();
+            const day = now.getDate();
+            
+            // Halloween (October)
+            if (month === 9) {
+                setTimeout(() => {
+                    showAchievement('🎃 SPOOKY SEASON!', 'Halloween month detected! Blu is ready for some not-scary tech tricks!');
+                    discoverEgg('halloween-month');
+                }, 3000);
+            }
+            
+            // Christmas season (December)
+            if (month === 11) {
+                setTimeout(() => {
+                    showAchievement('🎄 HOLIDAY CHEER!', 'December detected! Blu is spreading Christmas tech joy!');
+                    discoverEgg('christmas-month');
+                }, 3000);
+            }
+            
+            // Friday the 13th
+            if (now.getDay() === 5 && day === 13) {
+                showAchievement('😱 FRIDAY THE 13TH!', 'Spooky day detected! Don\'t worry, Blu\'s tech help is still lucky!');
+                discoverEgg('friday-13th');
+            }
+        }
+
+        // DOWNLOAD FUNCTIONS
+        function downloadBlu(type) {
+            showAchievement('📥 DOWNLOAD READY!', `${type} Blu download prepared! In a real implementation, this would generate a file.`);
+            discoverEgg('download-attempt');
+        }
+
+        function downloadBluSVG(type) {
+            showAchievement('🎨 SVG DOWNLOAD!', `${type} Blu SVG prepared! Vector graphics version ready!`);
+            discoverEgg('svg-download');
+        }
+
+        // SPECIAL BROWSER DETECTION
+        function detectBrowser() {
+            const isChrome = /Chrome/.test(navigator.userAgent);
+            const isFirefox = /Firefox/.test(navigator.userAgent);
+            const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
+            
+            if (isFirefox && !discoveredEggs.has('firefox-user')) {
+                setTimeout(() => {
+                    showAchievement('🔥 FIREFOX USER!', 'Firefox detected! Blu approves of your browser choice!');
+                    discoverEgg('firefox-user');
+                }, 2000);
+            } else if (isSafari && !discoveredEggs.has('safari-user')) {
+                setTimeout(() => {
+                    showAchievement('🧭 SAFARI EXPLORER!', 'Safari detected! Blu loves adventurous browsers!');
+                    discoverEgg('safari-user');
+                }, 2000);
+            }
+        }
+
+        // INITIALIZATION
+        document.addEventListener('DOMContentLoaded', () => {
+            updateTimezoneDisplay();
+            setupEyeTracking();
+            setupSecretSequence();
+            setupBatteryMonitoring();
+            setupScrollTracking();
+            setupLongHover();
+            setupMultiClick();
+            setupIdleAnimation();
+            detectDevTools();
+            detectBrowser();
+            checkSeasonalEggs();
+            
+            // Check for golden Blu
+            checkForGoldenBlu();
+            setInterval(checkForGoldenBlu, 30000);
+            
+            // Update time every minute
+            setInterval(updateTimezoneDisplay, 60000);
+            
+            // Welcome message
+            setTimeout(() => {
+                showAchievement('👋 WELCOME!', 'Welcome to the ultimate Blu collection! Can you find all the hidden Easter eggs?');
+                discoverEgg('welcome');
+            }, 1000);
+        });
+
+        // PAGE VISIBILITY API (for returning visitors)
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden && !discoveredEggs.has('return-visitor')) {
+                setTimeout(() => {
+                    showAchievement('🔄 WELCOME BACK!', 'Blu missed you! Thanks for returning to explore more Easter eggs!');
+                    discoverEgg('return-visitor');
+                }, 500);
+            }
+        });
+
+        // NETWORK CONNECTION DETECTION
+        if ('connection' in navigator) {
+            const connection = navigator.connection;
+            if (connection.effectiveType === '4g' && !discoveredEggs.has('fast-internet')) {
+                setTimeout(() => {
+                    showAchievement('⚡ SPEED DEMON!', 'Fast internet detected! Blu loads super quickly with your connection!');
+                    discoverEgg('fast-internet');
+                }, 4000);
+            }
+        }
+    </script>
+</body>
+</html>            margin: 5px;
             transition: all 0.3s ease;
         }
 
@@ -982,3 +2687,4 @@
 </body>
 
 </html>
+

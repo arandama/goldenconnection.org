@@ -3,1805 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blu Mascot - Ultimate Easter Egg Collection 🥚✨</title>
+    <title>Golden Connection - Technology Help for Seniors | Easy Tech Learning</title>
+    <meta name="description" content="Technology education for seniors 55+ in smaller communities. Patient, friendly instruction for smartphones, computers, and staying connected with family.">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
-            margin: 0;
-            padding: 40px 20px;
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Secret Background Effects */
-        .magic-particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 2s ease;
-        }
-
-        .magic-particles.active {
-            opacity: 1;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #ffd700;
-            border-radius: 50%;
-            animation: float-up 6s ease-out infinite;
-        }
-
-        @keyframes float-up {
-            0% { 
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { 
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
+            line-height: 1.8;
+            color: #222;
+            font-size: 18px;
+            scroll-behavior: smooth;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            border-radius: 25px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-            position: relative;
+            padding: 0 20px;
         }
 
+        /* Skip Navigation for Screen Readers */
+        .skip-nav {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 10000;
+        }
+
+        .skip-nav:focus {
+            top: 6px;
+        }
+
+        /* Font Size Controls */
+        .font-controls {
+            background: #f8f9fa;
+            padding: 0.5rem 0;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .font-controls button {
+            background: #1565c0;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        .font-controls button:hover {
+            background: #1976d2;
+        }
+
+        /* Header */
         .header {
             background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
             color: white;
-            padding: 40px;
-            text-align: center;
-            position: relative;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .header h1 {
-            margin: 0 0 10px 0;
-            font-size: 2.5em;
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 2em;
             font-weight: 700;
-        }
-
-        .easter-egg-counter {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255,255,255,0.2);
-            padding: 10px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            backdrop-filter: blur(10px);
-        }
-
-        .time-display {
-            background: rgba(255,255,255,0.15);
-            padding: 8px 15px;
-            border-radius: 15px;
-            margin-top: 10px;
-            font-size: 14px;
-            backdrop-filter: blur(10px);
-        }
-
-        .collection-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            padding: 40px;
-        }
-
-        .blu-card {
-            background: #f8f9ff;
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .blu-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-
-        .blu-card.discovered {
-            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-            border: 2px solid #ff9800;
-        }
-
-        .blu-title {
-            color: #1565c0;
-            font-size: 1.3em;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .blu-description {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
-
-        .easter-egg-hint {
-            background: #e8f5e8;
-            color: #2e7d32;
-            padding: 8px 12px;
-            border-radius: 15px;
-            font-size: 0.8em;
-            margin-top: 10px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .blu-card:hover .easter-egg-hint {
-            opacity: 1;
-        }
-
-        .download-btn {
-            background: #4caf50;
+            text-decoration: none;
             color: white;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9em;
-            margin: 5px;
-            transition: all 0.3s ease;
         }
 
-        .download-btn:hover {
-            background: #45a049;
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .header-phone {
+            color: #ffeb3b;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 2px solid #ffeb3b;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .header-phone:hover {
+            background: #ffeb3b;
+            color: #1565c0;
             transform: translateY(-2px);
         }
 
-        /* SECRET ACHIEVEMENT POPUP */
-        .achievement {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4);
-            transform: translateX(400px);
-            transition: transform 0.5s ease;
-            z-index: 10000;
-            max-width: 300px;
-        }
-
-        .achievement.show {
-            transform: translateX(0);
-        }
-
-        .achievement-title {
-            font-weight: 700;
-            margin-bottom: 5px;
-            font-size: 16px;
-        }
-
-        .achievement-desc {
-            font-size: 13px;
+        .easter-egg-link {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-size: 0.9em;
             opacity: 0.9;
-        }
-
-        /* TIMEZONE-BASED STYLES */
-        .party-mode {
-            background: linear-gradient(135deg, #e91e63 0%, #9c27b0 50%, #673ab7 100%);
-            animation: party-background 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes party-background {
-            0% { background: linear-gradient(135deg, #e91e63 0%, #9c27b0 50%, #673ab7 100%); }
-            25% { background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffd700 100%); }
-            50% { background: linear-gradient(135deg, #4caf50 0%, #8bc34a 50%, #cddc39 100%); }
-            75% { background: linear-gradient(135deg, #2196f3 0%, #03a9f4 50%, #00bcd4 100%); }
-            100% { background: linear-gradient(135deg, #e91e63 0%, #9c27b0 50%, #673ab7 100%); }
-        }
-
-        .dawn-mode {
-            background: linear-gradient(135deg, #ffeb3b 0%, #ffc107 50%, #ff9800 100%);
-        }
-
-        .sunset-mode {
-            background: linear-gradient(135deg, #ff5722 0%, #e91e63 50%, #9c27b0 100%);
-        }
-
-        /* SPECIAL BLU VARIATIONS */
-        
-        /* Timezone Blu Styles */
-        .blu-timezone {
-            width: 200px;
-            height: 240px;
-            margin: 0 auto 20px auto;
-            position: relative;
-            transition: all 0.5s ease;
-        }
-
-        /* Party Mode Blu */
-        .party-blu .hare-body {
-            width: 80px;
-            height: 110px;
-            background: linear-gradient(135deg, #e91e63 0%, #9c27b0 100%);
-            border-radius: 40px 40px 25px 25px;
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: inset 0 -8px 15px rgba(0,0,0,0.1);
-            animation: party-colors 2s ease-in-out infinite alternate;
-        }
-
-        .party-blu .hare-head {
-            width: 70px;
-            height: 65px;
-            background: linear-gradient(135deg, #ff6b35 0%, #ffd700 100%);
-            border-radius: 35px 35px 30px 30px;
-            position: absolute;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: inset 0 -4px 12px rgba(0,0,0,0.1);
-            animation: party-colors 2s ease-in-out infinite alternate 0.5s;
-        }
-
-        @keyframes party-colors {
-            0% { filter: hue-rotate(0deg) saturate(1.2) brightness(1.1); }
-            25% { filter: hue-rotate(90deg) saturate(1.3) brightness(1.2); }
-            50% { filter: hue-rotate(180deg) saturate(1.4) brightness(1.3); }
-            75% { filter: hue-rotate(270deg) saturate(1.3) brightness(1.2); }
-            100% { filter: hue-rotate(360deg) saturate(1.2) brightness(1.1); }
-        }
-
-        .party-blu .arm {
-            animation: party-dance 1s ease-in-out infinite alternate !important;
-        }
-
-        .party-blu .arm-left {
-            animation: party-dance-left 0.8s ease-in-out infinite !important;
-        }
-
-        .party-blu .arm-right {
-            animation: party-dance-right 0.8s ease-in-out infinite 0.2s !important;
-        }
-
-        @keyframes party-dance {
-            0% { transform: rotate(-45deg) scale(1); }
-            50% { transform: rotate(45deg) scale(1.1); }
-            100% { transform: rotate(-30deg) scale(1); }
-        }
-
-        @keyframes party-dance-left {
-            0% { transform: rotate(-60deg); }
-            25% { transform: rotate(-20deg); }
-            50% { transform: rotate(-50deg); }
-            75% { transform: rotate(-10deg); }
-            100% { transform: rotate(-40deg); }
-        }
-
-        @keyframes party-dance-right {
-            0% { transform: rotate(60deg); }
-            25% { transform: rotate(20deg); }
-            50% { transform: rotate(50deg); }
-            75% { transform: rotate(10deg); }
-            100% { transform: rotate(40deg); }
-        }
-
-        /* Dawn Mode Blu */
-        .dawn-blu .hare-body {
-            width: 80px;
-            height: 110px;
-            background: linear-gradient(135deg, #ffb74d 0%, #ff9800 100%);
-            border-radius: 40px 40px 25px 25px;
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: inset 0 -8px 15px rgba(0,0,0,0.1);
-        }
-
-        .dawn-blu .hare-head {
-            width: 70px;
-            height: 65px;
-            background: linear-gradient(135deg, #ffcc02 0%, #ffb300 100%);
-            border-radius: 35px 35px 30px 30px;
-            position: absolute;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: inset 0 -4px 12px rgba(0,0,0,0.1);
-        }
-
-        /* Standard/Day Blu - using original website colors */
-        .day-blu .hare-body {
-            width: 80px;
-            height: 110px;
-            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
-            border-radius: 40px 40px 25px 25px;
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: inset 0 -8px 15px rgba(0,0,0,0.1);
-        }
-
-        .day-blu .hare-head {
-            width: 70px;
-            height: 65px;
-            background: linear-gradient(135deg, #64b5f6 0%, #2196f3 100%);
-            border-radius: 35px 35px 30px 30px;
-            position: absolute;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: inset 0 -4px 12px rgba(0,0,0,0.1);
-        }
-
-        /* Common Blu parts */
-        .blu-timezone .ear {
-            width: 18px;
-            height: 45px;
-            background: linear-gradient(135deg, #90caf9 0%, #42a5f5 100%);
-            border-radius: 9px 9px 4px 4px;
-            position: absolute;
-            top: 8px;
-        }
-
-        .blu-timezone .ear-left { left: 15px; transform: rotate(-15deg); }
-        .blu-timezone .ear-right { right: 15px; transform: rotate(15deg); }
-
-        .blu-timezone .ear-inner {
-            width: 9px;
-            height: 25px;
-            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
-            border-radius: 4px;
-            position: absolute;
-            top: 6px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .blu-timezone .eye {
-            width: 12px;
-            height: 15px;
-            background: white;
-            border-radius: 50%;
-            position: absolute;
-            top: 25px;
-        }
-
-        .blu-timezone .eye-left { left: 18px; }
-        .blu-timezone .eye-right { right: 18px; }
-
-        .blu-timezone .pupil {
-            width: 6px;
-            height: 8px;
-            background: #1565c0;
-            border-radius: 50%;
-            position: absolute;
-            top: 4px;
-            left: 3px;
-            transition: all 0.1s ease;
-        }
-
-        .blu-timezone .nose {
-            width: 6px;
-            height: 4px;
-            background: #f48fb1;
-            border-radius: 50%;
-            position: absolute;
-            top: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .blu-timezone .arm {
-            width: 25px;
-            height: 60px;
-            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            transition: all 0.3s;
+            padding: 0.5rem;
             border-radius: 15px;
-            position: absolute;
-            top: 85px;
-            transition: all 0.3s ease;
         }
 
-        .blu-timezone .arm-left { 
-            left: 55px; 
-            transform: rotate(-30deg);
-        }
-        .blu-timezone .arm-right { 
-            right: 55px; 
-            transform: rotate(30deg);
-        }
-
-        .blu-timezone .foot {
-            width: 22px;
-            height: 30px;
-            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
-            border-radius: 11px 11px 6px 6px;
-            position: absolute;
-            bottom: 20px;
-        }
-
-        .blu-timezone .foot-left { left: 75px; }
-        .blu-timezone .foot-right { right: 75px; }
-
-        .blu-timezone .tail {
-            width: 18px;
-            height: 18px;
-            background: linear-gradient(135deg, #90caf9 0%, #64b5f6 100%);
-            border-radius: 50%;
-            position: absolute;
-            bottom: 85px;
-            right: 60px;
-        }
-
-        /* SUPER SPECIAL EASTER EGG STYLES */
-        
-        /* Rainbow Blu (Konami Mode) */
-        @keyframes rainbow-cycle {
-            0% { filter: hue-rotate(0deg) saturate(1.5) brightness(1.2); }
-            25% { filter: hue-rotate(90deg) saturate(1.5) brightness(1.2); }
-            50% { filter: hue-rotate(180deg) saturate(1.5) brightness(1.2); }
-            75% { filter: hue-rotate(270deg) saturate(1.5) brightness(1.2); }
-            100% { filter: hue-rotate(360deg) saturate(1.5) brightness(1.2); }
-        }
-
-        @keyframes super-bounce {
-            0%, 100% { transform: translateY(0px) scale(1) rotate(0deg); }
-            25% { transform: translateY(-15px) scale(1.1) rotate(5deg); }
-            50% { transform: translateY(-25px) scale(1.2) rotate(0deg); }
-            75% { transform: translateY(-15px) scale(1.1) rotate(-5deg); }
-        }
-
-        @keyframes party-arms {
-            0% { transform: rotate(-60deg); }
-            25% { transform: rotate(60deg); }
-            50% { transform: rotate(-45deg); }
-            75% { transform: rotate(45deg); }
-            100% { transform: rotate(-60deg); }
-        }
-
-        .konami-mode {
-            animation: super-bounce 1s ease-in-out infinite, rainbow-cycle 2s linear infinite;
-        }
-
-        .konami-mode .arm {
-            animation: party-arms 0.5s ease-in-out infinite;
-        }
-
-        /* Golden Blu (Rare Event) */
-        .golden-blu {
-            filter: sepia(1) saturate(3) hue-rotate(35deg) brightness(1.3);
-            animation: golden-glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes golden-glow {
-            0% { box-shadow: 0 0 10px #ffd700; }
-            100% { box-shadow: 0 0 30px #ffd700, 0 0 40px #ffd700; }
-        }
-
-        /* Hacker Blu (Dev Tools Open) */
-        .hacker-blu {
-            filter: invert(1) hue-rotate(120deg);
-            animation: matrix-effect 3s ease-in-out infinite;
-        }
-
-        @keyframes matrix-effect {
-            0%, 100% { text-shadow: 0 0 5px #00ff00; }
-            50% { text-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00; }
-        }
-
-        /* PARTY MODE SPECIAL EFFECTS */
-        .disco-ball {
-            position: fixed;
-            top: 50px;
-            right: 50px;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(45deg, #c0c0c0 25%, transparent 25%), 
-                        linear-gradient(-45deg, #c0c0c0 25%, transparent 25%), 
-                        linear-gradient(45deg, transparent 75%, #c0c0c0 75%), 
-                        linear-gradient(-45deg, transparent 75%, #c0c0c0 75%);
-            background-size: 8px 8px;
-            background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
-            border-radius: 50%;
-            animation: disco-spin 3s linear infinite;
-            box-shadow: 0 0 20px rgba(255,255,255,0.5);
-            z-index: 1000;
-        }
-
-        @keyframes disco-spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .party-lights {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .light-beam {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: light-sweep 4s ease-in-out infinite;
-        }
-
-        .light-beam:nth-child(1) {
-            background: radial-gradient(circle, #ff6b35 0%, transparent 70%);
-            top: 10%;
-            left: 20%;
-            animation-delay: 0s;
-        }
-
-        .light-beam:nth-child(2) {
-            background: radial-gradient(circle, #e91e63 0%, transparent 70%);
-            top: 30%;
-            right: 15%;
-            animation-delay: 1s;
-        }
-
-        .light-beam:nth-child(3) {
-            background: radial-gradient(circle, #9c27b0 0%, transparent 70%);
-            bottom: 20%;
-            left: 30%;
-            animation-delay: 2s;
-        }
-
-        .light-beam:nth-child(4) {
-            background: radial-gradient(circle, #2196f3 0%, transparent 70%);
-            bottom: 40%;
-            right: 25%;
-            animation-delay: 3s;
-        }
-
-        @keyframes light-sweep {
-            0%, 100% { 
-                transform: scale(0.5) rotate(0deg);
-                opacity: 0.2;
-            }
-            50% { 
-                transform: scale(1.5) rotate(180deg);
-                opacity: 0.6;
-            }
-        }
-
-        .party-confetti {
-            position: fixed;
-            top: -10px;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 1000;
-        }
-
-        .confetti-piece {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: #ffd700;
-            animation: confetti-fall 6s linear infinite;
-        }
-
-        .confetti-piece:nth-child(odd) {
-            background: #ff6b35;
-            animation-duration: 5s;
-        }
-
-        .confetti-piece:nth-child(3n) {
-            background: #e91e63;
-            animation-duration: 7s;
-        }
-
-        .confetti-piece:nth-child(4n) {
-            background: #9c27b0;
-            animation-duration: 4s;
-        }
-
-        .confetti-piece:nth-child(5n) {
-            background: #2196f3;
-            animation-duration: 8s;
-        }
-
-        @keyframes confetti-fall {
-            0% {
-                transform: translateY(-100vh) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(720deg);
-                opacity: 0;
-            }
-        }
-
-        /* Weather-based styles */
-        .rainy-blu {
-            filter: hue-rotate(200deg) saturate(0.8);
-        }
-
-        .sunny-blu {
-            filter: brightness(1.2) saturate(1.3);
-        }
-
-        /* STANDARD BLU VARIATIONS (keeping original designs) */
-        .blue-hare {
-            width: 300px;
-            height: 350px;
-            margin: 0 auto 20px;
-            position: relative;
-            display: inline-block;
-            animation: gentle-bounce 3s ease-in-out infinite;
-            transform: scale(0.7);
-            cursor: pointer;
-        }
-
-        .hare-body {
-            width: 120px;
-            height: 160px;
-            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
-            border-radius: 60px 60px 40px 40px;
-            position: absolute;
-            bottom: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
-        }
-
-        .hare-head {
-            width: 100px;
-            height: 90px;
-            background: linear-gradient(135deg, #64b5f6 0%, #2196f3 100%);
-            border-radius: 50px 50px 40px 40px;
-            position: absolute;
-            top: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: inset 0 -5px 15px rgba(0,0,0,0.1);
-        }
-
-        .ear {
-            width: 25px;
-            height: 60px;
-            background: linear-gradient(135deg, #90caf9 0%, #42a5f5 100%);
-            border-radius: 12px 12px 5px 5px;
-            position: absolute;
-            top: 10px;
-            box-shadow: inset 0 -3px 8px rgba(0,0,0,0.1);
-        }
-
-        .ear-left { left: 20px; transform: rotate(-15deg); }
-        .ear-right { right: 20px; transform: rotate(15deg); }
-
-        .ear-inner {
-            width: 12px;
-            height: 35px;
-            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
-            border-radius: 6px;
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .eye {
-            width: 16px;
-            height: 20px;
-            background: white;
-            border-radius: 50%;
-            position: absolute;
-            top: 35px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .eye-left { left: 25px; }
-        .eye-right { right: 25px; }
-
-        .pupil {
-            width: 8px;
-            height: 10px;
-            background: #1565c0;
-            border-radius: 50%;
-            position: absolute;
-            top: 5px;
-            left: 4px;
-            animation: blink 4s ease-in-out infinite;
-            transition: all 0.1s ease;
-        }
-
-        .nose {
-            width: 8px;
-            height: 6px;
-            background: #f48fb1;
-            border-radius: 50%;
-            position: absolute;
-            top: 55px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .arm {
-            width: 35px;
-            height: 80px;
-            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
-            border-radius: 20px;
-            position: absolute;
-            top: 120px;
-            box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
-        }
-
-        .arm-left { 
-            left: 80px; 
-            transform: rotate(-20deg);
-            animation: wave 2s ease-in-out infinite;
-        }
-        .arm-right { 
-            right: 80px; 
-            transform: rotate(20deg);
-        }
-
-        .device {
-            width: 40px;
-            height: 60px;
-            background: linear-gradient(135deg, #424242 0%, #616161 100%);
-            border-radius: 8px;
-            position: absolute;
-            top: 180px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        .device-screen {
-            width: 32px;
-            height: 45px;
-            background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
-            border-radius: 4px;
-            position: absolute;
-            top: 8px;
-            left: 4px;
-            animation: screen-glow 2s ease-in-out infinite alternate;
-        }
-
-        .foot {
-            width: 30px;
-            height: 40px;
-            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
-            border-radius: 15px 15px 8px 8px;
-            position: absolute;
-            bottom: 30px;
-            box-shadow: inset 0 -3px 8px rgba(0,0,0,0.1);
-        }
-
-        .foot-left { left: 115px; }
-        .foot-right { right: 115px; }
-
-        .tail {
-            width: 25px;
-            height: 25px;
-            background: linear-gradient(135deg, #90caf9 0%, #64b5f6 100%);
-            border-radius: 50%;
-            position: absolute;
-            bottom: 120px;
-            right: 85px;
-            box-shadow: inset 0 -2px 6px rgba(0,0,0,0.1);
-        }
-
-        /* ANIMATIONS */
-        @keyframes gentle-bounce {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes wave {
-            0%, 100% { transform: rotate(-20deg); }
-            50% { transform: rotate(-35deg); }
-        }
-
-        @keyframes blink {
-            0%, 90%, 100% { height: 10px; top: 5px; }
-            95% { height: 1px; top: 14px; }
-        }
-
-        @keyframes screen-glow {
-            0% { box-shadow: inset 0 0 10px rgba(255,255,255,0.3); }
-            100% { box-shadow: inset 0 0 20px rgba(255,255,255,0.6); }
-        }
-
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 768px) {
-            .collection-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-                padding: 20px;
-            }
-            
-            .blue-hare, .blu-timezone {
-                transform: scale(0.6);
-            }
-
-            .easter-egg-counter, .achievement {
-                position: relative;
-                top: auto;
-                right: auto;
-                margin: 10px auto;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .collection-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* SECRET STYLES FOR SPECIAL EVENTS */
-        .celebration-mode {
-            animation: celebration-bounce 0.8s ease-in-out infinite;
-        }
-
-        @keyframes celebration-bounce {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            25% { transform: scale(1.1) rotate(5deg); }
-            50% { transform: scale(1.15) rotate(0deg); }
-            75% { transform: scale(1.1) rotate(-5deg); }
-        }
-
-        .tech-tip-bubble {
-            position: absolute;
-            top: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #4caf50;
+        .easter-egg-link:hover {
+            opacity: 1;
+            background: rgba(255,235,59,0.1);
             color: white;
-            padding: 10px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            max-width: 200px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 100;
         }
 
-        .tech-tip-bubble:after {
-            content: '';
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding: 0.75rem 0;
+            font-size: 1.1em;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover, .nav-links a:focus {
+            opacity: 0.8;
+            outline: 2px solid #ffeb3b;
+            outline-offset: 2px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: 2px solid white;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 0.75rem;
+            border-radius: 8px;
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        .mobile-nav {
+            display: none;
             position: absolute;
             top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border: 5px solid transparent;
-            border-top-color: #4caf50;
+            left: 0;
+            width: 100%;
+            background: #1565c0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .show-tip .tech-tip-bubble {
-            opacity: 1;
+        .mobile-nav.active {
+            display: block;
         }
 
-        /* Konami sequence indicator */
-        .konami-progress {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0,0,0,0.8);
+        .mobile-nav ul {
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 1.5rem 2rem;
             color: white;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-family: monospace;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 10000;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 1.2em;
+            min-height: 44px;
         }
 
-        .konami-progress.show {
-            opacity: 1;
-        }
-    </style>
-</head>
-<body>
-    <!-- Magic particle background -->
-    <div class="magic-particles" id="magicParticles"></div>
-    
-    <!-- Konami code progress -->
-    <div class="konami-progress" id="konamiProgress"></div>
-    
-    <!-- Achievement popup -->
-    <div class="achievement" id="achievement">
-        <div class="achievement-title" id="achievementTitle"></div>
-        <div class="achievement-desc" id="achievementDesc"></div>
-    </div>
-
-    <div class="container">
-        <div class="header">
-            <div class="easter-egg-counter">
-                🥚 Easter Eggs Found: <span id="eggCount">0</span>/25
-            </div>
-            <h1>Blu Mascot - Ultimate Easter Egg Collection 🎊</h1>
-            <p>All poses and variations of Blu for Golden Connection + Secret Features!</p>
-            <div class="time-display" id="timeDisplay">
-                Loading timezone magic... ⏰
-            </div>
-        </div>
-
-        <div class="collection-grid">
-            <!-- Timezone-Aware Blu -->
-            <div class="blu-card" id="timezoneCard">
-                <div class="blu-title">🌍 Timezone-Aware Blu</div>
-                <div class="blu-timezone" id="timezoneBlu">
-                    <div class="ear ear-left"><div class="ear-inner"></div></div>
-                    <div class="ear ear-right"><div class="ear-inner"></div></div>
-                    <div class="hare-head">
-                        <div class="eye eye-left"><div class="pupil" id="pupilLeft"></div></div>
-                        <div class="eye eye-right"><div class="pupil" id="pupilRight"></div></div>
-                        <div class="nose"></div>
-                    </div>
-                    <div class="hare-body"></div>
-                    <div class="arm arm-left" id="leftArm"></div>
-                    <div class="arm arm-right" id="rightArm"></div>
-                    <div class="foot foot-left"></div>
-                    <div class="foot foot-right"></div>
-                    <div class="tail"></div>
-                    
-                    <!-- Tech tip bubble -->
-                    <div class="tech-tip-bubble" id="techTip">
-                        💡 Pro Tip: Press Ctrl and + to make text bigger!
-                    </div>
-                </div>
-                <div class="blu-description" id="timezoneDescription">
-                    This Blu changes throughout the day based on your timezone! Watch him transform from dawn to night.
-                </div>
-                <div class="easter-egg-hint">
-                    🥚 Hover for 3+ seconds for a tech tip! Move mouse to make eyes follow!
-                </div>
-                <button class="download-btn" onclick="downloadBlu('timezone')">Download HTML</button>
-                <button class="download-btn" onclick="downloadBluSVG('timezone')">Download SVG</button>
-            </div>
-
-            <!-- Konami Mode Blu -->
-            <div class="blu-card" id="konamiCard">
-                <div class="blu-title">🎮 Konami Code Blu</div>
-                <div class="blue-hare" id="konamiBlu" style="transform: scale(0.7);">
-                    <div class="ear ear-left"><div class="ear-inner"></div></div>
-                    <div class="ear ear-right"><div class="ear-inner"></div></div>
-                    <div class="hare-head">
-                        <div class="eye eye-left"><div class="pupil"></div></div>
-                        <div class="eye eye-right"><div class="pupil"></div></div>
-                        <div class="nose"></div>
-                    </div>
-                    <div class="hare-body"></div>
-                    <div class="arm arm-left"></div>
-                    <div class="arm arm-right"></div>
-                    <div class="device"><div class="device-screen"></div></div>
-                    <div class="foot foot-left"></div>
-                    <div class="foot foot-right"></div>
-                    <div class="tail"></div>
-                </div>
-                <div class="blu-description">
-                    Try the classic gaming cheat code while looking at this card! 
-                </div>
-                <div class="easter-egg-hint">
-                    🥚 Type: ↑↑↓↓←→←→BA for SUPER BLU MODE!
-                </div>
-                <button class="download-btn" onclick="downloadBlu('konami')">Download HTML</button>
-            </div>
-
-            <!-- Golden Rare Blu -->
-            <div class="blu-card" id="goldenCard">
-                <div class="blu-title">✨ Golden Rare Blu</div>
-                <div class="blue-hare" id="goldenBlu" style="transform: scale(0.7);">
-                    <div class="ear ear-left"><div class="ear-inner"></div></div>
-                    <div class="ear ear-right"><div class="ear-inner"></div></div>
-                    <div class="hare-head">
-                        <div class="eye eye-left"><div class="pupil"></div></div>
-                        <div class="eye eye-right"><div class="pupil"></div></div>
-                        <div class="nose"></div>
-                    </div>
-                    <div class="hare-body"></div>
-                    <div class="arm arm-left"></div>
-                    <div class="arm arm-right"></div>
-                    <div class="device"><div class="device-screen"></div></div>
-                    <div class="foot foot-left"></div>
-                    <div class="foot foot-right"></div>
-                    <div class="tail"></div>
-                </div>
-                <div class="blu-description">
-                    A legendary golden Blu! This appears randomly for lucky visitors.
-                </div>
-                <div class="easter-egg-hint">
-                    🥚 Refresh the page enough times... you might get lucky! 🍀
-                </div>
-                <button class="download-btn" onclick="downloadBlu('golden')">Download HTML</button>
-            </div>
-
-            <!-- Interactive Teaching Blu -->
-            <div class="blu-card" id="teachingCard">
-                <div class="blu-title">👨‍🏫 Interactive Teaching Blu</div>
-                <div class="blue-hare" id="teachingBlu" style="transform: scale(0.7);">
-                    <div class="ear ear-left"><div class="ear-inner"></div></div>
-                    <div class="ear ear-right"><div class="ear-inner"></div></div>
-                    <div class="hare-head">
-                        <div class="eye eye-left"><div class="pupil"></div></div>
-                        <div class="eye eye-right"><div class="pupil"></div></div>
-                        <div class="nose"></div>
-                    </div>
-                    <div class="hare-body"></div>
-                    <div class="arm arm-left"></div>
-                    <div class="arm arm-right" style="transform: rotate(-70deg);"></div>
-                    <div class="foot foot-left"></div>
-                    <div class="foot foot-right"></div>
-                    <div class="tail"></div>
-                </div>
-                <div class="blu-description">
-                    Teaching pose Blu with interactive gestures and responses.
-                </div>
-                <div class="easter-egg-hint">
-                    🥚 Double-click for celebration! Triple-click for tech facts!
-                </div>
-                <button class="download-btn" onclick="downloadBlu('teaching')">Download HTML</button>
-            </div>
-
-            <!-- Secret Sequence Blu -->
-            <div class="blu-card" id="secretCard">
-                <div class="blu-title">🔐 Secret Sequence Blu</div>
-                <div class="blue-hare" id="secretBlu" style="transform: scale(0.7);">
-                    <div class="ear ear-left" id="leftEar"><div class="ear-inner"></div></div>
-                    <div class="ear ear-right" id="rightEar"><div class="ear-inner"></div></div>
-                    <div class="hare-head">
-                        <div class="eye eye-left"><div class="pupil"></div></div>
-                        <div class="eye eye-right"><div class="pupil"></div></div>
-                        <div class="nose" id="bluNose"></div>
-                    </div>
-                    <div class="hare-body"></div>
-                    <div class="arm arm-left"></div>
-                    <div class="arm arm-right"></div>
-                    <div class="foot foot-left"></div>
-                    <div class="foot foot-right"></div>
-                    <div class="tail"></div>
-                </div>
-                <div class="blu-description">
-                    This Blu has a secret unlock sequence! Can you figure it out?
-                </div>
-                <div class="easter-egg-hint">
-                    🥚 Try clicking: Left Ear → Right Ear → Nose in sequence!
-                </div>
-                <button class="download-btn" onclick="downloadBlu('secret')">Download HTML</button>
-            </div>
-
-            <!-- Developer Mode Blu -->
-            <div class="blu-card" id="devCard">
-                <div class="blu-title">💻 Developer Mode Blu</div>
-                <div class="blue-hare" id="devBlu" style="transform: scale(0.7);">
-                    <div class="ear ear-left"><div class="ear-inner"></div></div>
-                    <div class="ear ear-right"><div class="ear-inner"></div></div>
-                    <div class="hare-head">
-                        <div class="eye eye-left"><div class="pupil"></div></div>
-                        <div class="eye eye-right"><div class="pupil"></div></div>
-                        <div class="nose"></div>
-                    </div>
-                    <div class="hare-body"></div>
-                    <div class="arm arm-left"></div>
-                    <div class="arm arm-right"></div>
-                    <div class="device"><div class="device-screen"></div></div>
-                    <div class="foot foot-left"></div>
-                    <div class="foot foot-right"></div>
-                    <div class="tail"></div>
-                </div>
-                <div class="blu-description">
-                    This Blu transforms when developer tools are detected!
-                </div>
-                <div class="easter-egg-hint">
-                    🥚 Open DevTools (F12) to see Hacker Blu! 👨‍💻
-                </div>
-                <button class="download-btn" onclick="downloadBlu('developer')">Download HTML</button>
-            </div>
-
-            <!-- Battery Aware Blu (Mobile) -->
-            <div class="blu-card" id="batteryCard">
-                <div class="blu-title">🔋 Battery-Aware Blu</div>
-                <div class="blue-hare" id="batteryBlu" style="transform: scale(0.7);">
-                    <div class="ear ear-left"><div class="ear-inner"></div></div>
-                    <div class="ear ear-right"><div class="ear-inner"></div></div>
-                    <div class="hare-head">
-                        <div class="eye eye-left"><div class="pupil"></div></div>
-                        <div class="eye eye-right"><div class="pupil"></div></div>
-                        <div class="nose"></div>
-                    </div>
-                    <div class="hare-body"></div>
-                    <div class="arm arm-left"></div>
-                    <div class="arm arm-right"></div>
-                    <div class="device"><div class="device-screen"></div></div>
-                    <div class="foot foot-left"></div>
-                    <div class="foot foot-right"></div>
-                    <div class="tail"></div>
-                </div>
-                <div class="blu-description" id="batteryDescription">
-                    On mobile devices, Blu's energy matches your battery level!
-                </div>
-                <div class="easter-egg-hint">
-                    🥚 View on mobile - Blu gets tired as your battery drains! 📱
-                </div>
-                <button class="download-btn" onclick="downloadBlu('battery')">Download HTML</button>
-            </div>
-
-            <!-- Scroll Progress Blu -->
-            <div class="blu-card" id="scrollCard">
-                <div class="blu-title">📜 Scroll Progress Blu</div>
-                <div class="blue-hare" id="scrollBlu" style="transform: scale(0.7);">
-                    <div class="ear ear-left"><div class="ear-inner"></div></div>
-                    <div class="ear ear-right"><div class="ear-inner"></div></div>
-                    <div class="hare-head">
-                        <div class="eye eye-left"><div class="pupil"></div></div>
-                        <div class="eye eye-right"><div class="pupil"></div></div>
-                        <div class="nose"></div>
-                    </div>
-                    <div class="hare-body"></div>
-                    <div class="arm arm-left" id="scrollArmLeft"></div>
-                    <div class="arm arm-right" id="scrollArmRight"></div>
-                    <div class="foot foot-left"></div>
-                    <div class="foot foot-right"></div>
-                    <div class="tail"></div>
-                </div>
-                <div class="blu-description">
-                    Blu's pose changes based on how far you've scrolled down the page!
-                </div>
-                <div class="easter-egg-hint">
-                    🥚 Scroll up and down to see Blu react to your progress! 📊
-                </div>
-                <button class="download-btn" onclick="downloadBlu('scroll')">Download HTML</button>
-            </div>
-        </div>
-
-        <!-- Hidden Achievement Section -->
-        <div style="padding: 40px; text-align: center; background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);">
-            <h2 style="color: #7b1fa2; margin-bottom: 20px;">🏆 Easter Egg Master Status</h2>
-            <div id="masterStatus" style="font-size: 18px; color: #4a148c;">
-                Find all 25+ Easter eggs to unlock the ultimate secret! 🎊
-            </div>
-            <div style="margin-top: 20px; padding: 20px; background: rgba(255,255,255,0.8); border-radius: 15px; font-size: 14px; color: #666;">
-                <strong>Hint:</strong> Try different times of day, browser actions, mobile vs desktop, key combinations, click sequences, and even open your developer tools! 
-                Some Easter eggs are time-based, some are random, and some require special actions. Happy hunting! 🕵️‍♀️
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // EASTER EGG SYSTEM
-        let discoveredEggs = new Set();
-        let konamiSequence = [];
-        let secretSequence = [];
-        let longHoverTimer = null;
-        let lastMouseMove = Date.now();
-        let clickCount = 0;
-        let clickTimer = null;
-
-        // TIMEZONE AND TIME MANAGEMENT
-        function updateTimezoneDisplay() {
-            const now = new Date();
-            const hour = now.getHours();
-            const timeStr = now.toLocaleTimeString();
-            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            
-            let timeOfDay, greeting, bluMode;
-            
-            if (hour >= 5 && hour < 8) {
-                timeOfDay = "🌅 Dawn";
-                greeting = "Rise and shine! Early bird tech sessions available!";
-                bluMode = "dawn";
-                document.body.className = "dawn-mode";
-            } else if (hour >= 8 && hour < 17) {
-                timeOfDay = "☀️ Day";
-                greeting = "Perfect time for tech learning!";
-                bluMode = "day";
-                document.body.className = "";
-            } else if (hour >= 17 && hour < 20) {
-                timeOfDay = "🌅 Sunset";
-                greeting = "Winding down with some evening tech tips!";
-                bluMode = "sunset";
-                document.body.className = "sunset-mode";
-            } else {
-                timeOfDay = "🎉 Party Time";
-                greeting = "After hours = PARTY TIME! Blu is dancing the night away!";
-                bluMode = "party";
-                document.body.className = "party-mode";
-            }
-            
-            document.getElementById('timeDisplay').innerHTML = `
-                ${timeOfDay} • ${timeStr}<br>
-                <small style="opacity: 0.8;">${timezone} • ${greeting}</small>
-            `;
-            
-            // Update timezone Blu appearance
-            const timezoneBlu = document.getElementById('timezoneBlu');
-            timezoneBlu.className = `blu-timezone ${bluMode}-blu`;
-            
-            document.getElementById('timezoneDescription').textContent = 
-                `Currently showing ${timeOfDay.toLowerCase()} mode for ${timezone}. ${greeting}`;
+        .mobile-nav a:hover {
+            background: rgba(255,255,255,0.1);
         }
 
-        // MOUSE TRACKING FOR EYES
-        function setupEyeTracking() {
-            document.addEventListener('mousemove', (e) => {
-                const pupils = document.querySelectorAll('.pupil');
-                pupils.forEach(pupil => {
-                    const eye = pupil.parentElement;
-                    const rect = eye.getBoundingClientRect();
-                    const eyeCenterX = rect.left + rect.width / 2;
-                    const eyeCenterY = rect.top + rect.height / 2;
-                    
-                    const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
-                    const distance = Math.min(3, Math.sqrt(Math.pow(e.clientX - eyeCenterX, 2) + Math.pow(e.clientY - eyeCenterY, 2)) * 0.01);
-                    
-                    const x = Math.cos(angle) * distance;
-                    const y = Math.sin(angle) * distance;
-                    
-                    pupil.style.transform = `translate(${x}px, ${y}px)`;
-                });
-                
-                lastMouseMove = Date.now();
-            });
-        }
-
-        // KONAMI CODE DETECTION
-        const konamiCode = [
-            'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
-            'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
-            'KeyB', 'KeyA'
-        ];
-
-        document.addEventListener('keydown', (e) => {
-            konamiSequence.push(e.code);
-            if (konamiSequence.length > konamiCode.length) {
-                konamiSequence.shift();
-            }
-            
-            // Show progress
-            const progress = document.getElementById('konamiProgress');
-            const progressText = konamiSequence.map(key => 
-                key.replace('Arrow', '').replace('Key', '')).join(' ');
-            progress.textContent = `Konami: ${progressText}`;
-            progress.classList.add('show');
-            
-            setTimeout(() => progress.classList.remove('show'), 2000);
-            
-            // Check if sequence matches
-            if (JSON.stringify(konamiSequence) === JSON.stringify(konamiCode)) {
-                activateKonamiMode();
-                konamiSequence = [];
-            }
-        });
-
-        function activateKonamiMode() {
-            const konamiBlu = document.getElementById('konamiBlu');
-            konamiBlu.classList.add('konami-mode');
-            
-            createMagicParticles();
-            showAchievement('🎮 KONAMI CODE MASTER!', 'You activated Super Blu mode! The legendary gaming code still works!');
-            discoverEgg('konami-code');
-            
-            // Add crown and sparkles
-            if (!konamiBlu.querySelector('.crown')) {
-                const crown = document.createElement('div');
-                crown.className = 'crown';
-                crown.style.cssText = `
-                    position: absolute; top: -15px; left: 35px; width: 30px; height: 15px;
-                    border: 2px solid #ffd700; border-bottom: none; border-radius: 15px 15px 0 0;
-                    background: linear-gradient(45deg, #ffd700, #ffeb3b);
-                    z-index: 10;
-                `;
-                konamiBlu.appendChild(crown);
-                
-                // Add gem on crown
-                const gem = document.createElement('div');
-                gem.style.cssText = `
-                    position: absolute; top: -3px; left: 12px; width: 6px; height: 6px;
-                    background: #00ffff; border-radius: 50%; box-shadow: 0 0 10px #00ffff;
-                `;
-                crown.appendChild(gem);
-            }
-            
-            setTimeout(() => {
-                konamiBlu.classList.remove('konami-mode');
-                const crown = konamiBlu.querySelector('.crown');
-                if (crown) crown.remove();
-            }, 10000);
-        }
-
-        // SECRET SEQUENCE (Left Ear → Right Ear → Nose)
-        function setupSecretSequence() {
-            const leftEar = document.getElementById('leftEar');
-            const rightEar = document.getElementById('rightEar');
-            const nose = document.getElementById('bluNose');
-            
-            [leftEar, rightEar, nose].forEach((element, index) => {
-                element.addEventListener('click', () => {
-                    const expectedSequence = ['leftEar', 'rightEar', 'bluNose'];
-                    
-                    if (element.id === expectedSequence[secretSequence.length]) {
-                        secretSequence.push(element.id);
-                        
-                        // Visual feedback
-                        element.style.transform += ' scale(1.2)';
-                        element.style.filter = 'brightness(1.5)';
-                        setTimeout(() => {
-                            element.style.transform = element.style.transform.replace(' scale(1.2)', '');
-                            element.style.filter = '';
-                        }, 200);
-                        
-                        if (secretSequence.length === 3) {
-                            unlockSecretMessage();
-                            secretSequence = [];
-                        }
-                    } else {
-                        secretSequence = [];
-                        // Wrong sequence feedback
-                        element.style.filter = 'hue-rotate(180deg)';
-                        setTimeout(() => element.style.filter = '', 300);
-                    }
-                });
-            });
-        }
-
-        function unlockSecretMessage() {
-            const secretBlu = document.getElementById('secretBlu');
-            secretBlu.style.animation = 'celebration-bounce 1s ease-in-out 3';
-            
-            showAchievement('🔐 SECRET UNLOCKED!', 'You discovered the hidden sequence! Left ear → Right ear → Nose!');
-            discoverEgg('secret-sequence');
-            
-            // Add secret message
-            const message = document.createElement('div');
-            message.style.cssText = `
-                position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
-                background: linear-gradient(45deg, #ff6b35, #ffd700); color: white;
-                padding: 8px 12px; border-radius: 15px; font-size: 10px; font-weight: bold;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 100;
-                animation: sparkle 2s ease-in-out infinite;
-            `;
-            message.textContent = '🎊 SECRET UNLOCKED! 🎊';
-            secretBlu.appendChild(message);
-            
-            setTimeout(() => message.remove(), 5000);
-        }
-
-        // GOLDEN BLU (Rare Random Event)
-        function checkForGoldenBlu() {
-            // 3% chance on page load, 1% chance every 30 seconds
-            const random = Math.random();
-            if (random < 0.03 || (random < 0.01 && Math.random() < 0.5)) {
-                const goldenBlu = document.getElementById('goldenBlu');
-                goldenBlu.classList.add('golden-blu');
-                
-                showAchievement('✨ GOLDEN BLU SPOTTED!', 'Legendary! You encountered the rare Golden Blu! This only happens to 3% of visitors!');
-                discoverEgg('golden-blu');
-                
-                // Add golden sparkles
-                for (let i = 0; i < 5; i++) {
-                    setTimeout(() => {
-                        const sparkle = document.createElement('div');
-                        sparkle.style.cssText = `
-                            position: absolute; top: ${Math.random() * 100}%; left: ${Math.random() * 100}%;
-                            width: 4px; height: 4px; background: #ffd700; border-radius: 50%;
-                            animation: sparkle 1s ease-out forwards; pointer-events: none;
-                        `;
-                        goldenBlu.appendChild(sparkle);
-                        setTimeout(() => sparkle.remove(), 1000);
-                    }, i * 200);
-                }
-            }
-        }
-
-        // DEVELOPER MODE DETECTION
-        function detectDevTools() {
-            let devtools = false;
-            const threshold = 160;
-            
-            setInterval(() => {
-                if (window.outerHeight - window.innerHeight > threshold || 
-                    window.outerWidth - window.innerWidth > threshold) {
-                    if (!devtools) {
-                        devtools = true;
-                        activateHackerMode();
-                    }
-                } else {
-                    if (devtools) {
-                        devtools = false;
-                        deactivateHackerMode();
-                    }
-                }
-            }, 500);
-        }
-
-        function activateHackerMode() {
-            const devBlu = document.getElementById('devBlu');
-            devBlu.classList.add('hacker-blu');
-            
-            showAchievement('💻 HACKER MODE!', 'Developer tools detected! Welcome, fellow coder! Blu has joined the dark side!');
-            discoverEgg('hacker-mode');
-            
-            // Add matrix effect text
-            const matrix = document.createElement('div');
-            matrix.style.cssText = `
-                position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-                background: rgba(0,0,0,0.8); color: #00ff00; font-family: monospace;
-                display: flex; align-items: center; justify-content: center;
-                font-size: 8px; z-index: 50; border-radius: inherit;
-            `;
-            matrix.textContent = '01001000 01100001 01100011 01101011 01100101 01110010';
-            devBlu.appendChild(matrix);
-        }
-
-        function deactivateHackerMode() {
-            const devBlu = document.getElementById('devBlu');
-            devBlu.classList.remove('hacker-blu');
-            const matrix = devBlu.querySelector('div[style*="background: rgba(0,0,0,0.8)"]');
-            if (matrix) matrix.remove();
-        }
-
-        // BATTERY LEVEL DETECTION (Mobile)
-        function setupBatteryMonitoring() {
-            if ('getBattery' in navigator) {
-                navigator.getBattery().then(battery => {
-                    updateBatteryBlu(battery.level);
-                    
-                    battery.addEventListener('levelchange', () => {
-                        updateBatteryBlu(battery.level);
-                    });
-                });
-            }
-        }
-
-        function updateBatteryBlu(level) {
-            const batteryBlu = document.getElementById('batteryBlu');
-            const description = document.getElementById('batteryDescription');
-            
-            if (level < 0.2) {
-                batteryBlu.classList.add('low-battery-blu');
-                description.textContent = `Battery: ${Math.round(level * 100)}% - Blu is getting tired! ⚡`;
-                
-                if (level < 0.1 && !discoveredEggs.has('low-battery')) {
-                    showAchievement('🔋 LOW BATTERY BLU!', 'Your battery is low and so is Blu\'s energy! Time to charge up!');
-                    discoverEgg('low-battery');
-                }
-            } else {
-                batteryBlu.classList.remove('low-battery-blu');
-                description.textContent = `Battery: ${Math.round(level * 100)}% - Blu is feeling energetic! 🔋`;
-            }
-        }
-
-        // SCROLL PROGRESS TRACKING
-        function setupScrollTracking() {
-            window.addEventListener('scroll', () => {
-                const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-                const scrollBlu = document.getElementById('scrollBlu');
-                const leftArm = document.getElementById('scrollArmLeft');
-                const rightArm = document.getElementById('scrollArmRight');
-                
-                // Change arm positions based on scroll
-                if (scrollPercent < 25) {
-                    leftArm.style.transform = 'rotate(-20deg)';
-                    rightArm.style.transform = 'rotate(20deg)';
-                } else if (scrollPercent < 50) {
-                    leftArm.style.transform = 'rotate(-35deg)';
-                    rightArm.style.transform = 'rotate(35deg)';
-                } else if (scrollPercent < 75) {
-                    leftArm.style.transform = 'rotate(-50deg)';
-                    rightArm.style.transform = 'rotate(50deg)';
-                } else {
-                    leftArm.style.transform = 'rotate(-60deg)';
-                    rightArm.style.transform = 'rotate(60deg)';
-                    
-                    if (!discoveredEggs.has('scroll-master')) {
-                        showAchievement('📜 SCROLL MASTER!', 'You scrolled all the way down! Blu is celebrating your dedication!');
-                        discoverEgg('scroll-master');
-                    }
-                }
-            });
-        }
-
-        // LONG HOVER TECH TIPS
-        function setupLongHover() {
-            const timezoneBlu = document.getElementById('timezoneBlu');
-            
-            timezoneBlu.addEventListener('mouseenter', () => {
-                longHoverTimer = setTimeout(() => {
-                    timezoneBlu.classList.add('show-tip');
-                    
-                    if (!discoveredEggs.has('tech-tip')) {
-                        showAchievement('💡 TECH TIP MASTER!', 'You discovered Blu\'s helpful tech tips! Hover for 3 seconds to learn!');
-                        discoverEgg('tech-tip');
-                    }
-                }, 3000);
-            });
-            
-            timezoneBlu.addEventListener('mouseleave', () => {
-                clearTimeout(longHoverTimer);
-                timezoneBlu.classList.remove('show-tip');
-            });
-        }
-
-        // MULTI-CLICK DETECTION
-        function setupMultiClick() {
-            const teachingBlu = document.getElementById('teachingBlu');
-            
-            teachingBlu.addEventListener('click', () => {
-                clickCount++;
-                clearTimeout(clickTimer);
-                
-                clickTimer = setTimeout(() => {
-                    if (clickCount === 2) {
-                        // Double click
-                        teachingBlu.classList.add('celebration-mode');
-                        setTimeout(() => teachingBlu.classList.remove('celebration-mode'), 2000);
-                        
-                        if (!discoveredEggs.has('double-click')) {
-                            showAchievement('🎉 DOUBLE CLICK!', 'Blu loves your enthusiasm! Double-click celebration activated!');
-                            discoverEgg('double-click');
-                        }
-                    } else if (clickCount === 3) {
-                        // Triple click
-                        const techFacts = [
-                            "Did you know? The first computer mouse was made of wood!",
-                            "Fun fact: Email existed before the World Wide Web!",
-                            "Cool! The first webcam was used to watch a coffee pot!",
-                            "Amazing: More people have cell phones than toilets!",
-                            "Wow! The first iPhone had less computing power than a calculator!"
-                        ];
-                        
-                        const fact = techFacts[Math.floor(Math.random() * techFacts.length)];
-                        showAchievement('🤓 TECH FACT!', fact);
-                        discoverEgg('triple-click');
-                    }
-                    clickCount = 0;
-                }, 600);
-            });
-        }
-
-        // IDLE ANIMATION
-        function setupIdleAnimation() {
-            setInterval(() => {
-                if (Date.now() - lastMouseMove > 30000) { // 30 seconds of no mouse movement
-                    const idleBlu = document.querySelector('.blue-hare:not(.konami-mode):not(.golden-blu)');
-                    if (idleBlu && !discoveredEggs.has('idle-discovered')) {
-                        idleBlu.style.animation = 'gentle-bounce 1s ease-in-out infinite, wave 2s ease-in-out infinite';
-                        
-                        showAchievement('😴 IDLE DISCOVERY!', 'Blu noticed you went idle and started demonstrating phone use!');
-                        discoverEgg('idle-discovered');
-                        
-                        setTimeout(() => {
-                            idleBlu.style.animation = 'gentle-bounce 3s ease-in-out infinite';
-                        }, 5000);
-                    }
-                }
-            }, 5000);
-        }
-
-        // MAGIC PARTICLE EFFECTS
-        function createMagicParticles() {
-            const container = document.getElementById('magicParticles');
-            container.classList.add('active');
-            
-            for (let i = 0; i < 20; i++) {
-                setTimeout(() => {
-                    const particle = document.createElement('div');
-                    particle.className = 'particle';
-                    particle.style.left = Math.random() * 100 + '%';
-                    particle.style.animationDelay = Math.random() * 2 + 's';
-                    container.appendChild(particle);
-                    
-                    setTimeout(() => particle.remove(), 6000);
-                }, i * 100);
-            }
-            
-            setTimeout(() => container.classList.remove('active'), 6000);
-        }
-
-        // ACHIEVEMENT SYSTEM
-        function showAchievement(title, description) {
-            const achievement = document.getElementById('achievement');
-            document.getElementById('achievementTitle').textContent = title;
-            document.getElementById('achievementDesc').textContent = description;
-            
-            achievement.classList.add('show');
-            setTimeout(() => achievement.classList.remove('show'), 4000);
-        }
-
-        function discoverEgg(eggId) {
-            if (!discoveredEggs.has(eggId)) {
-                discoveredEggs.add(eggId);
-                updateEggCounter();
-                
-                // Mark card as discovered
-                const cards = document.querySelectorAll('.blu-card');
-                cards.forEach(card => {
-                    if (card.id.includes(eggId.split('-')[0])) {
-                        card.classList.add('discovered');
-                    }
-                });
-                
-                // Check for master achievement
-                if (discoveredEggs.size >= 15) {
-                    unlockMasterAchievement();
-                }
-            }
-        }
-
-        function updateEggCounter() {
-            document.getElementById('eggCount').textContent = discoveredEggs.size;
-        }
-
-        function unlockMasterAchievement() {
-            if (!discoveredEggs.has('master-unlocked')) {
-                discoverEgg('master-unlocked');
-                
-                document.getElementById('masterStatus').innerHTML = `
-                    🏆 <strong>EASTER EGG MASTER UNLOCKED!</strong> 🏆<br>
-                    <span style="font-size: 16px;">You've discovered ${discoveredEggs.size} Easter eggs! You are a true Golden Connection explorer!</span>
-                `;
-                
-                showAchievement('🏆 ULTIMATE MASTER!', 'You found most of the Easter eggs! You are now an official Golden Connection Easter Egg Master!');
-                
-                // Ultimate celebration
-                createMagicParticles();
-                setTimeout(createMagicParticles, 2000);
-                setTimeout(createMagicParticles, 4000);
-            }
-        }
-
-        // SEASONAL EASTER EGGS
-        function checkSeasonalEggs() {
-            const now = new Date();
-            const month = now.getMonth();
-            const day = now.getDate();
-            
-            // Halloween (October)
-            if (month === 9) {
-                setTimeout(() => {
-                    showAchievement('🎃 SPOOKY SEASON!', 'Halloween month detected! Blu is ready for some not-scary tech tricks!');
-                    discoverEgg('halloween-month');
-                }, 3000);
-            }
-            
-            // Christmas season (December)
-            if (month === 11) {
-                setTimeout(() => {
-                    showAchievement('🎄 HOLIDAY CHEER!', 'December detected! Blu is spreading Christmas tech joy!');
-                    discoverEgg('christmas-month');
-                }, 3000);
-            }
-            
-            // Friday the 13th
-            if (now.getDay() === 5 && day === 13) {
-                showAchievement('😱 FRIDAY THE 13TH!', 'Spooky day detected! Don\'t worry, Blu\'s tech help is still lucky!');
-                discoverEgg('friday-13th');
-            }
-        }
-
-        // DOWNLOAD FUNCTIONS
-        function downloadBlu(type) {
-            showAchievement('📥 DOWNLOAD READY!', `${type} Blu download prepared! In a real implementation, this would generate a file.`);
-            discoverEgg('download-attempt');
-        }
-
-        function downloadBluSVG(type) {
-            showAchievement('🎨 SVG DOWNLOAD!', `${type} Blu SVG prepared! Vector graphics version ready!`);
-            discoverEgg('svg-download');
-        }
-
-        // SPECIAL BROWSER DETECTION
-        function detectBrowser() {
-            const isChrome = /Chrome/.test(navigator.userAgent);
-            const isFirefox = /Firefox/.test(navigator.userAgent);
-            const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
-            
-            if (isFirefox && !discoveredEggs.has('firefox-user')) {
-                setTimeout(() => {
-                    showAchievement('🔥 FIREFOX USER!', 'Firefox detected! Blu approves of your browser choice!');
-                    discoverEgg('firefox-user');
-                }, 2000);
-            } else if (isSafari && !discoveredEggs.has('safari-user')) {
-                setTimeout(() => {
-                    showAchievement('🧭 SAFARI EXPLORER!', 'Safari detected! Blu loves adventurous browsers!');
-                    discoverEgg('safari-user');
-                }, 2000);
-            }
-        }
-
-        // INITIALIZATION
-        document.addEventListener('DOMContentLoaded', () => {
-            updateTimezoneDisplay();
-            setupEyeTracking();
-            setupSecretSequence();
-            setupBatteryMonitoring();
-            setupScrollTracking();
-            setupLongHover();
-            setupMultiClick();
-            setupIdleAnimation();
-            detectDevTools();
-            detectBrowser();
-            checkSeasonalEggs();
-            
-            // Check for golden Blu
-            checkForGoldenBlu();
-            setInterval(checkForGoldenBlu, 30000);
-            
-            // Update time every minute
-            setInterval(updateTimezoneDisplay, 60000);
-            
-            // Welcome message
-            setTimeout(() => {
-                showAchievement('👋 WELCOME!', 'Welcome to the ultimate Blu collection! Can you find all the hidden Easter eggs?');
-                discoverEgg('welcome');
-            }, 1000);
-        });
-
-        // PAGE VISIBILITY API (for returning visitors)
-        document.addEventListener('visibilitychange', () => {
-            if (!document.hidden && !discoveredEggs.has('return-visitor')) {
-                setTimeout(() => {
-                    showAchievement('🔄 WELCOME BACK!', 'Blu missed you! Thanks for returning to explore more Easter eggs!');
-                    discoverEgg('return-visitor');
-                }, 500);
-            }
-        });
-
-        // NETWORK CONNECTION DETECTION
-        if ('connection' in navigator) {
-            const connection = navigator.connection;
-            if (connection.effectiveType === '4g' && !discoveredEggs.has('fast-internet')) {
-                setTimeout(() => {
-                    showAchievement('⚡ SPEED DEMON!', 'Fast internet detected! Blu loads super quickly with your connection!');
-                    discoverEgg('fast-internet');
-                }, 4000);
-            }
-        }
-    </script>
-</body>
-</html>            margin: 5px;
+        .cta-button {
+            background: #4caf50;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
             transition: all 0.3s ease;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .download-btn:hover {
+        .cta-button:hover, .cta-button:focus {
             background: #45a049;
             transform: translateY(-2px);
+            outline: 2px solid #ffeb3b;
+            outline-offset: 2px;
         }
 
-        /* Website Hero Blu - Exact Match */
-        .website-hero-blu {
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 160px 0 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 3rem;
+        }
+
+        .hero-blu {
             width: 200px;
             height: 240px;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 2rem auto;
             position: relative;
             animation: hero-bounce 4s ease-in-out infinite;
+            cursor: pointer;
+            transition: filter 0.3s ease;
         }
 
-        .website-hero-blu .hare-body {
+        .hero-blu:hover {
+            filter: drop-shadow(0 0 15px rgba(66, 165, 245, 0.4));
+        }
+
+        /* Blu Character Styles */
+        .hero-blu .hare-body {
             width: 80px;
             height: 110px;
             background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
@@ -1813,7 +270,7 @@
             box-shadow: inset 0 -8px 15px rgba(0,0,0,0.1);
         }
 
-        .website-hero-blu .hare-head {
+        .hero-blu .hare-head {
             width: 70px;
             height: 65px;
             background: linear-gradient(135deg, #64b5f6 0%, #2196f3 100%);
@@ -1825,7 +282,7 @@
             box-shadow: inset 0 -4px 12px rgba(0,0,0,0.1);
         }
 
-        .website-hero-blu .ear {
+        .hero-blu .ear {
             width: 18px;
             height: 45px;
             background: linear-gradient(135deg, #90caf9 0%, #42a5f5 100%);
@@ -1834,10 +291,10 @@
             top: 8px;
         }
 
-        .website-hero-blu .ear-left { left: 15px; transform: rotate(-15deg); }
-        .website-hero-blu .ear-right { right: 15px; transform: rotate(15deg); }
+        .hero-blu .ear-left { left: 15px; transform: rotate(-15deg); }
+        .hero-blu .ear-right { right: 15px; transform: rotate(15deg); }
 
-        .website-hero-blu .ear-inner {
+        .hero-blu .ear-inner {
             width: 9px;
             height: 25px;
             background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
@@ -1848,7 +305,7 @@
             transform: translateX(-50%);
         }
 
-        .website-hero-blu .eye {
+        .hero-blu .eye {
             width: 12px;
             height: 15px;
             background: white;
@@ -1857,10 +314,10 @@
             top: 25px;
         }
 
-        .website-hero-blu .eye-left { left: 18px; }
-        .website-hero-blu .eye-right { right: 18px; }
+        .hero-blu .eye-left { left: 18px; }
+        .hero-blu .eye-right { right: 18px; }
 
-        .website-hero-blu .pupil {
+        .hero-blu .pupil {
             width: 6px;
             height: 8px;
             background: #1565c0;
@@ -1871,7 +328,7 @@
             animation: hero-blink 5s ease-in-out infinite;
         }
 
-        .website-hero-blu .nose {
+        .hero-blu .nose {
             width: 6px;
             height: 4px;
             background: #f48fb1;
@@ -1882,7 +339,7 @@
             transform: translateX(-50%);
         }
 
-        .website-hero-blu .arm {
+        .hero-blu .arm {
             width: 25px;
             height: 60px;
             background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
@@ -1891,18 +348,18 @@
             top: 85px;
         }
 
-        .website-hero-blu .arm-left { 
+        .hero-blu .arm-left { 
             left: 55px; 
             transform: rotate(-30deg);
             animation: hero-wave-left 3s ease-in-out infinite;
         }
-        .website-hero-blu .arm-right { 
+        .hero-blu .arm-right { 
             right: 55px; 
             transform: rotate(30deg);
             animation: hero-wave-right 3s ease-in-out infinite;
         }
 
-        .website-hero-blu .foot {
+        .hero-blu .foot {
             width: 22px;
             height: 30px;
             background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
@@ -1911,10 +368,10 @@
             bottom: 20px;
         }
 
-        .website-hero-blu .foot-left { left: 75px; }
-        .website-hero-blu .foot-right { right: 75px; }
+        .hero-blu .foot-left { left: 75px; }
+        .hero-blu .foot-right { right: 75px; }
 
-        .website-hero-blu .tail {
+        .hero-blu .tail {
             width: 18px;
             height: 18px;
             background: linear-gradient(135deg, #90caf9 0%, #64b5f6 100%);
@@ -1924,18 +381,396 @@
             right: 60px;
         }
 
-        /* Standard Blu */
-        .blue-hare {
-            width: 300px;
-            height: 350px;
-            margin: 0 auto 20px;
-            position: relative;
+        .welcome-badge {
+            background: rgba(255,255,255,0.9);
+            color: #1565c0;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.3em;
             display: inline-block;
-            animation: gentle-bounce 3s ease-in-out infinite;
-            transform: scale(0.7);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            animation: welcome-pulse 3s ease-in-out infinite;
         }
 
-        .hare-body {
+        .hero h1 {
+            font-size: 3.8em;
+            color: #1565c0;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.6em;
+            color: #555;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .hero-cta-primary {
+            background: #4caf50;
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-cta-primary:hover, .hero-cta-primary:focus {
+            background: #45a049;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+            outline: 3px solid #ffeb3b;
+            outline-offset: 2px;
+        }
+
+        .hero-cta-secondary {
+            background: transparent;
+            color: #1565c0;
+            padding: 1.25rem 2.5rem;
+            border: 3px solid #1565c0;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3em;
+            transition: all 0.3s ease;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-cta-secondary:hover, .hero-cta-secondary:focus {
+            background: #1565c0;
+            color: white;
+            transform: translateY(-3px);
+            outline: 3px solid #ffeb3b;
+            outline-offset: 2px;
+        }
+
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .hero-feature {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .hero-feature:hover {
+            border-color: #42a5f5;
+            transform: translateY(-5px);
+        }
+
+        .hero-feature-icon {
+            font-size: 3em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-feature h3 {
+            color: #1565c0;
+            margin-bottom: 1rem;
+            font-size: 1.5em;
+        }
+
+        .hero-feature p {
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3em;
+            color: #1565c0;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover, .service-card:focus-within {
+            transform: translateY(-8px);
+            border-color: #42a5f5;
+        }
+
+        .service-icon {
+            font-size: 4em;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .service-card h3 {
+            color: #1565c0;
+            font-size: 1.8em;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .service-card p {
+            color: #555;
+            text-align: center;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            padding: 2rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            background: #f8f9ff;
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            background: #4caf50;
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            font-weight: bold;
+            margin: 0 auto 2rem auto;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .step h3 {
+            color: #1565c0;
+            margin-bottom: 1.5rem;
+            font-size: 1.6em;
+        }
+
+        .step p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        /* Topics Section */
+        .topics {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e8 100%);
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .topic-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            border-left: 8px solid #4caf50;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+
+        .topic-card h4 {
+            color: #1565c0;
+            margin-bottom: 1rem;
+            font-size: 1.4em;
+            line-height: 1.4;
+        }
+
+        .topic-card p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        /* Important Notice Section */
+        .important-notice {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-top: 5px solid #ff9800;
+            border-bottom: 5px solid #ff9800;
+        }
+
+        .notice-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .notice-icon {
+            font-size: 4em;
+            margin-bottom: 2rem;
+            color: #f57c00;
+        }
+
+        .notice-title {
+            color: #e65100;
+            font-size: 2.5em;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .notice-text {
+            color: #5d4037;
+            font-size: 1.3em;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .what-we-do {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .what-we-do h4 {
+            color: #1565c0;
+            font-size: 1.6em;
+            margin-bottom: 2rem;
+        }
+
+        .what-we-do-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .what-we-do-item {
+            text-align: center;
+            color: #555;
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: #f8f9ff;
+        }
+
+        .what-we-do-item .icon {
+            font-size: 2em;
+            margin-bottom: 1rem;
+            color: #4caf50;
+        }
+
+        .what-we-do-item strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1565c0;
+            font-size: 1.1em;
+        }
+
+        /* Meet Blu Section */
+        .meet-blu {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+        }
+
+        .blu-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .blu-hare {
+            width: 300px;
+            height: 350px;
+            margin: 0 auto;
+            position: relative;
+            animation: gentle-bounce 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: filter 0.3s ease;
+        }
+
+        .blu-hare:hover {
+            filter: drop-shadow(0 0 20px rgba(66, 165, 245, 0.6));
+            animation: happy-hop 1s ease-in-out 2, gentle-bounce 3s ease-in-out infinite;
+        }
+
+        /* Detailed Blu Hare Body */
+        .blu-hare .hare-body {
             width: 120px;
             height: 160px;
             background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
@@ -1947,7 +782,8 @@
             box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
         }
 
-        .hare-head {
+        /* Detailed Blu Hare Head */
+        .blu-hare .hare-head {
             width: 100px;
             height: 90px;
             background: linear-gradient(135deg, #64b5f6 0%, #2196f3 100%);
@@ -1959,7 +795,8 @@
             box-shadow: inset 0 -5px 15px rgba(0,0,0,0.1);
         }
 
-        .ear {
+        /* Detailed Ears */
+        .blu-hare .ear {
             width: 25px;
             height: 60px;
             background: linear-gradient(135deg, #90caf9 0%, #42a5f5 100%);
@@ -1969,10 +806,19 @@
             box-shadow: inset 0 -3px 8px rgba(0,0,0,0.1);
         }
 
-        .ear-left { left: 20px; transform: rotate(-15deg); }
-        .ear-right { right: 20px; transform: rotate(15deg); }
+        .blu-hare .ear-left { 
+            left: 20px; 
+            transform: rotate(-15deg);
+            animation: ear-twitch 6s ease-in-out infinite;
+        }
+        
+        .blu-hare .ear-right { 
+            right: 20px; 
+            transform: rotate(15deg);
+            animation: ear-twitch-right 6s ease-in-out infinite 0.8s;
+        }
 
-        .ear-inner {
+        .blu-hare .ear-inner {
             width: 12px;
             height: 35px;
             background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
@@ -1983,7 +829,8 @@
             transform: translateX(-50%);
         }
 
-        .eye {
+        /* Detailed Eyes */
+        .blu-hare .eye {
             width: 16px;
             height: 20px;
             background: white;
@@ -1993,10 +840,10 @@
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .eye-left { left: 25px; }
-        .eye-right { right: 25px; }
+        .blu-hare .eye-left { left: 25px; }
+        .blu-hare .eye-right { right: 25px; }
 
-        .pupil {
+        .blu-hare .pupil {
             width: 8px;
             height: 10px;
             background: #1565c0;
@@ -2004,10 +851,11 @@
             position: absolute;
             top: 5px;
             left: 4px;
-            animation: blink 4s ease-in-out infinite;
+            animation: blink 5s ease-in-out infinite 2s;
         }
 
-        .nose {
+        /* Detailed Nose */
+        .blu-hare .nose {
             width: 8px;
             height: 6px;
             background: #f48fb1;
@@ -2016,9 +864,11 @@
             top: 55px;
             left: 50%;
             transform: translateX(-50%);
+            animation: nose-twitch 8s ease-in-out infinite 3s;
         }
 
-        .arm {
+        /* Detailed Arms */
+        .blu-hare .arm {
             width: 35px;
             height: 80px;
             background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
@@ -2028,17 +878,18 @@
             box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
         }
 
-        .arm-left { 
+        .blu-hare .arm-left { 
             left: 80px; 
             transform: rotate(-20deg);
-            animation: wave 2s ease-in-out infinite;
+            animation: wave 3s ease-in-out infinite 0.5s;
         }
-        .arm-right { 
+        .blu-hare .arm-right { 
             right: 80px; 
             transform: rotate(20deg);
         }
 
-        .device {
+        /* Device/Tablet */
+        .blu-hare .device {
             width: 40px;
             height: 60px;
             background: linear-gradient(135deg, #424242 0%, #616161 100%);
@@ -2048,9 +899,10 @@
             left: 50%;
             transform: translateX(-50%);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            animation: device-bounce 2s ease-in-out infinite 1s;
         }
 
-        .device-screen {
+        .blu-hare .device-screen {
             width: 32px;
             height: 45px;
             background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
@@ -2058,10 +910,11 @@
             position: absolute;
             top: 8px;
             left: 4px;
-            animation: screen-glow 2s ease-in-out infinite alternate;
+            animation: screen-pulse 4s ease-in-out infinite alternate;
         }
 
-        .foot {
+        /* Detailed Feet */
+        .blu-hare .foot {
             width: 30px;
             height: 40px;
             background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
@@ -2071,10 +924,11 @@
             box-shadow: inset 0 -3px 8px rgba(0,0,0,0.1);
         }
 
-        .foot-left { left: 115px; }
-        .foot-right { right: 115px; }
+        .blu-hare .foot-left { left: 115px; }
+        .blu-hare .foot-right { right: 115px; }
 
-        .tail {
+        /* Detailed Tail */
+        .blu-hare .tail {
             width: 25px;
             height: 25px;
             background: linear-gradient(135deg, #90caf9 0%, #64b5f6 100%);
@@ -2083,352 +937,435 @@
             bottom: 120px;
             right: 85px;
             box-shadow: inset 0 -2px 6px rgba(0,0,0,0.1);
+            animation: tail-wag 3s ease-in-out infinite 1.5s;
         }
 
-        /* Pose variations */
-        .pose-hare {
-            width: 200px;
-            height: 250px;
-            margin: 0 auto 20px;
-            position: relative;
-            display: inline-block;
-            animation: gentle-bounce 3s ease-in-out infinite;
-            transform: scale(0.8);
+        .blu-description {
+            padding: 2rem;
         }
 
-        .pose-hare .hare-body {
-            width: 80px;
-            height: 110px;
-            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
-            border-radius: 40px 40px 25px 25px;
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: inset 0 -8px 15px rgba(0,0,0,0.1);
+        .blu-description h3 {
+            color: #1565c0;
+            font-size: 2.2em;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
         }
 
-        .pose-hare .hare-head {
-            width: 70px;
-            height: 65px;
-            background: linear-gradient(135deg, #64b5f6 0%, #2196f3 100%);
-            border-radius: 35px 35px 30px 30px;
-            position: absolute;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: inset 0 -4px 12px rgba(0,0,0,0.1);
+        .blu-description p {
+            color: #555;
+            font-size: 1.3em;
+            line-height: 1.8;
         }
 
-        .pose-hare .ear {
-            width: 18px;
-            height: 45px;
-            background: linear-gradient(135deg, #90caf9 0%, #42a5f5 100%);
-            border-radius: 9px 9px 4px 4px;
-            position: absolute;
-            top: 8px;
-        }
-
-        .pose-hare .ear-left { left: 15px; transform: rotate(-15deg); }
-        .pose-hare .ear-right { right: 15px; transform: rotate(15deg); }
-
-        .pose-hare .ear-inner {
-            width: 9px;
-            height: 25px;
-            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
-            border-radius: 4px;
-            position: absolute;
-            top: 6px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .pose-hare .eye {
-            width: 12px;
-            height: 15px;
-            background: white;
-            border-radius: 50%;
-            position: absolute;
-            top: 25px;
-        }
-
-        .pose-hare .eye-left { left: 18px; }
-        .pose-hare .eye-right { right: 18px; }
-
-        .pose-hare .pupil {
-            width: 6px;
-            height: 8px;
-            background: #1565c0;
-            border-radius: 50%;
-            position: absolute;
-            top: 4px;
-            left: 3px;
-        }
-
-        .pose-hare .nose {
-            width: 6px;
-            height: 4px;
-            background: #f48fb1;
-            border-radius: 50%;
-            position: absolute;
-            top: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .pose-hare .arm {
-            width: 25px;
-            height: 60px;
-            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+        .easter-egg-hint {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            color: #2e7d32;
+            padding: 1rem 1.5rem;
             border-radius: 15px;
-            position: absolute;
-            top: 85px;
+            margin-top: 1.5rem;
+            font-size: 1em;
+            text-align: center;
+            border: 2px solid #4caf50;
         }
 
-        .pose-hare .foot {
-            width: 22px;
-            height: 30px;
-            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
-            border-radius: 11px 11px 6px 6px;
-            position: absolute;
-            bottom: 20px;
+        .easter-egg-hint a {
+            color: #1b5e20;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 0.5rem;
+            background: rgba(255,255,255,0.7);
         }
 
-        .pose-hare .foot-left { left: 75px; }
-        .pose-hare .foot-right { right: 75px; }
-
-        .pose-hare .tail {
-            width: 18px;
-            height: 18px;
-            background: linear-gradient(135deg, #90caf9 0%, #64b5f6 100%);
-            border-radius: 50%;
-            position: absolute;
-            bottom: 85px;
-            right: 60px;
+        .easter-egg-hint a:hover {
+            background: #4caf50;
+            color: white;
+            transform: translateY(-2px);
         }
 
-        /* Pose 1: Welcome Arms */
-        .pose1 .arm-left { 
-            left: 55px; 
-            transform: rotate(-45deg);
-            animation: welcome-wave 2s ease-in-out infinite;
-        }
-        .pose1 .arm-right { 
-            right: 55px; 
-            transform: rotate(45deg);
-            animation: welcome-wave 2s ease-in-out infinite reverse;
-        }
-
-        /* Pose 2: Teaching */
-        .pose2 .arm-left { 
-            left: 60px; 
-            transform: rotate(-10deg);
-        }
-        .pose2 .arm-right { 
-            right: 45px; 
-            transform: rotate(-70deg);
-            animation: point 2s ease-in-out infinite;
-        }
-
-        /* Pose 3: Phone */
-        .pose3 .arm-left { left: 65px; transform: rotate(20deg); }
-        .pose3 .arm-right { right: 65px; transform: rotate(-20deg); }
-        .pose3 .phone {
-            width: 25px;
-            height: 40px;
-            background: linear-gradient(135deg, #424242 0%, #616161 100%);
-            border-radius: 5px;
-            position: absolute;
-            top: 125px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .pose3 .phone-screen {
-            width: 20px;
-            height: 30px;
-            background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
-            border-radius: 3px;
-            position: absolute;
-            top: 5px;
-            left: 2.5px;
-        }
-
-        /* Pose 4: Thumbs Up */
-        .pose4 .arm-left { left: 60px; transform: rotate(-10deg); }
-        .pose4 .arm-right { 
-            right: 50px; 
-            transform: rotate(-90deg);
-        }
-        .pose4 .thumb {
-            width: 8px;
-            height: 12px;
-            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
-            border-radius: 4px 4px 2px 2px;
-            position: absolute;
-            top: 70px;
-            right: 45px;
-        }
-
-        /* Pose 5: Laptop */
-        .pose5 .arm-left { left: 50px; transform: rotate(30deg); }
-        .pose5 .arm-right { right: 50px; transform: rotate(-30deg); }
-        .pose5 .laptop {
-            width: 45px;
-            height: 30px;
-            background: linear-gradient(135deg, #424242 0%, #616161 100%);
-            border-radius: 5px;
-            position: absolute;
-            top: 130px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .pose5 .laptop-screen {
-            width: 40px;
-            height: 25px;
-            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-            border-radius: 3px;
-            position: absolute;
-            top: 2.5px;
-            left: 2.5px;
-        }
-
-        /* Pose 6: Question */
-        .pose6 .arm-left { left: 70px; transform: rotate(10deg); }
-        .pose6 .arm-right { right: 60px; transform: rotate(-45deg); }
-        .pose6 .question {
-            font-size: 30px;
-            color: #1976d2;
-            position: absolute;
-            top: 60px;
-            right: 30px;
-        }
-
-        /* Letterhead Blu */
-        .blu-letterhead {
-            width: 80px;
-            height: 90px;
-            position: relative;
-            margin: 0 auto 20px;
-        }
-
-        .blu-letterhead .blu-body {
-            width: 40px;
-            height: 55px;
-            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
-            border-radius: 20px 20px 12px 12px;
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .blu-letterhead .blu-head {
-            width: 35px;
-            height: 32px;
-            background: linear-gradient(135deg, #64b5f6 0%, #2196f3 100%);
-            border-radius: 17px 17px 15px 15px;
-            position: absolute;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .blu-letterhead .blu-ear {
-            width: 8px;
-            height: 20px;
-            background: linear-gradient(135deg, #90caf9 0%, #42a5f5 100%);
-            border-radius: 4px 4px 2px 2px;
-            position: absolute;
-            top: 4px;
-        }
-
-        .blu-letterhead .blu-ear-left { left: 8px; transform: rotate(-15deg); }
-        .blu-letterhead .blu-ear-right { right: 8px; transform: rotate(15deg); }
-
-        .blu-letterhead .blu-eye {
-            width: 5px;
-            height: 6px;
-            background: white;
-            border-radius: 50%;
-            position: absolute;
-            top: 12px;
-        }
-
-        .blu-letterhead .blu-eye-left { left: 9px; }
-        .blu-letterhead .blu-eye-right { right: 9px; }
-
-        .blu-letterhead .blu-pupil {
-            width: 2px;
-            height: 3px;
-            background: #1565c0;
-            border-radius: 50%;
-            position: absolute;
-            top: 1.5px;
-            left: 1.5px;
-        }
-
-        .blu-letterhead .blu-nose {
-            width: 3px;
-            height: 2px;
-            background: #f48fb1;
-            border-radius: 50%;
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .blu-letterhead .blu-arms {
-            width: 12px;
-            height: 25px;
-            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
-            border-radius: 6px;
-            position: absolute;
-            top: 42px;
-        }
-
-        .blu-letterhead .blu-arm-left { left: 20px; transform: rotate(-20deg); }
-        .blu-letterhead .blu-arm-right { right: 20px; transform: rotate(20deg); }
-
-        /* Animations */
+        /* Detailed Blu Animations */
         @keyframes gentle-bounce {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
 
-        @keyframes hero-bounce {
-            0%, 100% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-15px) scale(1.05); }
-        }
-
         @keyframes wave {
             0%, 100% { transform: rotate(-20deg); }
-            50% { transform: rotate(-35deg); }
+            25% { transform: rotate(-35deg); }
+            50% { transform: rotate(-20deg); }
+            75% { transform: rotate(-30deg); }
+        }
+
+        @keyframes blink {
+            0%, 85%, 100% { height: 10px; top: 5px; }
+            90% { height: 1px; top: 14px; }
+        }
+
+        @keyframes tail-wag {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            75% { transform: rotate(-10deg); }
+        }
+
+        @keyframes happy-hop {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            25% { transform: translateY(-5px) scale(1.02); }
+            50% { transform: translateY(-12px) scale(1.05); }
+            75% { transform: translateY(-5px) scale(1.02); }
+        }
+
+        @keyframes ear-twitch {
+            0%, 90%, 100% { transform: rotate(-15deg); }
+            95% { transform: rotate(-25deg); }
+        }
+
+        @keyframes ear-twitch-right {
+            0%, 90%, 100% { transform: rotate(15deg); }
+            95% { transform: rotate(25deg); }
+        }
+
+        @keyframes device-bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(-3px); }
+        }
+
+        @keyframes screen-pulse {
+            0%, 100% { 
+                background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
+                box-shadow: inset 0 0 10px rgba(255,255,255,0.3);
+            }
+            33% { 
+                background: linear-gradient(135deg, #81c784 0%, #66bb6a 100%);
+                box-shadow: inset 0 0 15px rgba(255,255,255,0.5);
+            }
+            66% { 
+                background: linear-gradient(135deg, #ffb74d 0%, #ffa726 100%);
+                box-shadow: inset 0 0 15px rgba(255,255,255,0.5);
+            }
+        }
+
+        @keyframes nose-twitch {
+            0%, 95%, 100% { transform: translateX(-50%) scale(1); }
+            97% { transform: translateX(-50%) scale(1.2); }
+        }
+
+        /* Target Audience */
+        .target-audience {
+            padding: 100px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .audience-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .audience-feature {
+            padding: 2.5rem;
+            background: #f8f9ff;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .audience-feature:hover {
+            border-color: #42a5f5;
+            transform: translateY(-5px);
+        }
+
+        .audience-feature-icon {
+            font-size: 3em;
+            margin-bottom: 1.5rem;
+            color: #1565c0;
+        }
+
+        .audience-feature h4 {
+            color: #1565c0;
+            font-size: 1.4em;
+            margin-bottom: 1rem;
+        }
+
+        .audience-feature p {
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        /* Venue Contact Section */
+        .venue-contact {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .venue-subtitle {
+            text-align: center;
+            font-size: 1.4em;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .venue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .venue-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .venue-card:hover {
+            border-color: #42a5f5;
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+
+        .venue-icon {
+            font-size: 4em;
+            margin-bottom: 2rem;
+        }
+
+        .venue-card h3 {
+            color: #1565c0;
+            margin-bottom: 1.5rem;
+            font-size: 1.7em;
+        }
+
+        .venue-card p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.1em;
+        }
+
+        .venue-contact-cta {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 4rem;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .venue-contact-cta h3 {
+            color: #1565c0;
+            font-size: 2.5em;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        .venue-contact-cta p {
+            color: #555;
+            font-size: 1.4em;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 3em;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        .final-cta p {
+            font-size: 1.4em;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: #ffeb3b;
+            transform: translateY(-5px);
+        }
+
+        .contact-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            font-size: 1.2em;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .contact-info {
+            font-size: 1.3em;
+            font-weight: 600;
+            word-break: break-word;
+            line-height: 1.4;
+        }
+
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 1rem;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 1rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-link:hover, .contact-link:focus {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            color: white;
+            text-decoration: none;
+            border-color: #ffeb3b;
+            outline: 2px solid #ffeb3b;
+            outline-offset: 2px;
+        }
+
+        .contact-icon {
+            font-size: 3.5em;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #263238;
+            color: white;
+            padding: 60px 0 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1.5rem;
+            color: #4caf50;
+            font-size: 1.3em;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 1rem;
+            font-size: 1.1em;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-section a:hover, .footer-section a:focus {
+            color: white;
+            background: rgba(255,255,255,0.1);
+            outline: 2px solid #4caf50;
+            outline-offset: 2px;
+        }
+
+        .footer-section p {
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5em;
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top.visible {
+            display: block;
+        }
+
+        .back-to-top:hover, .back-to-top:focus {
+            background: #45a049;
+            transform: translateY(-3px);
+            outline: 2px solid #ffeb3b;
+            outline-offset: 2px;
+        }
+
+        /* Animations */
+        @keyframes hero-bounce {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            25% { transform: translateY(-8px) scale(1.02); }
+            50% { transform: translateY(-15px) scale(1.05); }
+            75% { transform: translateY(-8px) scale(1.02); }
         }
 
         @keyframes hero-wave-left {
             0%, 100% { transform: rotate(-30deg); }
-            50% { transform: rotate(-50deg); }
+            20% { transform: rotate(-50deg); }
+            40% { transform: rotate(-30deg); }
+            60% { transform: rotate(-45deg); }
+            80% { transform: rotate(-25deg); }
         }
 
         @keyframes hero-wave-right {
             0%, 100% { transform: rotate(30deg); }
-            50% { transform: rotate(50deg); }
-        }
-
-        @keyframes welcome-wave {
-            0%, 100% { transform: rotate(-45deg); }
-            50% { transform: rotate(-30deg); }
-        }
-
-        @keyframes point {
-            0%, 100% { transform: rotate(-70deg); }
-            50% { transform: rotate(-80deg); }
-        }
-
-        @keyframes blink {
-            0%, 90%, 100% { height: 10px; top: 5px; }
-            95% { height: 1px; top: 14px; }
+            20% { transform: rotate(50deg); }
+            40% { transform: rotate(30deg); }
+            60% { transform: rotate(45deg); }
+            80% { transform: rotate(25deg); }
         }
 
         @keyframes hero-blink {
@@ -2436,255 +1373,759 @@
             90% { height: 1px; top: 8px; }
         }
 
-        @keyframes screen-glow {
-            0% { box-shadow: inset 0 0 10px rgba(255,255,255,0.3); }
-            100% { box-shadow: inset 0 0 20px rgba(255,255,255,0.6); }
+        @keyframes welcome-pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .collection-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-                padding: 20px;
+            body {
+                font-size: 16px;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                display: none;
             }
             
-            .blue-hare, .website-hero-blu, .pose-hare {
-                transform: scale(0.6);
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .cta-button {
+                display: none;
+            }
+
+            .header-contact {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .hero {
+                padding: 140px 0 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.8em;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.4em;
+            }
+
+            .section-title {
+                font-size: 2.2em;
+            }
+
+            .hero-cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-cta-primary, .hero-cta-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-card, .topic-card, .venue-card {
+                padding: 2rem;
+            }
+            
+            .contact-card {
+                padding: 2rem;
+            }
+            
+            .venue-contact-cta h3 {
+                font-size: 2em;
+            }
+            
+            .venue-contact-cta p {
+                font-size: 1.2em;
+            }
+
+            .what-we-do-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blu-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .blu-hare {
+                width: 250px;
+                height: 300px;
+                transform: scale(0.9);
+            }
+
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2em;
+                bottom: 20px;
+                right: 20px;
             }
         }
 
         @media (max-width: 480px) {
-            .collection-grid {
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            
+            .logo {
+                font-size: 1.6em;
+            }
+            
+            .hero-features {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            body {
+                color: #000;
+            }
+            
+            .hero .subtitle {
+                color: #333;
+            }
+            
+            .service-card p, .topic-card p {
+                color: #333;
+            }
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .hero-blu {
+                animation: none;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .header, .footer, .back-to-top {
+                display: none;
+            }
+            
+            body {
+                font-size: 12pt;
+                line-height: 1.4;
+                color: #000;
+                background: white;
+            }
+            
+            .hero, .services, .topics, .final-cta {
+                background: white !important;
+                color: #000 !important;
+            }
+            
+            .section-title {
+                color: #000;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Blu Mascot - Complete Image Collection</h1>
-            <p>All poses and variations of Blu for Golden Connection</p>
-        </div>
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
 
-        <div class="collection-grid">
-            <!-- Website Hero Blu - Exact Match -->
-            <div class="blu-card">
-                <div class="blu-title">Website Hero Blu - Exact Match</div>
-                <div class="website-hero-blu">
-                    <div class="ear ear-left"><div class="ear-inner"></div></div>
-                    <div class="ear ear-right"><div class="ear-inner"></div></div>
-                    <div class="hare-head">
-                        <div class="eye eye-left"><div class="pupil"></div></div>
-                        <div class="eye eye-right"><div class="pupil"></div></div>
-                        <div class="nose"></div>
-                    </div>
-                    <div class="hare-body"></div>
-                    <div class="arm arm-left"></div>
-                    <div class="arm arm-right"></div>
-                    <div class="foot foot-left"></div>
-                    <div class="foot foot-right"></div>
-                    <div class="tail"></div>
-                </div>
-                <div class="blu-description">This is the exact Blu used in the Golden Connection website hero section. Same dimensions, animations, and styling as the live site.</div>
-                <button class="download-btn" onclick="downloadBlu('website-hero')">Download HTML</button>
-                <button class="download-btn" onclick="downloadBluSVG('website-hero')">Download SVG</button>
-            </div>
-
-            <!-- Standard Blu with Device -->
-            <div class="blu-card">
-                <div class="blu-title">Standard Blu - Tech Helper</div>
-                <div class="blue-hare">
-                    <div class="ear ear-left"><div class="ear-inner"></div></div>
-                    <div class="ear ear-right"><div class="ear-inner"></div></div>
-                    <div class="hare-head">
-                        <div class="eye eye-left"><div class="pupil"></div></div>
-                        <div class="eye eye-right"><div class="pupil"></div></div>
-                        <div class="nose"></div>
-                    </div>
-                    <div class="hare-body"></div>
-                    <div class="arm arm-left"></div>
-                    <div class="arm arm-right"></div>
-                    <div class="device"><div class="device-screen"></div></div>
-                    <div class="foot foot-left"></div>
-                    <div class="foot foot-right"></div>
-                    <div class="tail"></div>
-                </div>
-                <div class="blu-description">Classic Blu holding a device, perfect for showing the tech education mission.</div>
-                <button class="download-btn" onclick="downloadBlu('standard')">Download HTML</button>
-                <button class="download-btn" onclick="downloadBluSVG('standard')">Download SVG</button>
-            </div>
-
-            <!-- Welcome Pose -->
-            <div class="blu-card">
-                <div class="blu-title">Welcome Pose</div>
-                <div class="pose-hare pose1">
-                    <div class="ear ear-left"><div class="ear-inner"></div></div>
-                    <div class="ear ear-right"><div class="ear-inner"></div></div>
-                    <div class="hare-head">
-                        <div class="eye eye-left"><div class="pupil"></div></div>
-                        <div class="eye eye-right"><div class="pupil"></div></div>
-                        <div class="nose"></div>
-                    </div>
-                    <div class="hare-body"></div>
-                    <div class="arm arm-left"></div>
-                    <div class="arm arm-right"></div>
-                    <div class="foot foot-left"></div>
-                    <div class="foot foot-right"></div>
-                    <div class="tail"></div>
-                </div>
-                <div class="blu-description">Open, welcoming arms. Perfect for websites, welcome materials, event banners.</div>
-                <button class="download-btn" onclick="downloadBlu('welcome')">Download HTML</button>
-            </div>
-
-            <!-- Teaching Pose -->
-            <div class="blu-card">
-                <div class="blu-title">Teaching Pose</div>
-                <div class="pose-hare pose2">
-                    <div class="ear ear-left"><div class="ear-inner"></div></div>
-                    <div class="ear ear-right"><div class="ear-inner"></div></div>
-                    <div class="hare-head">
-                        <div class="eye eye-left"><div class="pupil"></div></div>
-                        <div class="eye eye-right"><div class="pupil"></div></div>
-                        <div class="nose"></div>
-                    </div>
-                    <div class="hare-body"></div>
-                    <div class="arm arm-left"></div>
-                    <div class="arm arm-right"></div>
-                    <div class="foot foot-left"></div>
-                    <div class="foot foot-right"></div>
-                    <div class="tail"></div>
-                </div>
-                <div class="blu-description">Pointing gesture for instructional materials, presentations, how-to guides.</div>
-                <button class="download-btn" onclick="downloadBlu('teaching')">Download HTML</button>
-            </div>
-
-            <!-- Smartphone Helper -->
-            <div class="blu-card">
-                <div class="blu-title">Smartphone Helper</div>
-                <div class="pose-hare pose3">
-                    <div class="ear ear-left"><div class="ear-inner"></div></div>
-                    <div class="ear ear-right"><div class="ear-inner"></div></div>
-                    <div class="hare-head">
-                        <div class="eye eye-left"><div class="pupil"></div></div>
-                        <div class="eye eye-right"><div class="pupil"></div></div>
-                        <div class="nose"></div>
-                    </div>
-                    <div class="hare-body"></div>
-                    <div class="arm arm-left"></div>
-                    <div class="arm arm-right"></div>
-                    <div class="phone"><div class="phone-screen"></div></div>
-                    <div class="foot foot-left"></div>
-                    <div class="foot foot-right"></div>
-                    <div class="tail"></div>
-                </div>
-                <div class="blu-description">Holding a smartphone. Perfect for phone tutorials, mobile app guides, texting workshops.</div>
-                <button class="download-btn" onclick="downloadBlu('smartphone')">Download HTML</button>
-            </div>
-
-            <!-- Encouragement Pose -->
-            <div class="blu-card">
-                <div class="blu-title">Encouragement Pose</div>
-                <div class="pose-hare pose4">
-                    <div class="ear ear-left"><div class="ear-inner"></div></div>
-                    <div class="ear ear-right"><div class="ear-inner"></div></div>
-                    <div class="hare-head">
-                        <div class="eye eye-left"><div class="pupil"></div></div>
-                        <div class="eye eye-right"><div class="pupil"></div></div>
-                        <div class="nose"></div>
-                    </div>
-                    <div class="hare-body"></div>
-                    <div class="arm arm-left"></div>
-                    <div class="arm arm-right"></div>
-                    <div class="thumb"></div>
-                    <div class="foot foot-left"></div>
-                    <div class="foot foot-right"></div>
-                    <div class="tail"></div>
-                </div>
-                <div class="blu-description">Thumbs up for success messages, completion certificates, social media.</div>
-                <button class="download-btn" onclick="downloadBlu('thumbsup')">Download HTML</button>
-            </div>
-
-            <!-- Computer Expert -->
-            <div class="blu-card">
-                <div class="blu-title">Computer Expert</div>
-                <div class="pose-hare pose5">
-                    <div class="ear ear-left"><div class="ear-inner"></div></div>
-                    <div class="ear ear-right"><div class="ear-inner"></div></div>
-                    <div class="hare-head">
-                        <div class="eye eye-left"><div class="pupil"></div></div>
-                        <div class="eye eye-right"><div class="pupil"></div></div>
-                        <div class="nose"></div>
-                    </div>
-                    <div class="hare-body"></div>
-                    <div class="arm arm-left"></div>
-                    <div class="arm arm-right"></div>
-                    <div class="laptop"><div class="laptop-screen"></div></div>
-                    <div class="foot foot-left"></div>
-                    <div class="foot foot-right"></div>
-                    <div class="tail"></div>
-                </div>
-                <div class="blu-description">Using a laptop. Perfect for computer classes, email workshops, internet safety.</div>
-                <button class="download-btn" onclick="downloadBlu('laptop')">Download HTML</button>
-            </div>
-
-            <!-- Q&A Helper -->
-            <div class="blu-card">
-                <div class="blu-title">Q&A Helper</div>
-                <div class="pose-hare pose6">
-                    <div class="ear ear-left"><div class="ear-inner"></div></div>
-                    <div class="ear ear-right"><div class="ear-inner"></div></div>
-                    <div class="hare-head">
-                        <div class="eye eye-left"><div class="pupil"></div></div>
-                        <div class="eye eye-right"><div class="pupil"></div></div>
-                        <div class="nose"></div>
-                    </div>
-                    <div class="hare-body"></div>
-                    <div class="arm arm-left"></div>
-                    <div class="arm arm-right"></div>
-                    <div class="question">?</div>
-                    <div class="foot foot-left"></div>
-                    <div class="foot foot-right"></div>
-                    <div class="tail"></div>
-                </div>
-                <div class="blu-description">Ready to answer questions. Perfect for FAQ sections, help desks, support materials.</div>
-                <button class="download-btn" onclick="downloadBlu('question')">Download HTML</button>
-            </div>
-
-            <!-- Letterhead Blu -->
-            <div class="blu-card">
-                <div class="blu-title">Letterhead Blu - Print Version</div>
-                <div class="blu-letterhead">
-                    <div class="blu-ear blu-ear-left"></div>
-                    <div class="blu-ear blu-ear-right"></div>
-                    <div class="blu-head">
-                        <div class="blu-eye blu-eye-left"><div class="blu-pupil"></div></div>
-                        <div class="blu-eye blu-eye-right"><div class="blu-pupil"></div></div>
-                        <div class="blu-nose"></div>
-                    </div>
-                    <div class="blu-body"></div>
-                    <div class="blu-arms blu-arm-left"></div>
-                    <div class="blu-arms blu-arm-right"></div>
-                </div>
-                <div class="blu-description">Simplified version for letterhead and professional documents. Print-optimized.</div>
-                <button class="download-btn" onclick="downloadBlu('letterhead')">Download HTML</button>
-                <button class="download-btn" onclick="downloadBluSVG('letterhead')">Download SVG</button>
-            </div>
-        </div>
+    <!-- Font Size Controls -->
+    <div class="font-controls">
+        <label for="font-size">Text Size:</label>
+        <button onclick="changeFontSize('small')" aria-label="Small text size">A</button>
+        <button onclick="changeFontSize('medium')" aria-label="Medium text size">A</button>
+        <button onclick="changeFontSize('large')" aria-label="Large text size">A</button>
     </div>
 
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="#" class="logo">Golden Connection</a>
+            
+            <div class="header-contact">
+                <a href="tel:+15551238324" class="header-phone" aria-label="Call us now">
+                    📞 (555) 123-TECH
+                </a>
+                <a href="#easter-eggs" class="easter-egg-link">
+                    🥚 Discover Blu's Secrets
+                </a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#topics">What We Teach</a></li>
+                <li><a href="#venue-contact">Venues</a></li>
+                <li><a href="#contact">Get Started</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Get Help Today</a>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">☰</button>
+            <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+                <ul>
+                    <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+                    <li><a href="#how-it-works" onclick="closeMobileMenu()">How It Works</a></li>
+                    <li><a href="#topics" onclick="closeMobileMenu()">What We Teach</a></li>
+                    <li><a href="#venue-contact" onclick="closeMobileMenu()">Venues</a></li>
+                    <li><a href="#contact" onclick="closeMobileMenu()">Get Started</a></li>
+                </ul>
+            </nav>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero-content">
+                    <!-- Hero Blu Mascot -->
+                    <div class="hero-blu" title="Meet Blu, your friendly tech helper!" role="img" aria-label="Blu the tech helper mascot">
+                        <div class="ear ear-left"><div class="ear-inner"></div></div>
+                        <div class="ear ear-right"><div class="ear-inner"></div></div>
+                        <div class="hare-head">
+                            <div class="eye eye-left"><div class="pupil"></div></div>
+                            <div class="eye eye-right"><div class="pupil"></div></div>
+                            <div class="nose"></div>
+                        </div>
+                        <div class="hare-body"></div>
+                        <div class="arm arm-left"></div>
+                        <div class="arm arm-right"></div>
+                        <div class="foot foot-left"></div>
+                        <div class="foot foot-right"></div>
+                        <div class="tail"></div>
+                    </div>
+                    
+                    <div class="welcome-badge">👋 Welcome to Golden Connection!</div>
+                    <h1 id="hero-title">Technology Made Simple for Seniors</h1>
+                    <p class="subtitle">Bridging the digital divide with personalized, patient tech education for adults 55+ in smaller communities across America</p>
+                    
+                    <div class="hero-cta-buttons">
+                        <a href="tel:+15551238324" class="hero-cta-primary">📞 Call Now: (555) 123-TECH</a>
+                        <a href="#contact" class="hero-cta-secondary">✉️ Get Information</a>
+                    </div>
+                </div>
+                
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">👥</div>
+                        <h3>Small Group Learning</h3>
+                        <p><strong>6-8 people maximum</strong><br>Friendly classes where you learn alongside peers who understand your challenges</p>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">👤</div>
+                        <h3>Personal Support</h3>
+                        <p><strong>One-on-one follow-up</strong><br>Individual sessions tailored to your specific devices and questions</p>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">🏡</div>
+                        <h3>In Your Community</h3>
+                        <p><strong>Serving towns under 250,000</strong><br>We come to you - no need to travel to big cities</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services" aria-labelledby="services-title">
+            <div class="container">
+                <h2 id="services-title" class="section-title">Our Patient, Proven Approach</h2>
+                <p class="section-subtitle">No experience required - we start with the basics and go at your pace</p>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🎓</div>
+                        <h3>Small Group Sessions</h3>
+                        <p><strong>Maximum 6-8 people per class.</strong> Join welcoming groups where you'll learn alongside others who share your challenges. Our patient instructors create a supportive environment where no question is too basic.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🤝</div>
+                        <h3>Personal Follow-up Support</h3>
+                        <p><strong>Individual attention when you need it.</strong> After group sessions, schedule personal appointments to practice what you've learned and get help with your specific devices and questions.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🌍</div>
+                        <h3>Nationwide Community Reach</h3>
+                        <p><strong>Serving smaller communities nationwide.</strong> We're committed to towns under 250,000 people that are often overlooked by big tech companies and urban-focused programs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section id="how-it-works" class="how-it-works" aria-labelledby="how-it-works-title">
+            <div class="container">
+                <h2 id="how-it-works-title" class="section-title">How It Works</h2>
+                <p class="section-subtitle">Simple steps to get started - no pressure, no rush</p>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Contact Us Today</h3>
+                        <p><strong>Call or email - we're friendly!</strong><br>Reach out via phone or email. We'll answer your questions and help you get started.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Join a Group Session</h3>
+                        <p><strong>Learn with others like you.</strong><br>Attend a welcoming group class focused on topics that matter to you. Bring your own device or use ours.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Personal Follow-up</h3>
+                        <p><strong>Get individual help.</strong><br>Schedule one-on-one time to practice and get personalized help with your specific questions and devices.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Stay Connected</h3>
+                        <p><strong>Ongoing support available.</strong><br>Access continued support as you become more confident with technology. We're here when you need us.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Topics Section -->
+        <section id="topics" class="topics" aria-labelledby="topics-title">
+            <div class="container">
+                <h2 id="topics-title" class="section-title">What We Teach</h2>
+                <p class="section-subtitle">Practical skills for staying connected, safe, and independent</p>
+                <div class="topics-grid">
+                    <div class="topic-card">
+                        <h4>📱 Smartphones & Basics</h4>
+                        <p><strong>Start with the fundamentals:</strong> Making calls, texting, taking photos, and using essential apps with confidence</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>💻 Computer Skills</h4>
+                        <p><strong>Master the essentials:</strong> Email, internet browsing, file management, and basic computer operations</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>👨‍👩‍👧‍👦 Staying Connected</h4>
+                        <p><strong>Connect with family:</strong> Video calls with family, social media basics, and photo sharing made simple</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>🔐 Password Safety</h4>
+                        <p><strong>Stay secure:</strong> Creating strong passwords, using password managers, and keeping accounts secure</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>🛡️ Scam Protection</h4>
+                        <p><strong>Stay safe online:</strong> Recognizing scams, avoiding social engineering, and protecting yourself online</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>🏥 Healthcare Technology</h4>
+                        <p><strong>Manage your health:</strong> Patient portals, virtual doctor visits, and managing your health online</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>🤖 AI & Modern Tech</h4>
+                        <p><strong>Understand new technology:</strong> AI assistants, smart home devices, and emerging technologies explained simply</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>🛒 Online Services</h4>
+                        <p><strong>Shop and bank safely:</strong> Safe online shopping, banking basics, and using helpful websites</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Important Notice -->
+        <section class="important-notice" aria-labelledby="notice-title">
+            <div class="container">
+                <div class="notice-content">
+                    <div class="notice-icon">⚠️</div>
+                    <h2 id="notice-title" class="notice-title">Important: What We Focus On</h2>
+                    <div class="notice-text">
+                        <strong>Golden Connection focuses on education and training, not technical repair services.</strong><br><br>
+                        We don't provide device repair, software installation, troubleshooting, or hands-on tech support. 
+                        Our mission is to teach you the skills and confidence to use technology independently.
+                    </div>
+                    
+                    <div class="what-we-do">
+                        <h4>🎓 What We DO Provide:</h4>
+                        <div class="what-we-do-grid">
+                            <div class="what-we-do-item">
+                                <div class="icon">📚</div>
+                                <strong>Education & Training</strong><br>
+                                Teaching you how to use your devices step-by-step
+                            </div>
+                            <div class="what-we-do-item">
+                                <div class="icon">🤝</div>
+                                <strong>Patient Guidance</strong><br>
+                                Learning support at your own pace
+                            </div>
+                            <div class="what-we-do-item">
+                                <div class="icon">💡</div>
+                                <strong>Skill Building</strong><br>
+                                Confidence to solve problems yourself
+                            </div>
+                            <div class="what-we-do-item">
+                                <div class="icon">🛡️</div>
+                                <strong>Safety Education</strong><br>
+                                How to stay secure and avoid scams online
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Target Audience -->
+        <section class="target-audience" aria-labelledby="audience-title">
+            <div class="container">
+                <h2 id="audience-title" class="section-title">Perfect for You If...</h2>
+                <p class="section-subtitle">You're ready to learn technology at your own pace with patient, understanding instructors</p>
+                <div class="audience-features">
+                    <div class="audience-feature">
+                        <div class="audience-feature-icon">🎂</div>
+                        <h4>Age 55+</h4>
+                        <p>Ready to learn technology at your own comfortable pace</p>
+                    </div>
+                    <div class="audience-feature">
+                        <div class="audience-feature-icon">🏘️</div>
+                        <h4>Smaller Communities</h4>
+                        <p>Living in towns and cities under 250,000 people</p>
+                    </div>
+                    <div class="audience-feature">
+                        <div class="audience-feature-icon">🤔</div>
+                        <h4>Tech Curious</h4>
+                        <p>Want to learn but feel overwhelmed by technology</p>
+                    </div>
+                    <div class="audience-feature">
+                        <div class="audience-feature-icon">❤️</div>
+                        <h4>Family Focused</h4>
+                        <p>Want to stay connected with loved ones near and far</p>
+                    </div>
+                    <div class="audience-feature">
+                        <div class="audience-feature-icon">🎯</div>
+                        <h4>Goal Oriented</h4>
+                        <p>Have specific tech tasks you want to accomplish</p>
+                    </div>
+                    <div class="audience-feature">
+                        <div class="audience-feature-icon">🤝</div>
+                        <h4>Community Minded</h4>
+                        <p>Enjoy learning with others in a supportive environment</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet Blu Section -->
+        <section id="easter-eggs" class="meet-blu" aria-labelledby="blu-title">
+            <div class="container">
+                <h2 id="blu-title" class="section-title">Meet Blu, Your Tech Helper</h2>
+                <p class="section-subtitle">Our friendly mascot embodies the patience and understanding that makes learning technology feel welcoming</p>
+                <div class="blu-container">
+                    <div class="blu-hare" title="Click me! I'm Blu, your friendly tech helper!" role="img" aria-label="Blu the blue hare mascot holding a tablet">
+                        <!-- Ears -->
+                        <div class="ear ear-left">
+                            <div class="ear-inner"></div>
+                        </div>
+                        <div class="ear ear-right">
+                            <div class="ear-inner"></div>
+                        </div>
+                        
+                        <!-- Head -->
+                        <div class="hare-head">
+                            <!-- Eyes -->
+                            <div class="eye eye-left">
+                                <div class="pupil"></div>
+                            </div>
+                            <div class="eye eye-right">
+                                <div class="pupil"></div>
+                            </div>
+                            <!-- Nose -->
+                            <div class="nose"></div>
+                        </div>
+                        
+                        <!-- Body -->
+                        <div class="hare-body"></div>
+                        
+                        <!-- Arms -->
+                        <div class="arm arm-left"></div>
+                        <div class="arm arm-right"></div>
+                        
+                        <!-- Device/Tablet -->
+                        <div class="device">
+                            <div class="device-screen"></div>
+                        </div>
+                        
+                        <!-- Feet -->
+                        <div class="foot foot-left"></div>
+                        <div class="foot foot-right"></div>
+                        
+                        <!-- Tail -->
+                        <div class="tail"></div>
+                    </div>
+                    
+                    <div class="blu-description">
+                        <h3>Your Friendly Tech Companion</h3>
+                        <p>Meet Blu, our gentle blue hare mascot who embodies the patience and understanding that makes learning technology feel less intimidating. Just like our instructors, Blu is here to make your tech journey feel like connecting with a trusted friend!</p>
+                        <p><strong>Why a blue hare?</strong> Blue represents trust and calm, while the gentle hare symbolizes patience and careful listening - exactly what you'll find in our classes.</p>
+                        
+                        <div class="easter-egg-hint">
+                            🎉 <strong>Fun Discovery:</strong> Blu has many hidden talents and surprises! Want to see all of Blu's amazing variations and secret features?
+                            <a href="blu-collection.html" target="_blank">🥚 Explore Blu's Secret Collection!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Venue Contact Section -->
+        <section id="venue-contact" class="venue-contact" aria-labelledby="venue-title">
+            <div class="container">
+                <h2 id="venue-title" class="section-title">Bring Golden Connection to Your Community</h2>
+                <p class="venue-subtitle">We partner with local venues to bring tech education directly to where seniors gather. We handle all the setup - you just provide the space!</p>
+                
+                <div class="venue-grid">
+                    <div class="venue-card">
+                        <div class="venue-icon">🚐</div>
+                        <h3>RV Parks</h3>
+                        <p>Perfect for seasonal residents and traveling communities who want to stay connected</p>
+                    </div>
+                    <div class="venue-card">
+                        <div class="venue-icon">🏢</div>
+                        <h3>Senior Centers</h3>
+                        <p>Ideal setting for regular programming and ongoing classes with consistent groups</p>
+                    </div>
+                    <div class="venue-card">
+                        <div class="venue-icon">⛪</div>
+                        <h3>Churches</h3>
+                        <p>Trusted community spaces where members feel comfortable learning together</p>
+                    </div>
+                    <div class="venue-card">
+                        <div class="venue-icon">🏛️</div>
+                        <h3>Community Centers</h3>
+                        <p>Great for reaching diverse groups and hosting larger educational sessions</p>
+                    </div>
+                </div>
+                
+                <div class="venue-contact-cta">
+                    <h3>Contact us to arrange sessions at your location</h3>
+                    <p>We provide experienced instructors, all materials, and handle the setup. Just provide the space and we'll bring the expertise! <strong>Call (555) 123-TECH or email hello@goldenconnection.org</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section id="contact" class="final-cta" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title">Ready to Get Started?</h2>
+                <p>Let us help you gain confidence with technology in a patient, supportive environment</p>
+                
+                <div class="contact-options">
+                    <div class="contact-card">
+                        <div class="contact-icon">📞</div>
+                        <h3>Call Us</h3>
+                        <p>Speak directly with our friendly team<br><strong>Available for calls and questions</strong></p>
+                        <a href="tel:+15551238324" class="contact-info contact-link">(555) 123-TECH</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">✉️</div>
+                        <h3>Email Us</h3>
+                        <p>Send us your questions anytime<br><strong>We respond promptly</strong></p>
+                        <a href="mailto:hello@goldenconnection.org" class="contact-info contact-link">hello@goldenconnection.org</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📝</div>
+                        <h3>Venue Partnerships</h3>
+                        <p>Arrange classes at your location<br><strong>We bring everything needed</strong></p>
+                        <a href="mailto:hello@goldenconnection.org?subject=Venue Partnership Request" class="contact-info contact-link">hello@goldenconnection.org</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">🏢</div>
+                        <h3>Get Information</h3>
+                        <p>Learn more about our services and approach</p>
+                        <div class="contact-info">
+                            <strong>Contact us anytime via phone or email</strong><br>
+                            We're here to help you succeed with technology
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Golden Connection</h4>
+                    <p>Bridging the digital divide for seniors in communities across America. A nonprofit organization dedicated to patient, accessible technology education.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Our Services</h4>
+                    <a href="#services">Group Sessions</a>
+                    <a href="#services">One-on-One Support</a>
+                    <a href="#topics">What We Teach</a>
+                    <a href="#venue-contact">Partner Venues</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Information</h4>
+                    <a href="tel:+15551238324">(555) 123-TECH</a>
+                    <a href="mailto:hello@goldenconnection.org">hello@goldenconnection.org</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Service Areas</h4>
+                    <p>Serving towns and cities under 250,000 people nationwide. Contact us to see if we serve your community!</p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #444; padding-top: 20px; margin-top: 20px;">
+                <p>&copy; 2025 Golden Connection. A nonprofit organization dedicated to senior technology education.</p>
+                <p style="margin-top: 10px; font-size: 1em;">
+                    <a href="#" style="color: #4caf50; text-decoration: none;">Privacy Policy</a> | 
+                    <a href="#" style="color: #4caf50; text-decoration: none;">Accessibility Statement</a> | 
+                    <a href="javascript:window.print()" style="color: #4caf50; text-decoration: none;">Print This Page</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+
     <script>
-        function downloadBlu(type) {
-            // This function would generate downloadable HTML files for each Blu version
-            alert(`Download feature for ${type} Blu would save the HTML/CSS code for this specific pose. In a real implementation, this would generate a downloadable file.`);
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const isOpen = mobileNav.classList.contains('active');
+            
+            mobileNav.classList.toggle('active');
+            menuBtn.setAttribute('aria-expanded', !isOpen);
         }
 
-        function downloadBluSVG(type) {
-            // This function would generate downloadable SVG files
-            alert(`Download feature for ${type} Blu SVG would save a vector graphics file. In a real implementation, this would generate a downloadable SVG.`);
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            mobileNav.classList.remove('active');
+            menuBtn.setAttribute('aria-expanded', 'false');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!mobileNav.contains(event.target) && !menuBtn.contains(event.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // Font Size Control
+        function changeFontSize(size) {
+            const body = document.body;
+            body.classList.remove('font-small', 'font-medium', 'font-large');
+            
+            switch(size) {
+                case 'small':
+                    body.style.fontSize = '16px';
+                    break;
+                case 'medium':
+                    body.style.fontSize = '18px';
+                    break;
+                case 'large':
+                    body.style.fontSize = '22px';
+                    break;
+            }
+            
+            // Save preference only if localStorage is available
+            try {
+                if (typeof(Storage) !== "undefined" && localStorage) {
+                    localStorage.setItem('fontSize', size);
+                }
+            } catch (e) {
+                // localStorage not available, that's okay
+            }
+        }
+
+        // Back to Top Button
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/Hide Back to Top Button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Load saved font size preference
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load saved font size only if localStorage is available
+            try {
+                if (typeof(Storage) !== "undefined" && localStorage) {
+                    const savedFontSize = localStorage.getItem('fontSize');
+                    if (savedFontSize) {
+                        changeFontSize(savedFontSize);
+                    }
+                }
+            } catch (e) {
+                // localStorage not available, use default font size
+            }
+
+            // Add focus indicators for keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    document.body.classList.add('keyboard-nav');
+                }
+            });
+
+            document.addEventListener('mousedown', function() {
+                document.body.classList.remove('keyboard-nav');
+            });
+        });
+
+        // Enhanced keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            // Allow keyboard users to activate hover effects
+            if (e.key === 'Enter' || e.key === ' ') {
+                const focused = document.activeElement;
+                if (focused.classList.contains('hero-blu')) {
+                    focused.click();
+                }
+            }
+        });
+
+        // Announce page changes for screen readers
+        function announcePageChange(message) {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.className = 'sr-only';
+            announcement.textContent = message;
+            document.body.appendChild(announcement);
+            
+            setTimeout(() => {
+                document.body.removeChild(announcement);
+            }, 1000);
         }
     </script>
 </body>
-
-</html>
-
+    </html>

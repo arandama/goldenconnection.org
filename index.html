@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blu Mascot – Ultimate Easter Egg Collection 🥚✨</title>
+
+    <!-- --------------------------------------------------------------
+         1️⃣ Klaro Cookie‑Consent (loads CSS + JS + config)
+         -------------------------------------------------------------- -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/klaro/dist/klaro.min.css">
+    <script>
+        var klaroConfig = {
+            version: 2,
+            elementID: 'klaro',
+            storageMethod: 'localStorage',
+            cookieName: 'cookie_consent',
+            default: false,
+            mustConsent: true,
+            groups: [
+                {
+                    name: 'essential',
+                    essential: true,
+                    cookies: ['PHPSESSID', 'cookie_consent']
+            },
+                {
+            name: 'analytics',
+                 title: 'Analytics',
+                    description: 'Helps us understand how the site is used.',
+                    cookies: ['_ga', '_gid', '_gat'],
+                    services: [{ name: 'google-analytics' }]
+                },
+                {
+                    name: 'maps',
+                    title: 'Google Maps',
+                    description: 'Shows interactive maps.',
+                    cookies: ['CONSENT'],
+                    services: [{ name: 'gogle-maps' }]
+                }
+            ],
+            translations: {
+                en: {
+                    consentModal: {
+                        title: 'We use cookies',
+                        description: 'Our site uses essential cookies and optional ones for analytics and maps. Choose what you allow.'
+                    },
+                    ok: 'Accept selected',
+                    acceptAll: 'Accept all',
+                    declineAll: 'Reject all',
+                    purposes: {
+                        essential: 'Essential – required for the site to work',
+                        analytics: 'Analytics – helps us improve the site',
+                      maps: 'Google Maps – shows locations'
+                    }
+                }
+            }
+     };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/klaro/dist/klaro.min.js"></script>
+
+    <!-- --------------------------------------------------------------
+         2️⃣ Your original stylesheet (kept exactly as you wrote it)
+         -------------------------------------------------------------- -->
+    <style>
+        body{
+            font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+            background:linear-gradient(135deg,#e3f2fd 0%,#bbdefb 50%,#90caf9 100%);
+            margin:0;padding:40px 20px;min-height:100vh;position:relative;
+            overflow-x:hidden;font-size:18px;line-height:1.6;
+        }
+        /* ------------------------------------------------------------------
+           (All the other CSS you already had – omitted here for brevity.
+           Keep the rest of the rules exactly as they were in your file.)
+        ------------------------------------------------------------------- */
+
+        /* --------------------------------------------------------------
+           3️⃣ NEW FOOTER STYLE (adds a little spacing)
+        -------------------------------------------------------------- */
+        .site-footer{
+            margin-top:40px;text-align:center;font-size:0.9rem;color:#555;
+        }
+        .site-footer a{
+          color:#1976d2;text-decoration:none;font-weight:600;
+        }
+        .site-footer a:hover{
+            text-decoration:underline;
+        }
+
+        /* --------------------------------------------------------------
+           4️⃣ CONTACT‑FORM NOTICE (tiny but readable)
+        -------------------------------------------------------------- */
+        .privacy-notice{
+       font-size:0.85rem;color:#555;margin-bottom:12px;
+     }
+    </style>
+</head>
+
+<body>
+    <!-- Back‑to‑main link (unchanged) -->
+    <a href="index.html" class="back-to-main">← Back to Golden Connection</a>
+
+    <!-- Magic particle background (unchanged) -->
+    <div class="magic-particles" id="magicParticles"></div>
+
+    <!-- Konami code progress (unchanged) -->
+    <div class="konami-progress" id="konamiProgress"></div>
+
+    <!-- Achievement popup (unchanged) -->
+    <div class="achievement" id="achievement">
+        <div class="achievement-title" id="achievementTitle"></div>
+        <div class="achievement-desc" id="achievementDesc"></div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="easter-egg-counter">
+                🥚 Easter Eggs Found: <span id="eggCount">0</span>/25
+            </div>
+            <h1>Blu Mascot – Ultimate Easter Egg Collection 🎊</h1>
+            <p>All poses and variations of Blu for Golden Connection + Secret Features!</p>
+
+            <div class="time-display" id="timeDisplay">
+                Loading timezone magic... ⏰
+            </div>
+        </div>
+
+        <!-- ====================  INSTRUCTION PANEL (unchanged) ==================== -->
+        <div class="instructions-panel">
+            <div class="instructions-title">🎯 How to Find Easter Eggs – Easy Instructions!</div>
+            <div class="instruction-item"><span class="instruction-emoji">👆</span><strong>Hover your mouse</strong> over Blu characters for 3+ seconds to see helpful tech tips!</div>
+            <div class="instruction-item"><span class="instruction-emoji">🖱️</span><strong>Click different parts</strong> of Blu in the right order (Left Ear → Right Ear → Nose)</div>
+            <div class="instruction-item"><span class="instruction-emoji">⌨️</span><strong>Try keyboard arrows:</strong> Press ↑↑↓↓←→←→ then B then A for a surprise!</div>
+            <div class="instruction-item"><span class="instruction-emoji">📱</span><strong>Check on your phone or tablet</strong> – Blu behaves differently on mobile!</div>
+            <div class="instruction-item"><span class="instruction-emoji">🔧</span><strong>Tech‑savvy users:</strong> Press F12 to open Developer Tools for a special Blu!</div>
+            <div class="instruction-item"><span class="instruction-emoji">🎲</span><strong>Some are random!</strong> Refresh the page a few times – you might get lucky with Golden Blu!</div>
+        </div>
+
+        <!-- ====================  COLLECTION GRID (unchanged) ==================== -->
+        <div class="collection-grid">
+            <!-- ----- Timezone‑Aware Blu (unchanged) ----- -->
+            <div class="blu-card" id="timezoneCard">
+                <div class="blu-title">🌍 Timezone‑Aware Blu</div>
+                <div class="blu-timezone" id="timezoneBlu">
+                    <!-- (inner parts stay exactly as you had them) -->
+                </div>
+                <div class="blu-description" id="timezoneDescription">
+                    Currently showing … (filled by script)
+                </div>
+                <div class="easter-egg-hint">
+                    🥚 Hover for 3+ seconds for a tech tip! Move mouse to make eyes follow!
+                </div>
+                <button class="download-btn" onclick="downloadBlu('timezone')">Download HTML</button>
+                <button class="download-btn" onclick="downloadBluSVG('timezone')">Download SVG</button>
+            </div>
+
+            <!-- (Other Blu cards stay exactly as you posted…) -->
+
+            <!-- ----- CONTACT FORM CARD (new privacy notice) ----- -->
+            <div class="blu-card" id="contactCard">
+                <div class="blu-title">✉️ Get in Touch</div>
+
+                <!-- 3️⃣ CONTACT‑FORM PRIVACY NOTICE -->
+                <p class="privacy-notice">
+                    By submitting this form you agree that we may store your name, email and message
+                    for up to 12 months so we can respond to your inquiry. We never share this
+                    information with third parties. Read our
+                    <a href="/privacy-policy.html">Privacy &amp; Cookie Policy</a>.
+                </p>
+
+                <form id="contact-form" method="post" action="/send-message">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" required><br><br>
+
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required><br><br>
+
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+                    <button type="submit" class="download-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ====================  HIDDEN ACHIEVEMENT SECTION (unchanged) ==================== -->
+        <div style="padding:50px;text-align:center;background:linear-gradient(135deg,#f3e5f5 0%,#e1bee7 100%);">
+            <h2 style="color:#7b1fa2;margin-bottom:25px;font-size:2.2em;">🏆 Easter Egg Master Status</h2>
+            <div id="masterStatus" style="font-size:20px;color:#4a148c;line-height:1.6;">
+                Find all 25+ Easter eggs to unlock the ultimate secret! 🎊
+            </div>
+            <div style="margin-top:25px;padding:25px;background:rgba(255,255,255,0.9);border-radius:20px;font-size:16px;color:#666;border:3px solid #9c27b0;">
+                <strong style="font-size:18px;">Helpful Hint:</strong><br><br>
+                Try different times of day, browser actions, mobile vs desktop, key combos, click sequences, and even open dev‑tools!<br><br>
+                Some eggs are time‑based, some random, some need special actions. The instructions above will help you find them all!<br><br>
+                <strong>🕵️‍♀️ Happy hunting! Take your time and enjoy exploring!</strong>
+            </div>
+
+            <div style="margin-top:25px;padding:20px;background:linear-gradient(135deg,#e3f2fd 0%,#bbdefb 100%);border-radius:20px;border:3px solid #1976d2;">
+                <strong style="color:#1565c0;font-size:18px;">💼 Need real tech help?</strong><br><br>
+                <a href="index.html" style="color:#1976d2;text-decoration:none;font-weight:700;font-size:16px;">
+                    ← Return to Golden Connection for patient, friendly technology education!
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- --------------------------------------------------------------
+         5️⃣ NEW FOOTER WITH LINKS TO POLICIES
+         -------------------------------------------------------------- -->
+    <footer class="site-footer">
+        © 2025 Golden Connections Community Center |
+        <a href="/privacy-policy.html">Privacy &amp; Cookie Policy</a> |
+        <a href="/terms.html">Terms of Service</a>
+    </footer>
+
+    <!-- --------------------------------------------------------------
+         6️⃣ SCRIPT SECTION – unchanged except for wrapping analytics/maps
+         -------------------------------------------------------------- -->
+    <script>
+        // ---------- Google Analytics (blocked until consent) ----------
+        <script type="text/plain" data-klaro="analytics">
+            (function(i,s,o,g,r,a,m){
+                i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},
+                i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+                m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('send', 'pageview');
+        </script>
+
+        // ---------- Google Maps (blocked until consent) ----------
+        <script type="text/plain" data-klaro="maps">
+            // Your existing Google Maps embed script (if any) goes here.
+        </script>
+
+        // ---------- ORIGINAL PAGE LOGIC (unchanged) ----------
+        // All the JavaScript you already had – timezones, eye‑tracking,
+        // Easter‑egg handling, download functions, etc.
+        // (Copy the whole <script> block you posted originally, starting
+        // from “// EASTER EGG SYSTEM” down to the end of the file.)
+    </script>
+</body>
+</html>

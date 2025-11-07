@@ -1,245 +1,2133 @@
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Blu Mascot – Ultimate Easter Egg Collection 🥚✨</title>
-
-    <!-- --------------------------------------------------------------
-         1️⃣ Klaro Cookie‑Consent (loads CSS + JS + config)
-         -------------------------------------------------------------- -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/klaro/dist/klaro.min.css">
-    <script>
-        var klaroConfig = {
-            version: 2,
-            elementID: 'klaro',
-            storageMethod: 'localStorage',
-            cookieName: 'cookie_consent',
-            default: false,
-            mustConsent: true,
-            groups: [
-                {
-                    name: 'essential',
-                    essential: true,
-                    cookies: ['PHPSESSID', 'cookie_consent']
-            },
-                {
-            name: 'analytics',
-                 title: 'Analytics',
-                    description: 'Helps us understand how the site is used.',
-                    cookies: ['_ga', '_gid', '_gat'],
-                    services: [{ name: 'google-analytics' }]
-                },
-                {
-                    name: 'maps',
-                    title: 'Google Maps',
-                    description: 'Shows interactive maps.',
-                    cookies: ['CONSENT'],
-                    services: [{ name: 'gogle-maps' }]
-                }
-            ],
-            translations: {
-                en: {
-                    consentModal: {
-                        title: 'We use cookies',
-                        description: 'Our site uses essential cookies and optional ones for analytics and maps. Choose what you allow.'
-                    },
-                    ok: 'Accept selected',
-                    acceptAll: 'Accept all',
-                    declineAll: 'Reject all',
-                    purposes: {
-                        essential: 'Essential – required for the site to work',
-                        analytics: 'Analytics – helps us improve the site',
-                      maps: 'Google Maps – shows locations'
-                    }
-                }
-            }
-     };
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/klaro/dist/klaro.min.js"></script>
-
-    <!-- --------------------------------------------------------------
-         2️⃣ Your original stylesheet (kept exactly as you wrote it)
-         -------------------------------------------------------------- -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Connection - Technology Help for Seniors | Easy Tech Learning</title>
+    <meta name="description" content="Technology education for seniors 55+ in smaller communities. Patient, friendly instruction for smartphones, computers, and staying connected with family.">
     <style>
-        body{
-            font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-            background:linear-gradient(135deg,#e3f2fd 0%,#bbdefb 50%,#90caf9 100%);
-            margin:0;padding:40px 20px;min-height:100vh;position:relative;
-            overflow-x:hidden;font-size:18px;line-height:1.6;
-        }
-        /* ------------------------------------------------------------------
-           (All the other CSS you already had – omitted here for brevity.
-           Keep the rest of the rules exactly as they were in your file.)
-        ------------------------------------------------------------------- */
-
-        /* --------------------------------------------------------------
-           3️⃣ NEW FOOTER STYLE (adds a little spacing)
-        -------------------------------------------------------------- */
-        .site-footer{
-            margin-top:40px;text-align:center;font-size:0.9rem;color:#555;
-        }
-        .site-footer a{
-          color:#1976d2;text-decoration:none;font-weight:600;
-        }
-        .site-footer a:hover{
-            text-decoration:underline;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* --------------------------------------------------------------
-           4️⃣ CONTACT‑FORM NOTICE (tiny but readable)
-        -------------------------------------------------------------- */
-        .privacy-notice{
-       font-size:0.85rem;color:#555;margin-bottom:12px;
-     }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #222;
+            font-size: 18px;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Skip Navigation for Screen Readers */
+        .skip-nav {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 10000;
+        }
+
+        .skip-nav:focus {
+            top: 6px;
+        }
+
+        /* Font Size Controls */
+        .font-controls {
+            background: #f8f9fa;
+            padding: 0.5rem 0;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .font-controls button {
+            background: #1565c0;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        .font-controls button:hover {
+            background: #1976d2;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .header-phone {
+            color: #ffeb3b;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 2px solid #ffeb3b;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .header-phone:hover {
+            background: #ffeb3b;
+            color: #1565c0;
+            transform: translateY(-2px);
+        }
+
+        .easter-egg-link {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-size: 0.9em;
+            opacity: 0.9;
+            transition: all 0.3s;
+            padding: 0.5rem;
+            border-radius: 15px;
+        }
+
+        .easter-egg-link:hover {
+            opacity: 1;
+            background: rgba(255,235,59,0.1);
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding: 0.75rem 0;
+            font-size: 1.1em;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover, .nav-links a:focus {
+            opacity: 0.8;
+            outline: 2px solid #ffeb3b;
+            outline-offset: 2px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: 2px solid white;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 0.75rem;
+            border-radius: 8px;
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #1565c0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 1.5rem 2rem;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 1.2em;
+            min-height: 44px;
+        }
+
+        .mobile-nav a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .cta-button {
+            background: #4caf50;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta-button:hover, .cta-button:focus {
+            background: #45a049;
+            transform: translateY(-2px);
+            outline: 2px solid #ffeb3b;
+            outline-offset: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 160px 0 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 3rem;
+        }
+
+        .hero-blu {
+            width: 200px;
+            height: 240px;
+            margin: 0 auto 2rem auto;
+            position: relative;
+            animation: hero-bounce 4s ease-in-out infinite;
+            cursor: pointer;
+            transition: filter 0.3s ease;
+        }
+
+        .hero-blu:hover {
+            filter: drop-shadow(0 0 15px rgba(66, 165, 245, 0.4));
+        }
+
+        /* Blu Character Styles */
+        .hero-blu .hare-body {
+            width: 80px;
+            height: 110px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 40px 40px 25px 25px;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -8px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero-blu .hare-head {
+            width: 70px;
+            height: 65px;
+            background: linear-gradient(135deg, #64b5f6 0%, #2196f3 100%);
+            border-radius: 35px 35px 30px 30px;
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -4px 12px rgba(0,0,0,0.1);
+        }
+
+        .hero-blu .ear {
+            width: 18px;
+            height: 45px;
+            background: linear-gradient(135deg, #90caf9 0%, #42a5f5 100%);
+            border-radius: 9px 9px 4px 4px;
+            position: absolute;
+            top: 8px;
+        }
+
+        .hero-blu .ear-left { left: 15px; transform: rotate(-15deg); }
+        .hero-blu .ear-right { right: 15px; transform: rotate(15deg); }
+
+        .hero-blu .ear-inner {
+            width: 9px;
+            height: 25px;
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            border-radius: 4px;
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero-blu .eye {
+            width: 12px;
+            height: 15px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 25px;
+        }
+
+        .hero-blu .eye-left { left: 18px; }
+        .hero-blu .eye-right { right: 18px; }
+
+        .hero-blu .pupil {
+            width: 6px;
+            height: 8px;
+            background: #1565c0;
+            border-radius: 50%;
+            position: absolute;
+            top: 4px;
+            left: 3px;
+            animation: hero-blink 5s ease-in-out infinite;
+        }
+
+        .hero-blu .nose {
+            width: 6px;
+            height: 4px;
+            background: #f48fb1;
+            border-radius: 50%;
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero-blu .arm {
+            width: 25px;
+            height: 60px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 15px;
+            position: absolute;
+            top: 85px;
+        }
+
+        .hero-blu .arm-left { 
+            left: 55px; 
+            transform: rotate(-30deg);
+            animation: hero-wave-left 3s ease-in-out infinite;
+        }
+        .hero-blu .arm-right { 
+            right: 55px; 
+            transform: rotate(30deg);
+            animation: hero-wave-right 3s ease-in-out infinite;
+        }
+
+        .hero-blu .foot {
+            width: 22px;
+            height: 30px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 11px 11px 6px 6px;
+            position: absolute;
+            bottom: 20px;
+        }
+
+        .hero-blu .foot-left { left: 75px; }
+        .hero-blu .foot-right { right: 75px; }
+
+        .hero-blu .tail {
+            width: 18px;
+            height: 18px;
+            background: linear-gradient(135deg, #90caf9 0%, #64b5f6 100%);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 85px;
+            right: 60px;
+        }
+
+        .welcome-badge {
+            background: rgba(255,255,255,0.9);
+            color: #1565c0;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.3em;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            animation: welcome-pulse 3s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-size: 3.8em;
+            color: #1565c0;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.6em;
+            color: #555;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .hero-cta-primary {
+            background: #4caf50;
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-cta-primary:hover, .hero-cta-primary:focus {
+            background: #45a049;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+            outline: 3px solid #ffeb3b;
+            outline-offset: 2px;
+        }
+
+        .hero-cta-secondary {
+            background: transparent;
+            color: #1565c0;
+            padding: 1.25rem 2.5rem;
+            border: 3px solid #1565c0;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3em;
+            transition: all 0.3s ease;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-cta-secondary:hover, .hero-cta-secondary:focus {
+            background: #1565c0;
+            color: white;
+            transform: translateY(-3px);
+            outline: 3px solid #ffeb3b;
+            outline-offset: 2px;
+        }
+
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .hero-feature {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .hero-feature:hover {
+            border-color: #42a5f5;
+            transform: translateY(-5px);
+        }
+
+        .hero-feature-icon {
+            font-size: 3em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-feature h3 {
+            color: #1565c0;
+            margin-bottom: 1rem;
+            font-size: 1.5em;
+        }
+
+        .hero-feature p {
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3em;
+            color: #1565c0;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover, .service-card:focus-within {
+            transform: translateY(-8px);
+            border-color: #42a5f5;
+        }
+
+        .service-icon {
+            font-size: 4em;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .service-card h3 {
+            color: #1565c0;
+            font-size: 1.8em;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .service-card p {
+            color: #555;
+            text-align: center;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            padding: 2rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            background: #f8f9ff;
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            background: #4caf50;
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            font-weight: bold;
+            margin: 0 auto 2rem auto;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .step h3 {
+            color: #1565c0;
+            margin-bottom: 1.5rem;
+            font-size: 1.6em;
+        }
+
+        .step p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        /* Topics Section */
+        .topics {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e8 100%);
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .topic-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            border-left: 8px solid #4caf50;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+
+        .topic-card h4 {
+            color: #1565c0;
+            margin-bottom: 1rem;
+            font-size: 1.4em;
+            line-height: 1.4;
+        }
+
+        .topic-card p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        /* Important Notice Section */
+        .important-notice {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-top: 5px solid #ff9800;
+            border-bottom: 5px solid #ff9800;
+        }
+
+        .notice-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .notice-icon {
+            font-size: 4em;
+            margin-bottom: 2rem;
+            color: #f57c00;
+        }
+
+        .notice-title {
+            color: #e65100;
+            font-size: 2.5em;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .notice-text {
+            color: #5d4037;
+            font-size: 1.3em;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .what-we-do {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .what-we-do h4 {
+            color: #1565c0;
+            font-size: 1.6em;
+            margin-bottom: 2rem;
+        }
+
+        .what-we-do-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .what-we-do-item {
+            text-align: center;
+            color: #555;
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: #f8f9ff;
+        }
+
+        .what-we-do-item .icon {
+            font-size: 2em;
+            margin-bottom: 1rem;
+            color: #4caf50;
+        }
+
+        .what-we-do-item strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1565c0;
+            font-size: 1.1em;
+        }
+
+        /* Meet Blu Section */
+        .meet-blu {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+        }
+
+        .blu-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .blu-hare {
+            width: 300px;
+            height: 350px;
+            margin: 0 auto;
+            position: relative;
+            animation: gentle-bounce 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: filter 0.3s ease;
+        }
+
+        .blu-hare:hover {
+            filter: drop-shadow(0 0 20px rgba(66, 165, 245, 0.6));
+            animation: happy-hop 1s ease-in-out 2, gentle-bounce 3s ease-in-out infinite;
+        }
+
+        /* Detailed Blu Hare Body */
+        .blu-hare .hare-body {
+            width: 120px;
+            height: 160px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 60px 60px 40px 40px;
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Detailed Blu Hare Head */
+        .blu-hare .hare-head {
+            width: 100px;
+            height: 90px;
+            background: linear-gradient(135deg, #64b5f6 0%, #2196f3 100%);
+            border-radius: 50px 50px 40px 40px;
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 -5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Detailed Ears */
+        .blu-hare .ear {
+            width: 25px;
+            height: 60px;
+            background: linear-gradient(135deg, #90caf9 0%, #42a5f5 100%);
+            border-radius: 12px 12px 5px 5px;
+            position: absolute;
+            top: 10px;
+            box-shadow: inset 0 -3px 8px rgba(0,0,0,0.1);
+        }
+
+        .blu-hare .ear-left { 
+            left: 20px; 
+            transform: rotate(-15deg);
+            animation: ear-twitch 6s ease-in-out infinite;
+        }
+        
+        .blu-hare .ear-right { 
+            right: 20px; 
+            transform: rotate(15deg);
+            animation: ear-twitch-right 6s ease-in-out infinite 0.8s;
+        }
+
+        .blu-hare .ear-inner {
+            width: 12px;
+            height: 35px;
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            border-radius: 6px;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Detailed Eyes */
+        .blu-hare .eye {
+            width: 16px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 35px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .blu-hare .eye-left { left: 25px; }
+        .blu-hare .eye-right { right: 25px; }
+
+        .blu-hare .pupil {
+            width: 8px;
+            height: 10px;
+            background: #1565c0;
+            border-radius: 50%;
+            position: absolute;
+            top: 5px;
+            left: 4px;
+            animation: blink 5s ease-in-out infinite 2s;
+        }
+
+        /* Detailed Nose */
+        .blu-hare .nose {
+            width: 8px;
+            height: 6px;
+            background: #f48fb1;
+            border-radius: 50%;
+            position: absolute;
+            top: 55px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: nose-twitch 8s ease-in-out infinite 3s;
+        }
+
+        /* Detailed Arms */
+        .blu-hare .arm {
+            width: 35px;
+            height: 80px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 20px;
+            position: absolute;
+            top: 120px;
+            box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+        }
+
+        .blu-hare .arm-left { 
+            left: 80px; 
+            transform: rotate(-20deg);
+            animation: wave 3s ease-in-out infinite 0.5s;
+        }
+        .blu-hare .arm-right { 
+            right: 80px; 
+            transform: rotate(20deg);
+        }
+
+        /* Device/Tablet */
+        .blu-hare .device {
+            width: 40px;
+            height: 60px;
+            background: linear-gradient(135deg, #424242 0%, #616161 100%);
+            border-radius: 8px;
+            position: absolute;
+            top: 180px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            animation: device-bounce 2s ease-in-out infinite 1s;
+        }
+
+        .blu-hare .device-screen {
+            width: 32px;
+            height: 45px;
+            background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
+            border-radius: 4px;
+            position: absolute;
+            top: 8px;
+            left: 4px;
+            animation: screen-pulse 4s ease-in-out infinite alternate;
+        }
+
+        /* Detailed Feet */
+        .blu-hare .foot {
+            width: 30px;
+            height: 40px;
+            background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+            border-radius: 15px 15px 8px 8px;
+            position: absolute;
+            bottom: 30px;
+            box-shadow: inset 0 -3px 8px rgba(0,0,0,0.1);
+        }
+
+        .blu-hare .foot-left { left: 115px; }
+        .blu-hare .foot-right { right: 115px; }
+
+        /* Detailed Tail */
+        .blu-hare .tail {
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(135deg, #90caf9 0%, #64b5f6 100%);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 120px;
+            right: 85px;
+            box-shadow: inset 0 -2px 6px rgba(0,0,0,0.1);
+            animation: tail-wag 3s ease-in-out infinite 1.5s;
+        }
+
+        .blu-description {
+            padding: 2rem;
+        }
+
+        .blu-description h3 {
+            color: #1565c0;
+            font-size: 2.2em;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .blu-description p {
+            color: #555;
+            font-size: 1.3em;
+            line-height: 1.8;
+        }
+
+        .easter-egg-hint {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            color: #2e7d32;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            margin-top: 1.5rem;
+            font-size: 1em;
+            text-align: center;
+            border: 2px solid #4caf50;
+        }
+
+        .easter-egg-hint a {
+            color: #1b5e20;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 0.5rem;
+            background: rgba(255,255,255,0.7);
+        }
+
+        .easter-egg-hint a:hover {
+            background: #4caf50;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Detailed Blu Animations */
+        @keyframes gentle-bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(-20deg); }
+            25% { transform: rotate(-35deg); }
+            50% { transform: rotate(-20deg); }
+            75% { transform: rotate(-30deg); }
+        }
+
+        @keyframes blink {
+            0%, 85%, 100% { height: 10px; top: 5px; }
+            90% { height: 1px; top: 14px; }
+        }
+
+        @keyframes tail-wag {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            75% { transform: rotate(-10deg); }
+        }
+
+        @keyframes happy-hop {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            25% { transform: translateY(-5px) scale(1.02); }
+            50% { transform: translateY(-12px) scale(1.05); }
+            75% { transform: translateY(-5px) scale(1.02); }
+        }
+
+        @keyframes ear-twitch {
+            0%, 90%, 100% { transform: rotate(-15deg); }
+            95% { transform: rotate(-25deg); }
+        }
+
+        @keyframes ear-twitch-right {
+            0%, 90%, 100% { transform: rotate(15deg); }
+            95% { transform: rotate(25deg); }
+        }
+
+        @keyframes device-bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(-3px); }
+        }
+
+        @keyframes screen-pulse {
+            0%, 100% { 
+                background: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 100%);
+                box-shadow: inset 0 0 10px rgba(255,255,255,0.3);
+            }
+            33% { 
+                background: linear-gradient(135deg, #81c784 0%, #66bb6a 100%);
+                box-shadow: inset 0 0 15px rgba(255,255,255,0.5);
+            }
+            66% { 
+                background: linear-gradient(135deg, #ffb74d 0%, #ffa726 100%);
+                box-shadow: inset 0 0 15px rgba(255,255,255,0.5);
+            }
+        }
+
+        @keyframes nose-twitch {
+            0%, 95%, 100% { transform: translateX(-50%) scale(1); }
+            97% { transform: translateX(-50%) scale(1.2); }
+        }
+
+        /* Target Audience */
+        .target-audience {
+            padding: 100px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .audience-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .audience-feature {
+            padding: 2.5rem;
+            background: #f8f9ff;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .audience-feature:hover {
+            border-color: #42a5f5;
+            transform: translateY(-5px);
+        }
+
+        .audience-feature-icon {
+            font-size: 3em;
+            margin-bottom: 1.5rem;
+            color: #1565c0;
+        }
+
+        .audience-feature h4 {
+            color: #1565c0;
+            font-size: 1.4em;
+            margin-bottom: 1rem;
+        }
+
+        .audience-feature p {
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        /* Venue Contact Section */
+        .venue-contact {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .venue-subtitle {
+            text-align: center;
+            font-size: 1.4em;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .venue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .venue-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .venue-card:hover {
+            border-color: #42a5f5;
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+
+        .venue-icon {
+            font-size: 4em;
+            margin-bottom: 2rem;
+        }
+
+        .venue-card h3 {
+            color: #1565c0;
+            margin-bottom: 1.5rem;
+            font-size: 1.7em;
+        }
+
+        .venue-card p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.1em;
+        }
+
+        .venue-contact-cta {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 4rem;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .venue-contact-cta h3 {
+            color: #1565c0;
+            font-size: 2.5em;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        .venue-contact-cta p {
+            color: #555;
+            font-size: 1.4em;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 3em;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        .final-cta p {
+            font-size: 1.4em;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: #ffeb3b;
+            transform: translateY(-5px);
+        }
+
+        .contact-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            font-size: 1.2em;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .contact-info {
+            font-size: 1.3em;
+            font-weight: 600;
+            word-break: break-word;
+            line-height: 1.4;
+        }
+
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 1rem;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 1rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-link:hover, .contact-link:focus {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            color: white;
+            text-decoration: none;
+            border-color: #ffeb3b;
+            outline: 2px solid #ffeb3b;
+            outline-offset: 2px;
+        }
+
+        .contact-icon {
+            font-size: 3.5em;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #263238;
+            color: white;
+            padding: 60px 0 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1.5rem;
+            color: #4caf50;
+            font-size: 1.3em;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 1rem;
+            font-size: 1.1em;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-section a:hover, .footer-section a:focus {
+            color: white;
+            background: rgba(255,255,255,0.1);
+            outline: 2px solid #4caf50;
+            outline-offset: 2px;
+        }
+
+        .footer-section p {
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5em;
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top.visible {
+            display: block;
+        }
+
+        .back-to-top:hover, .back-to-top:focus {
+            background: #45a049;
+            transform: translateY(-3px);
+            outline: 2px solid #ffeb3b;
+            outline-offset: 2px;
+        }
+
+        /* Animations */
+        @keyframes hero-bounce {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            25% { transform: translateY(-8px) scale(1.02); }
+            50% { transform: translateY(-15px) scale(1.05); }
+            75% { transform: translateY(-8px) scale(1.02); }
+        }
+
+        @keyframes hero-wave-left {
+            0%, 100% { transform: rotate(-30deg); }
+            20% { transform: rotate(-50deg); }
+            40% { transform: rotate(-30deg); }
+            60% { transform: rotate(-45deg); }
+            80% { transform: rotate(-25deg); }
+        }
+
+        @keyframes hero-wave-right {
+            0%, 100% { transform: rotate(30deg); }
+            20% { transform: rotate(50deg); }
+            40% { transform: rotate(30deg); }
+            60% { transform: rotate(45deg); }
+            80% { transform: rotate(25deg); }
+        }
+
+        @keyframes hero-blink {
+            0%, 85%, 100% { height: 8px; top: 4px; }
+            90% { height: 1px; top: 8px; }
+        }
+
+        @keyframes welcome-pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .cta-button {
+                display: none;
+            }
+
+            .header-contact {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .hero {
+                padding: 140px 0 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.8em;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.4em;
+            }
+
+            .section-title {
+                font-size: 2.2em;
+            }
+
+            .hero-cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-cta-primary, .hero-cta-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-card, .topic-card, .venue-card {
+                padding: 2rem;
+            }
+            
+            .contact-card {
+                padding: 2rem;
+            }
+            
+            .venue-contact-cta h3 {
+                font-size: 2em;
+            }
+            
+            .venue-contact-cta p {
+                font-size: 1.2em;
+            }
+
+            .what-we-do-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blu-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .blu-hare {
+                width: 250px;
+                height: 300px;
+                transform: scale(0.9);
+            }
+
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2em;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            
+            .logo {
+                font-size: 1.6em;
+            }
+            
+            .hero-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            body {
+                color: #000;
+            }
+            
+            .hero .subtitle {
+                color: #333;
+            }
+            
+            .service-card p, .topic-card p {
+                color: #333;
+            }
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .hero-blu {
+                animation: none;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .header, .footer, .back-to-top {
+                display: none;
+            }
+            
+            body {
+                font-size: 12pt;
+                line-height: 1.4;
+                color: #000;
+                background: white;
+            }
+            
+            .hero, .services, .topics, .final-cta {
+                background: white !important;
+                color: #000 !important;
+            }
+            
+            .section-title {
+                color: #000;
+            }
+        }
     </style>
 </head>
-
 <body>
-    <!-- Back‑to‑main link (unchanged) -->
-    <a href="index.html" class="back-to-main">← Back to Golden Connection</a>
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
 
-    <!-- Magic particle background (unchanged) -->
-    <div class="magic-particles" id="magicParticles"></div>
-
-    <!-- Konami code progress (unchanged) -->
-    <div class="konami-progress" id="konamiProgress"></div>
-
-    <!-- Achievement popup (unchanged) -->
-    <div class="achievement" id="achievement">
-        <div class="achievement-title" id="achievementTitle"></div>
-        <div class="achievement-desc" id="achievementDesc"></div>
+    <!-- Font Size Controls -->
+    <div class="font-controls">
+        <label for="font-size">Text Size:</label>
+        <button onclick="changeFontSize('small')" aria-label="Small text size">A</button>
+        <button onclick="changeFontSize('medium')" aria-label="Medium text size">A</button>
+        <button onclick="changeFontSize('large')" aria-label="Large text size">A</button>
     </div>
 
-    <div class="container">
-        <div class="header">
-            <div class="easter-egg-counter">
-                🥚 Easter Eggs Found: <span id="eggCount">0</span>/25
-            </div>
-            <h1>Blu Mascot – Ultimate Easter Egg Collection 🎊</h1>
-            <p>All poses and variations of Blu for Golden Connection + Secret Features!</p>
-
-            <div class="time-display" id="timeDisplay">
-                Loading timezone magic... ⏰
-            </div>
-        </div>
-
-        <!-- ====================  INSTRUCTION PANEL (unchanged) ==================== -->
-        <div class="instructions-panel">
-            <div class="instructions-title">🎯 How to Find Easter Eggs – Easy Instructions!</div>
-            <div class="instruction-item"><span class="instruction-emoji">👆</span><strong>Hover your mouse</strong> over Blu characters for 3+ seconds to see helpful tech tips!</div>
-            <div class="instruction-item"><span class="instruction-emoji">🖱️</span><strong>Click different parts</strong> of Blu in the right order (Left Ear → Right Ear → Nose)</div>
-            <div class="instruction-item"><span class="instruction-emoji">⌨️</span><strong>Try keyboard arrows:</strong> Press ↑↑↓↓←→←→ then B then A for a surprise!</div>
-            <div class="instruction-item"><span class="instruction-emoji">📱</span><strong>Check on your phone or tablet</strong> – Blu behaves differently on mobile!</div>
-            <div class="instruction-item"><span class="instruction-emoji">🔧</span><strong>Tech‑savvy users:</strong> Press F12 to open Developer Tools for a special Blu!</div>
-            <div class="instruction-item"><span class="instruction-emoji">🎲</span><strong>Some are random!</strong> Refresh the page a few times – you might get lucky with Golden Blu!</div>
-        </div>
-
-        <!-- ====================  COLLECTION GRID (unchanged) ==================== -->
-        <div class="collection-grid">
-            <!-- ----- Timezone‑Aware Blu (unchanged) ----- -->
-            <div class="blu-card" id="timezoneCard">
-                <div class="blu-title">🌍 Timezone‑Aware Blu</div>
-                <div class="blu-timezone" id="timezoneBlu">
-                    <!-- (inner parts stay exactly as you had them) -->
-                </div>
-                <div class="blu-description" id="timezoneDescription">
-                    Currently showing … (filled by script)
-                </div>
-                <div class="easter-egg-hint">
-                    🥚 Hover for 3+ seconds for a tech tip! Move mouse to make eyes follow!
-                </div>
-                <button class="download-btn" onclick="downloadBlu('timezone')">Download HTML</button>
-                <button class="download-btn" onclick="downloadBluSVG('timezone')">Download SVG</button>
-            </div>
-
-            <!-- (Other Blu cards stay exactly as you posted…) -->
-
-            <!-- ----- CONTACT FORM CARD (new privacy notice) ----- -->
-            <div class="blu-card" id="contactCard">
-                <div class="blu-title">✉️ Get in Touch</div>
-
-                <!-- 3️⃣ CONTACT‑FORM PRIVACY NOTICE -->
-                <p class="privacy-notice">
-                    By submitting this form you agree that we may store your name, email and message
-                    for up to 12 months so we can respond to your inquiry. We never share this
-                    information with third parties. Read our
-                    <a href="/privacy-policy.html">Privacy &amp; Cookie Policy</a>.
-                </p>
-
-                <form id="contact-form" method="post" action="/send-message">
-                    <label for="name">Name:</label><br>
-                    <input type="text" id="name" name="name" required><br><br>
-
-                    <label for="email">Email:</label><br>
-                    <input type="email" id="email" name="email" required><br><br>
-
-                    <label for="message">Message:</label><br>
-                    <textarea id="message" name="message" rows="4" required></textarea><br><br>
-
-                    <button type="submit" class="download-btn">Send Message</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- ====================  HIDDEN ACHIEVEMENT SECTION (unchanged) ==================== -->
-        <div style="padding:50px;text-align:center;background:linear-gradient(135deg,#f3e5f5 0%,#e1bee7 100%);">
-            <h2 style="color:#7b1fa2;margin-bottom:25px;font-size:2.2em;">🏆 Easter Egg Master Status</h2>
-            <div id="masterStatus" style="font-size:20px;color:#4a148c;line-height:1.6;">
-                Find all 25+ Easter eggs to unlock the ultimate secret! 🎊
-            </div>
-            <div style="margin-top:25px;padding:25px;background:rgba(255,255,255,0.9);border-radius:20px;font-size:16px;color:#666;border:3px solid #9c27b0;">
-                <strong style="font-size:18px;">Helpful Hint:</strong><br><br>
-                Try different times of day, browser actions, mobile vs desktop, key combos, click sequences, and even open dev‑tools!<br><br>
-                Some eggs are time‑based, some random, some need special actions. The instructions above will help you find them all!<br><br>
-                <strong>🕵️‍♀️ Happy hunting! Take your time and enjoy exploring!</strong>
-            </div>
-
-            <div style="margin-top:25px;padding:20px;background:linear-gradient(135deg,#e3f2fd 0%,#bbdefb 100%);border-radius:20px;border:3px solid #1976d2;">
-                <strong style="color:#1565c0;font-size:18px;">💼 Need real tech help?</strong><br><br>
-                <a href="index.html" style="color:#1976d2;text-decoration:none;font-weight:700;font-size:16px;">
-                    ← Return to Golden Connection for patient, friendly technology education!
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="#" class="logo">Golden Connection</a>
+            
+            <div class="header-contact">
+                <a href="tel:+15551238324" class="header-phone" aria-label="Call us now">
+                    📞 (555) 123-TECH
+                </a>
+                <a href="#easter-eggs" class="easter-egg-link">
+                    🥚 Discover Blu's Secrets
                 </a>
             </div>
-        </div>
-    </div>
 
-    <!-- --------------------------------------------------------------
-         5️⃣ NEW FOOTER WITH LINKS TO POLICIES
-         -------------------------------------------------------------- -->
-    <footer class="site-footer">
-        © 2025 Golden Connections Community Center |
-        <a href="/privacy-policy.html">Privacy &amp; Cookie Policy</a> |
-        <a href="/terms.html">Terms of Service</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#topics">What We Teach</a></li>
+                <li><a href="#venue-contact">Venues</a></li>
+                <li><a href="#contact">Get Started</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Get Help Today</a>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">☰</button>
+            <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+                <ul>
+                    <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+                    <li><a href="#how-it-works" onclick="closeMobileMenu()">How It Works</a></li>
+                    <li><a href="#topics" onclick="closeMobileMenu()">What We Teach</a></li>
+                    <li><a href="#venue-contact" onclick="closeMobileMenu()">Venues</a></li>
+                    <li><a href="#contact" onclick="closeMobileMenu()">Get Started</a></li>
+                </ul>
+            </nav>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero-content">
+                    <!-- Hero Blu Mascot -->
+                    <div class="hero-blu" title="Meet Blu, your friendly tech helper!" role="img" aria-label="Blu the tech helper mascot">
+                        <div class="ear ear-left"><div class="ear-inner"></div></div>
+                        <div class="ear ear-right"><div class="ear-inner"></div></div>
+                        <div class="hare-head">
+                            <div class="eye eye-left"><div class="pupil"></div></div>
+                            <div class="eye eye-right"><div class="pupil"></div></div>
+                            <div class="nose"></div>
+                        </div>
+                        <div class="hare-body"></div>
+                        <div class="arm arm-left"></div>
+                        <div class="arm arm-right"></div>
+                        <div class="foot foot-left"></div>
+                        <div class="foot foot-right"></div>
+                        <div class="tail"></div>
+                    </div>
+                    
+                    <div class="welcome-badge">👋 Welcome to Golden Connection!</div>
+                    <h1 id="hero-title">Technology Made Simple for Seniors</h1>
+                    <p class="subtitle">Bridging the digital divide with personalized, patient tech education for adults 55+ in smaller communities across America</p>
+                    
+                    <div class="hero-cta-buttons">
+                        <a href="tel:+15551238324" class="hero-cta-primary">📞 Call Now: (555) 123-TECH</a>
+                        <a href="#contact" class="hero-cta-secondary">✉️ Get Information</a>
+                    </div>
+                </div>
+                
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">👥</div>
+                        <h3>Small Group Learning</h3>
+                        <p><strong>6-8 people maximum</strong><br>Friendly classes where you learn alongside peers who understand your challenges</p>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">👤</div>
+                        <h3>Personal Support</h3>
+                        <p><strong>One-on-one follow-up</strong><br>Individual sessions tailored to your specific devices and questions</p>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">🏡</div>
+                        <h3>In Your Community</h3>
+                        <p><strong>Serving towns under 250,000</strong><br>We come to you - no need to travel to big cities</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services" aria-labelledby="services-title">
+            <div class="container">
+                <h2 id="services-title" class="section-title">Our Patient, Proven Approach</h2>
+                <p class="section-subtitle">No experience required - we start with the basics and go at your pace</p>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🎓</div>
+                        <h3>Small Group Sessions</h3>
+                        <p><strong>Maximum 6-8 people per class.</strong> Join welcoming groups where you'll learn alongside others who share your challenges. Our patient instructors create a supportive environment where no question is too basic.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🤝</div>
+                        <h3>Personal Follow-up Support</h3>
+                        <p><strong>Individual attention when you need it.</strong> After group sessions, schedule personal appointments to practice what you've learned and get help with your specific devices and questions.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🌍</div>
+                        <h3>Nationwide Community Reach</h3>
+                        <p><strong>Serving smaller communities nationwide.</strong> We're committed to towns under 250,000 people that are often overlooked by big tech companies and urban-focused programs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section id="how-it-works" class="how-it-works" aria-labelledby="how-it-works-title">
+            <div class="container">
+                <h2 id="how-it-works-title" class="section-title">How It Works</h2>
+                <p class="section-subtitle">Simple steps to get started - no pressure, no rush</p>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Contact Us Today</h3>
+                        <p><strong>Call or email - we're friendly!</strong><br>Reach out via phone or email. We'll answer your questions and help you get started.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Join a Group Session</h3>
+                        <p><strong>Learn with others like you.</strong><br>Attend a welcoming group class focused on topics that matter to you. Bring your own device or use ours.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Personal Follow-up</h3>
+                        <p><strong>Get individual help.</strong><br>Schedule one-on-one time to practice and get personalized help with your specific questions and devices.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Stay Connected</h3>
+                        <p><strong>Ongoing support available.</strong><br>Access continued support as you become more confident with technology. We're here when you need us.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Topics Section -->
+        <section id="topics" class="topics" aria-labelledby="topics-title">
+            <div class="container">
+                <h2 id="topics-title" class="section-title">What We Teach</h2>
+                <p class="section-subtitle">Practical skills for staying connected, safe, and independent</p>
+                <div class="topics-grid">
+                    <div class="topic-card">
+                        <h4>📱 Smartphones & Basics</h4>
+                        <p><strong>Start with the fundamentals:</strong> Making calls, texting, taking photos, and using essential apps with confidence</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>💻 Computer Skills</h4>
+                        <p><strong>Master the essentials:</strong> Email, internet browsing, file management, and basic computer operations</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>👨‍👩‍👧‍👦 Staying Connected</h4>
+                        <p><strong>Connect with family:</strong> Video calls with family, social media basics, and photo sharing made simple</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>🔐 Password Safety</h4>
+                        <p><strong>Stay secure:</strong> Creating strong passwords, using password managers, and keeping accounts secure</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>🛡️ Scam Protection</h4>
+                        <p><strong>Stay safe online:</strong> Recognizing scams, avoiding social engineering, and protecting yourself online</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>🏥 Healthcare Technology</h4>
+                        <p><strong>Manage your health:</strong> Patient portals, virtual doctor visits, and managing your health online</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>🤖 AI & Modern Tech</h4>
+                        <p><strong>Understand new technology:</strong> AI assistants, smart home devices, and emerging technologies explained simply</p>
+                    </div>
+                    <div class="topic-card">
+                        <h4>🛒 Online Services</h4>
+                        <p><strong>Shop and bank safely:</strong> Safe online shopping, banking basics, and using helpful websites</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Important Notice -->
+        <section class="important-notice" aria-labelledby="notice-title">
+            <div class="container">
+                <div class="notice-content">
+                    <div class="notice-icon">⚠️</div>
+                    <h2 id="notice-title" class="notice-title">Important: What We Focus On</h2>
+                    <div class="notice-text">
+                        <strong>Golden Connection focuses on education and training, not technical repair services.</strong><br><br>
+                        We don't provide device repair, software installation, troubleshooting, or hands-on tech support. 
+                        Our mission is to teach you the skills and confidence to use technology independently.
+                    </div>
+                    
+                    <div class="what-we-do">
+                        <h4>🎓 What We DO Provide:</h4>
+                        <div class="what-we-do-grid">
+                            <div class="what-we-do-item">
+                                <div class="icon">📚</div>
+                                <strong>Education & Training</strong><br>
+                                Teaching you how to use your devices step-by-step
+                            </div>
+                            <div class="what-we-do-item">
+                                <div class="icon">🤝</div>
+                                <strong>Patient Guidance</strong><br>
+                                Learning support at your own pace
+                            </div>
+                            <div class="what-we-do-item">
+                                <div class="icon">💡</div>
+                                <strong>Skill Building</strong><br>
+                                Confidence to solve problems yourself
+                            </div>
+                            <div class="what-we-do-item">
+                                <div class="icon">🛡️</div>
+                                <strong>Safety Education</strong><br>
+                                How to stay secure and avoid scams online
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Target Audience -->
+        <section class="target-audience" aria-labelledby="audience-title">
+            <div class="container">
+                <h2 id="audience-title" class="section-title">Perfect for You If...</h2>
+                <p class="section-subtitle">You're ready to learn technology at your own pace with patient, understanding instructors</p>
+                <div class="audience-features">
+                    <div class="audience-feature">
+                        <div class="audience-feature-icon">🎂</div>
+                        <h4>Age 55+</h4>
+                        <p>Ready to learn technology at your own comfortable pace</p>
+                    </div>
+                    <div class="audience-feature">
+                        <div class="audience-feature-icon">🏘️</div>
+                        <h4>Smaller Communities</h4>
+                        <p>Living in towns and cities under 250,000 people</p>
+                    </div>
+                    <div class="audience-feature">
+                        <div class="audience-feature-icon">🤔</div>
+                        <h4>Tech Curious</h4>
+                        <p>Want to learn but feel overwhelmed by technology</p>
+                    </div>
+                    <div class="audience-feature">
+                        <div class="audience-feature-icon">❤️</div>
+                        <h4>Family Focused</h4>
+                        <p>Want to stay connected with loved ones near and far</p>
+                    </div>
+                    <div class="audience-feature">
+                        <div class="audience-feature-icon">🎯</div>
+                        <h4>Goal Oriented</h4>
+                        <p>Have specific tech tasks you want to accomplish</p>
+                    </div>
+                    <div class="audience-feature">
+                        <div class="audience-feature-icon">🤝</div>
+                        <h4>Community Minded</h4>
+                        <p>Enjoy learning with others in a supportive environment</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet Blu Section -->
+        <section id="easter-eggs" class="meet-blu" aria-labelledby="blu-title">
+            <div class="container">
+                <h2 id="blu-title" class="section-title">Meet Blu, Your Tech Helper</h2>
+                <p class="section-subtitle">Our friendly mascot embodies the patience and understanding that makes learning technology feel welcoming</p>
+                <div class="blu-container">
+                    <div class="blu-hare" title="Click me! I'm Blu, your friendly tech helper!" role="img" aria-label="Blu the blue hare mascot holding a tablet">
+                        <!-- Ears -->
+                        <div class="ear ear-left">
+                            <div class="ear-inner"></div>
+                        </div>
+                        <div class="ear ear-right">
+                            <div class="ear-inner"></div>
+                        </div>
+                        
+                        <!-- Head -->
+                        <div class="hare-head">
+                            <!-- Eyes -->
+                            <div class="eye eye-left">
+                                <div class="pupil"></div>
+                            </div>
+                            <div class="eye eye-right">
+                                <div class="pupil"></div>
+                            </div>
+                            <!-- Nose -->
+                            <div class="nose"></div>
+                        </div>
+                        
+                        <!-- Body -->
+                        <div class="hare-body"></div>
+                        
+                        <!-- Arms -->
+                        <div class="arm arm-left"></div>
+                        <div class="arm arm-right"></div>
+                        
+                        <!-- Device/Tablet -->
+                        <div class="device">
+                            <div class="device-screen"></div>
+                        </div>
+                        
+                        <!-- Feet -->
+                        <div class="foot foot-left"></div>
+                        <div class="foot foot-right"></div>
+                        
+                        <!-- Tail -->
+                        <div class="tail"></div>
+                    </div>
+                    
+                    <div class="blu-description">
+                        <h3>Your Friendly Tech Companion</h3>
+                        <p>Meet Blu, our gentle blue hare mascot who embodies the patience and understanding that makes learning technology feel less intimidating. Just like our instructors, Blu is here to make your tech journey feel like connecting with a trusted friend!</p>
+                        <p><strong>Why a blue hare?</strong> Blue represents trust and calm, while the gentle hare symbolizes patience and careful listening - exactly what you'll find in our classes.</p>
+                        
+                        <div class="easter-egg-hint">
+                            🎉 <strong>Fun Discovery:</strong> Blu has many hidden talents and surprises! Want to see all of Blu's amazing variations and secret features?
+                            <a href="blu-collection.html" target="_blank">🥚 Explore Blu's Secret Collection!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Venue Contact Section -->
+        <section id="venue-contact" class="venue-contact" aria-labelledby="venue-title">
+            <div class="container">
+                <h2 id="venue-title" class="section-title">Bring Golden Connection to Your Community</h2>
+                <p class="venue-subtitle">We partner with local venues to bring tech education directly to where seniors gather. We handle all the setup - you just provide the space!</p>
+                
+                <div class="venue-grid">
+                    <div class="venue-card">
+                        <div class="venue-icon">🚐</div>
+                        <h3>RV Parks</h3>
+                        <p>Perfect for seasonal residents and traveling communities who want to stay connected</p>
+                    </div>
+                    <div class="venue-card">
+                        <div class="venue-icon">🏢</div>
+                        <h3>Senior Centers</h3>
+                        <p>Ideal setting for regular programming and ongoing classes with consistent groups</p>
+                    </div>
+                    <div class="venue-card">
+                        <div class="venue-icon">⛪</div>
+                        <h3>Churches</h3>
+                        <p>Trusted community spaces where members feel comfortable learning together</p>
+                    </div>
+                    <div class="venue-card">
+                        <div class="venue-icon">🏛️</div>
+                        <h3>Community Centers</h3>
+                        <p>Great for reaching diverse groups and hosting larger educational sessions</p>
+                    </div>
+                </div>
+                
+                <div class="venue-contact-cta">
+                    <h3>Contact us to arrange sessions at your location</h3>
+                    <p>We provide experienced instructors, all materials, and handle the setup. Just provide the space and we'll bring the expertise! <strong>Call (555) 123-TECH or email hello@goldenconnection.org</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section id="contact" class="final-cta" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title">Ready to Get Started?</h2>
+                <p>Let us help you gain confidence with technology in a patient, supportive environment</p>
+                
+                <div class="contact-options">
+                    <div class="contact-card">
+                        <div class="contact-icon">📞</div>
+                        <h3>Call Us</h3>
+                        <p>Speak directly with our friendly team<br><strong>Available for calls and questions</strong></p>
+                        <a href="tel:+15551238324" class="contact-info contact-link">(555) 123-TECH</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">✉️</div>
+                        <h3>Email Us</h3>
+                        <p>Send us your questions anytime<br><strong>We respond promptly</strong></p>
+                        <a href="mailto:hello@goldenconnection.org" class="contact-info contact-link">hello@goldenconnection.org</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📝</div>
+                        <h3>Venue Partnerships</h3>
+                        <p>Arrange classes at your location<br><strong>We bring everything needed</strong></p>
+                        <a href="mailto:hello@goldenconnection.org?subject=Venue Partnership Request" class="contact-info contact-link">hello@goldenconnection.org</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">🏢</div>
+                        <h3>Get Information</h3>
+                        <p>Learn more about our services and approach</p>
+                        <div class="contact-info">
+                            <strong>Contact us anytime via phone or email</strong><br>
+                            We're here to help you succeed with technology
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Golden Connection</h4>
+                    <p>Bridging the digital divide for seniors in communities across America. A nonprofit organization dedicated to patient, accessible technology education.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Our Services</h4>
+                    <a href="#services">Group Sessions</a>
+                    <a href="#services">One-on-One Support</a>
+                    <a href="#topics">What We Teach</a>
+                    <a href="#venue-contact">Partner Venues</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Information</h4>
+                    <a href="tel:+15551238324">(555) 123-TECH</a>
+                    <a href="mailto:hello@goldenconnection.org">hello@goldenconnection.org</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Service Areas</h4>
+                    <p>Serving towns and cities under 250,000 people nationwide. Contact us to see if we serve your community!</p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #444; padding-top: 20px; margin-top: 20px;">
+                <p>&copy; 2025 Golden Connection. A nonprofit organization dedicated to senior technology education.</p>
+                <p style="margin-top: 10px; font-size: 1em;">
+                    <a href="#" style="color: #4caf50; text-decoration: none;">Privacy Policy</a> | 
+                    <a href="#" style="color: #4caf50; text-decoration: none;">Accessibility Statement</a> | 
+                    <a href="javascript:window.print()" style="color: #4caf50; text-decoration: none;">Print This Page</a>
+                </p>
+            </div>
+        </div>
     </footer>
 
-    <!-- --------------------------------------------------------------
-         6️⃣ SCRIPT SECTION – unchanged except for wrapping analytics/maps
-         -------------------------------------------------------------- -->
+    <!-- Back to Top Button -->
+    <button class="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+
     <script>
-        // ---------- Google Analytics (blocked until consent) ----------
-        <script type="text/plain" data-klaro="analytics">
-            (function(i,s,o,g,r,a,m){
-                i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},
-                i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
-                m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const isOpen = mobileNav.classList.contains('active');
+            
+            mobileNav.classList.toggle('active');
+            menuBtn.setAttribute('aria-expanded', !isOpen);
+        }
 
-            ga('create', 'UA-XXXXX-Y', 'auto');
-            ga('send', 'pageview');
-        </script>
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            mobileNav.classList.remove('active');
+            menuBtn.setAttribute('aria-expanded', 'false');
+        }
 
-        // ---------- Google Maps (blocked until consent) ----------
-        <script type="text/plain" data-klaro="maps">
-            // Your existing Google Maps embed script (if any) goes here.
-        </script>
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!mobileNav.contains(event.target) && !menuBtn.contains(event.target)) {
+                closeMobileMenu();
+            }
+        });
 
-        // ---------- ORIGINAL PAGE LOGIC (unchanged) ----------
-        // All the JavaScript you already had – timezones, eye‑tracking,
-        // Easter‑egg handling, download functions, etc.
-        // (Copy the whole <script> block you posted originally, starting
-        // from “// EASTER EGG SYSTEM” down to the end of the file.)
+        // Font Size Control
+        function changeFontSize(size) {
+            const body = document.body;
+            body.classList.remove('font-small', 'font-medium', 'font-large');
+            
+            switch(size) {
+                case 'small':
+                    body.style.fontSize = '16px';
+                    break;
+                case 'medium':
+                    body.style.fontSize = '18px';
+                    break;
+                case 'large':
+                    body.style.fontSize = '22px';
+                    break;
+            }
+            
+            // Save preference only if localStorage is available
+            try {
+                if (typeof(Storage) !== "undefined" && localStorage) {
+                    localStorage.setItem('fontSize', size);
+                }
+            } catch (e) {
+                // localStorage not available, that's okay
+            }
+        }
+
+        // Back to Top Button
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/Hide Back to Top Button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Load saved font size preference
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load saved font size only if localStorage is available
+            try {
+                if (typeof(Storage) !== "undefined" && localStorage) {
+                    const savedFontSize = localStorage.getItem('fontSize');
+                    if (savedFontSize) {
+                        changeFontSize(savedFontSize);
+                    }
+                }
+            } catch (e) {
+                // localStorage not available, use default font size
+            }
+
+            // Add focus indicators for keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    document.body.classList.add('keyboard-nav');
+                }
+            });
+
+            document.addEventListener('mousedown', function() {
+                document.body.classList.remove('keyboard-nav');
+            });
+        });
+
+        // Enhanced keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            // Allow keyboard users to activate hover effects
+            if (e.key === 'Enter' || e.key === ' ') {
+                const focused = document.activeElement;
+                if (focused.classList.contains('hero-blu')) {
+                    focused.click();
+                }
+            }
+        });
+
+        // Announce page changes for screen readers
+        function announcePageChange(message) {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.className = 'sr-only';
+            announcement.textContent = message;
+            document.body.appendChild(announcement);
+            
+            setTimeout(() => {
+                document.body.removeChild(announcement);
+            }, 1000);
+        }
     </script>
 </body>
 </html>
+```

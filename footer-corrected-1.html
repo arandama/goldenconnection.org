@@ -1,0 +1,177 @@
+<!-- ====================================
+     GOLDEN CONNECTION FOOTER (CORRECTED)
+     Replace your current footer with this version
+     ====================================  -->
+
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Golden Connection</h4>
+                <p>Free technology education for seniors in communities across America. Patient, friendly instruction designed for adults age 55+.</p>
+                <p style="margin-top: 1rem; font-size: 0.9em; font-style: italic;">
+                    501(c)(3) nonprofit status pending
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Our Services</h4>
+                <a href="#services">Group Sessions</a>
+                <a href="#services">One-on-One Support</a>
+                <a href="#topics">What We Teach</a>
+                <a href="#venue-contact">Partner Venues</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact Information</h4>
+                <p style="color: #ccc; font-size: 1.1em; line-height: 1.8;">
+                    Email: <a href="mailto:hello@goldenconnection.org" style="color: #4caf50;">hello@goldenconnection.org</a><br>
+                    <span style="opacity: 0.7; font-size: 0.9em;">Phone number coming soon</span>
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Service Areas</h4>
+                <p>Serving communities nationwide with a focus on smaller towns and rural areas. Contact us to see if we serve your community!</p>
+            </div>
+        </div>
+        
+        <!-- Legal & Copyright Section -->
+        <div style="border-top: 1px solid #444; padding-top: 20px; margin-top: 20px;">
+            <p style="margin-bottom: 10px; font-size: 1em;">&copy; 2025 Golden Connection. All rights reserved.</p>
+            
+            <!-- Legal Links -->
+            <p style="margin-top: 15px; font-size: 1em;">
+                <a href="privacy-policy.html" style="color: #4caf50; text-decoration: none; margin-right: 15px;">Privacy Policy</a>
+                <span style="color: #666;">|</span>
+                <a href="cookie-policy.html" style="color: #4caf50; text-decoration: none; margin: 0 15px;">Cookie Policy</a>
+                <span style="color: #666;">|</span>
+                <a href="terms-of-service.html" style="color: #4caf50; text-decoration: none; margin-left: 15px;">Terms of Service</a>
+            </p>
+            
+            <!-- Cookie Settings Link (for when you add cookie banner) -->
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                <a href="#" id="cookieSettingsLink" style="color: #888; text-decoration: none;">🍪 Cookie Settings</a>
+            </p>
+            
+            <!-- Disclaimers -->
+            <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; font-size: 0.9em; line-height: 1.6;">
+                <p style="margin: 0 0 10px 0;">
+                    <strong>Service Disclaimer:</strong> Golden Connection provides technology education only. 
+                    We do not offer device repair, technical support, or troubleshooting services.
+                </p>
+                <p style="margin: 0;">
+                    <strong>Nonprofit Status:</strong> Golden Connection is applying for 501(c)(3) tax-exempt status. 
+                    Federal tax-exempt application is pending with the IRS.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ====================================
+     COOKIE SETTINGS SCRIPT
+     Add this to make the Cookie Settings link work
+     (This will be connected to your cookie banner later)
+     ====================================  -->
+
+<script>
+// Cookie Settings Link Handler
+document.getElementById('cookieSettingsLink')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    // This will trigger your cookie banner to reappear
+    // Replace this with your actual cookie consent library's reopen function
+    // Example for popular libraries:
+    // - Cookiebot: Cookiebot.renew()
+    // - OneTrust: OneTrust.ToggleInfoDisplay()
+    // - Custom: showCookieBanner()
+    
+    alert('Cookie banner will reappear here once you implement your cookie consent solution. See implementation guide for options.');
+});
+</script>
+
+<!-- ====================================
+     FOOTER STYLING (if not in main CSS)
+     ====================================  -->
+
+<style>
+.footer {
+    background: #263238;
+    color: white;
+    padding: 60px 0 40px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+    text-align: left;
+}
+
+.footer-section h4 {
+    margin-bottom: 1.5rem;
+    color: #4caf50;
+    font-size: 1.3em;
+}
+
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.1em;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.footer-section a:hover, 
+.footer-section a:focus {
+    color: white;
+    background: rgba(255,255,255,0.1);
+    outline: 2px solid #4caf50;
+    outline-offset: 2px;
+}
+
+.footer-section p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #ccc;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+}
+</style>
+
+<!-- ====================================
+     IMPLEMENTATION CHECKLIST
+     ====================================
+     
+     1. Replace your current <footer> tag with this entire section
+     
+     2. Ensure these files exist in your root directory:
+        - privacy-policy.html (use privacy-policy-CORRECTED.html)
+        - cookie-policy.html (use cookie-policy-CORRECTED.html)
+        - terms-of-service.html (use the new file provided)
+     
+     3. When you get your phone number:
+        - Replace the "Phone number coming soon" text
+        - Add: <a href="tel:+1YOURNUMBER">(XXX) XXX-XXXX</a>
+     
+     4. When 501(c)(3) is approved:
+        - Update "pending" to "approved"
+        - Add your EIN: "EIN: XX-XXXXXXX"
+        - Add your mailing address in Contact section
+     
+     5. Cookie Settings link:
+        - This will need to connect to your cookie consent banner
+        - See cookie-consent-implementation.html for setup guide
+     
+     ====================================  -->

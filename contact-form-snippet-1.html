@@ -1,0 +1,230 @@
+<!-- ====================================
+     GOLDEN CONNECTION CONTACT FORM
+     Simple, accessible contact form
+     ===================================  -->
+
+<section id="contact-form" class="contact-form-section" style="padding: 80px 0; background: #f8f9fa;">
+    <div class="container" style="max-width: 700px; margin: 0 auto; padding: 0 20px;">
+        <h2 style="text-align: center; color: #1565c0; font-size: 2.5em; margin-bottom: 1rem;">Get in Touch</h2>
+        <p style="text-align: center; color: #666; font-size: 1.2em; margin-bottom: 3rem;">
+            Have questions about our services? Want to bring Golden Connection to your community? 
+            We'd love to hear from you!
+        </p>
+
+        <!-- FORM - Replace action URL with your actual form handler -->
+        <form 
+            action="https://formspree.io/f/xyzqyydl" 
+            method="POST"
+            class="contact-form"
+            style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            
+            <!-- Name Field -->
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+                <label for="name" style="display: block; margin-bottom: 0.5rem; color: #1565c0; font-weight: 600; font-size: 1.1em;">
+                    Your Name <span style="color: #f44336;">*</span>
+                </label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    required
+                    placeholder="Enter your first name or full name"
+                    style="width: 100%; padding: 12px 15px; font-size: 1.1em; border: 2px solid #ddd; border-radius: 8px; box-sizing: border-box;"
+                    aria-required="true">
+            </div>
+
+            <!-- Email Field -->
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+                <label for="email" style="display: block; margin-bottom: 0.5rem; color: #1565c0; font-weight: 600; font-size: 1.1em;">
+                    Email Address <span style="color: #f44336;">*</span>
+                </label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required
+                    placeholder="your.email@example.com"
+                    style="width: 100%; padding: 12px 15px; font-size: 1.1em; border: 2px solid #ddd; border-radius: 8px; box-sizing: border-box;"
+                    aria-required="true">
+            </div>
+
+            <!-- Phone Field (Optional) -->
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+                <label for="phone" style="display: block; margin-bottom: 0.5rem; color: #1565c0; font-weight: 600; font-size: 1.1em;">
+                    Phone Number <span style="color: #999; font-weight: normal;">(optional)</span>
+                </label>
+                <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone"
+                    placeholder="(555) 123-4567"
+                    style="width: 100%; padding: 12px 15px; font-size: 1.1em; border: 2px solid #ddd; border-radius: 8px; box-sizing: border-box;">
+            </div>
+
+            <!-- Location Field -->
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+                <label for="location" style="display: block; margin-bottom: 0.5rem; color: #1565c0; font-weight: 600; font-size: 1.1em;">
+                    Your General Location <span style="color: #f44336;">*</span>
+                </label>
+                <input 
+                    type="text" 
+                    id="location" 
+                    name="location" 
+                    required
+                    placeholder="e.g., Rural Pennsylvania, or Springfield, IL"
+                    style="width: 100%; padding: 12px 15px; font-size: 1.1em; border: 2px solid #ddd; border-radius: 8px; box-sizing: border-box;"
+                    aria-required="true">
+                <small style="display: block; margin-top: 0.5rem; color: #666; font-size: 0.9em;">
+                    We only need a general area (city/county/region) to see if we can serve you
+                </small>
+            </div>
+
+            <!-- Inquiry Type -->
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+                <label for="inquiry-type" style="display: block; margin-bottom: 0.5rem; color: #1565c0; font-weight: 600; font-size: 1.1em;">
+                    What can we help you with? <span style="color: #f44336;">*</span>
+                </label>
+                <select 
+                    id="inquiry-type" 
+                    name="inquiry_type" 
+                    required
+                    style="width: 100%; padding: 12px 15px; font-size: 1.1em; border: 2px solid #ddd; border-radius: 8px; box-sizing: border-box; background: white;"
+                    aria-required="true">
+                    <option value="">-- Please select --</option>
+                    <option value="interested-participant">I want to attend classes</option>
+                    <option value="venue-partner">I represent a venue (senior center, church, etc.)</option>
+                    <option value="general-question">I have a general question</option>
+                    <option value="volunteer">I want to volunteer</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <!-- Message Field -->
+            <div class="form-group" style="margin-bottom: 2rem;">
+                <label for="message" style="display: block; margin-bottom: 0.5rem; color: #1565c0; font-weight: 600; font-size: 1.1em;">
+                    Your Message <span style="color: #f44336;">*</span>
+                </label>
+                <textarea 
+                    id="message" 
+                    name="message" 
+                    required
+                    rows="6"
+                    placeholder="Tell us more about what you're looking for or any questions you have..."
+                    style="width: 100%; padding: 12px 15px; font-size: 1.1em; border: 2px solid #ddd; border-radius: 8px; box-sizing: border-box; resize: vertical; font-family: inherit;"
+                    aria-required="true"></textarea>
+            </div>
+
+            <!-- Privacy Notice -->
+            <div style="background: #e8f5e9; padding: 15px; border-radius: 10px; margin-bottom: 1.5rem; border-left: 4px solid #4caf50;">
+                <p style="margin: 0; font-size: 0.95em; color: #2e7d32; line-height: 1.6;">
+                    <strong>🔒 Your privacy matters:</strong> We only collect the information you provide above 
+                    to respond to your inquiry. We never sell or share your information. See our 
+                    <a href="privacy-policy.html" style="color: #1b5e20; text-decoration: underline;">Privacy Policy</a> 
+                    for details.
+                </p>
+            </div>
+
+            <!-- Submit Button -->
+            <button 
+                type="submit"
+                style="width: 100%; background: linear-gradient(135deg, #4caf50 0%, #45a049 100%); color: white; padding: 15px 30px; font-size: 1.2em; font-weight: 600; border: none; border-radius: 30px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);">
+                Send Message 📧
+            </button>
+        </form>
+
+        <!-- Alternative Contact Methods -->
+        <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #ddd;">
+            <p style="color: #666; font-size: 1.1em; margin-bottom: 1rem;">
+                <strong>Prefer email?</strong> You can also reach us directly at:
+            </p>
+            <p style="font-size: 1.2em;">
+                <a href="mailto:hello@goldenconnection.org" style="color: #1565c0; text-decoration: none; font-weight: 600;">
+                    hello@goldenconnection.org
+                </a>
+            </p>
+            <p style="color: #999; font-size: 0.9em; margin-top: 1rem;">
+                We typically respond within 2-3 business days
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================
+     FORM SETUP INSTRUCTIONS
+     ====================================
+     
+     OPTION 1: Formspree (Recommended - Free & Easy)
+     1. Go to https://formspree.io
+     2. Sign up for a free account
+     3. Create a new form
+     4. Copy your form endpoint (looks like: https://formspree.io/f/xxxxx)
+     5. Replace "YOUR_FORM_ID" in the action attribute above
+     
+     OPTION 2: Netlify Forms (If hosting on Netlify)
+     1. Add attribute: netlify to the <form> tag
+     2. Add hidden input: <input type="hidden" name="form-name" value="contact">
+     3. No action URL needed
+     
+     OPTION 3: Custom Backend
+     1. Create your own form handler (PHP, Node.js, Python, etc.)
+     2. Update the action URL to your endpoint
+     3. Ensure you validate and sanitize all inputs
+     4. Follow privacy policy requirements for data handling
+     
+     ====================================
+     ACCESSIBILITY NOTES
+     ====================================
+     
+     This form includes:
+     - Proper label associations (for/id)
+     - Required field indicators (*)
+     - ARIA attributes (aria-required)
+     - Clear error messaging (when connected to backend)
+     - Keyboard accessible
+     - Screen reader friendly
+     - Large touch targets (44px min)
+     
+     ====================================
+     STYLING NOTES
+     ====================================
+     
+     This form uses inline styles for portability.
+     For production:
+     1. Move styles to your main CSS file
+     2. Add focus states: outline and visual feedback
+     3. Add validation styling (red borders for errors)
+     4. Add success message display
+     5. Consider adding a loading state for submit button
+     
+     ====================================  -->
+
+<style>
+/* Additional form styles for better UX */
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+    outline: 3px solid #42a5f5;
+    outline-offset: 2px;
+    border-color: #1565c0;
+}
+
+.contact-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.contact-form button:active {
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-form-section {
+        padding: 60px 0 !important;
+    }
+    
+    .contact-form {
+        padding: 2rem 1.5rem !important;
+    }
+}
+</style>

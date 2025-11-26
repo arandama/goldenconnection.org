@@ -24,6 +24,21 @@
             color: #1976d2;
             margin-top: 2rem;
         }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: #e3f2fd;
+            color: #1565c0;
+            font-weight: 600;
+        }
         .note {
             font-size: .9rem;
             color: #555;
@@ -31,6 +46,10 @@
             padding: 12px;
             border-left: 4px solid #4caf50;
             margin: 1rem 0;
+        }
+        .important {
+            background: #fff3e0;
+            border-left-color: #ff9800;
         }
         a {
             color: #1976d2;
@@ -52,6 +71,13 @@
             background: #1976d2;
             text-decoration: none;
         }
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #d32f2f;
+        }
     </style>
 </head>
 <body>
@@ -63,41 +89,348 @@
 <p><strong>Last updated:</strong> November 7, 2025</p>
 
 <div class="note">
-    <strong>Simple Summary:</strong> Golden Connection does not use cookies on this website. 
-    We do not use analytics, advertising, or tracking cookies of any kind.
+    <strong>Simple Summary:</strong> This website uses only analytics cookies to count visitors and 
+    understand which pages are helpful. You can decline these cookies and still use the entire website 
+    with no loss of functionality. We don't use advertising or marketing cookies.
 </div>
 
-<h2>1. No Cookies in Use</h2>
+<h2>1. What Are Cookies?</h2>
 <p>
-    Some websites store small text files called "cookies" on your device to remember your preferences, 
-    track usage, or show advertising. Golden Connection currently does <strong>none</strong> of this.
-</p>
-<p>
-    We do not set any cookies when you visit our website. You can browse the entire site without 
-    any tracking, analytics, or advertising technologies that rely on cookies.
+    A cookie is a small text file that a website stores on your computer or mobile device when you 
+    visit. Cookies help websites remember information about your visit, like your preferred language 
+    or text size, which makes your next visit easier and the site more useful.
 </p>
 
-<h2>2. Future Changes</h2>
-<p>
-    If we ever decide to use cookies in the future (for example, simple visitor analytics), we will:
-</p>
+<p><strong>What cookies do:</strong></p>
 <ul>
-    <li>Update this Cookie Policy before any cookies are enabled</li>
-    <li>Explain exactly what types of cookies we use and why</li>
-    <li>Give you a clear choice to accept or decline non-essential cookies</li>
+    <li>Remember your preferences and settings</li>
+    <li>Help websites understand how many people visit</li>
+    <li>Allow certain website features to work properly</li>
 </ul>
 
-<h2>3. Contact Us</h2>
-<p>
-    If you have any questions about this Cookie Policy or how we run our website, you can contact us:</p>
+<p><strong>What cookies DON'T do (on our site):</strong></p>
 <ul>
-    <li>Email: <a href="mailto:hello@goldenconnection.org">hello@goldenconnection.org</a></li>
-    <li>Phone: <em>Phone number coming soon</em></li>
+    <li>Track you across different websites</li>
+    <li>Show you personalized advertising</li>
+    <li>Collect sensitive personal information</li>
+    <li>Access files or data on your device</li>
 </ul>
 
+<h2>2. Cookies We Use</h2>
+
+<h3>2.1 Essential Cookie (1 cookie)</h3>
 <p>
-    Golden Connection is a nonprofit organization (501(c)(3) status pending) that provides free technology 
-    education for adults, primarily age 55+, in smaller communities across the United States.
+    We use one essential cookie to remember your cookie preferences. This cookie doesn't require 
+    your consent because it's necessary for the cookie consent system to work.
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Cookie Name</th>
+            <th>Purpose</th>
+            <th>Duration</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>cookieConsent</code></td>
+            <td>Remembers whether you accepted or declined analytics cookies</td>
+            <td>1 year</td>
+            <td>First-party (Golden Connection)</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>2.2 Analytics Cookies (Optional - Requires Consent)</h3>
+<p>
+    If you consent to analytics cookies, we use Google Analytics to understand how visitors use 
+    our website. This helps us improve content, fix problems, and measure our reach (important for 
+    nonprofit reporting to funders).
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Cookie Name</th>
+            <th>Purpose</th>
+            <th>Duration</th>
+            <th>Provider</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>_ga</code></td>
+            <td>Distinguishes unique visitors</td>
+            <td>2 years</td>
+            <td>Google Analytics</td>
+        </tr>
+        <tr>
+            <td><code>_gid</code></td>
+            <td>Distinguishes unique visitors (short-term)</td>
+            <td>24 hours</td>
+            <td>Google Analytics</td>
+        </tr>
+        <tr>
+            <td><code>_gat</code></td>
+            <td>Throttles request rate</td>
+            <td>1 minute</td>
+            <td>Google Analytics</td>
+        </tr>
+    </tbody>
+</table>
+
+<p><strong>What Google Analytics collects:</strong></p>
+<ul>
+    <li>Number of visitors to each page</li>
+    <li>How long people spend on the site</li>
+    <li>General geographic location (city/region level, not your address)</li>
+    <li>Device type (phone, tablet, computer)</li>
+    <li>Browser type (Chrome, Firefox, Safari, etc.)</li>
+    <li>How you found our site (search engine, direct link, etc.)</li>
+</ul>
+
+<p class="note important">
+    <strong>Important:</strong> Google Analytics data is anonymized. Your IP address is masked so we 
+    can't identify you personally. Google cannot use this data for their own advertising purposes on 
+    our site (we've disabled that feature).
+</p>
+
+<h3>2.3 Local Storage (Not a Cookie)</h3>
+<p>
+    Our website uses browser <strong>local storage</strong> (not a cookie) to remember your preferred 
+    text size. This preference is stored only on your device and is never sent to our servers.
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Storage Item</th>
+            <th>Purpose</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>fontSize</code></td>
+            <td>Remembers your preferred text size (small/medium/large)</td>
+            <td>Your device only (never transmitted)</td>
+        </tr>
+    </tbody>
+</table>
+
+<p><strong>How to clear it:</strong></p>
+<ul>
+    <li>Use the font size controls on our website and click "Reset"</li>
+    <li>Clear your browser's local storage/site data</li>
+    <li>Use browser privacy/incognito mode</li>
+</ul>
+
+<h3>2.4 What We DON'T Use</h3>
+<p>Golden Connection does not use:</p>
+<ul>
+    <li>❌ Advertising cookies (no targeted ads)</li>
+    <li>❌ Social media tracking (no Facebook Pixel, Twitter tags, etc.)</li>
+    <li>❌ Marketing automation cookies</li>
+    <li>❌ Third-party affiliate tracking</li>
+    <li>❌ Cross-site tracking cookies</li>
+    <li>❌ Cookies that track you on other websites</li>
+</ul>
+
+<h2>3. How to Manage Cookies</h2>
+
+<h3>3.1 Using Our Cookie Banner</h3>
+<p>When you first visit our website, you'll see a cookie consent banner with these options:</p>
+<ul>
+    <li><strong>Accept All:</strong> Enable analytics cookies to help us improve the site</li>
+    <li><strong>Decline:</strong> Only use essential cookies (the site works perfectly without analytics)</li>
+    <li><strong>Cookie Settings:</strong> Learn more and customize your choice</li>
+</ul>
+
+<p class="note">
+    <strong>Your choice matters:</strong> Declining analytics cookies won't affect your ability to use 
+    the website. All features, content, and services remain fully accessible whether you accept or 
+    decline.
+</p>
+
+<h3>3.2 Changing Your Mind</h3>
+<p>You can change your cookie preferences anytime:</p>
+<ul>
+    <li>Click "Cookie Settings" in the footer of any page</li>
+    <li>The cookie banner will reappear, allowing you to change your choice</li>
+    <li>Your new preference will take effect immediately</li>
+</ul>
+
+<h3>3.3 Browser Controls</h3>
+<p>You can also manage cookies directly in your web browser:</p>
+
+<p><strong>Google Chrome:</strong></p>
+<ol>
+    <li>Click the three dots (⋮) in the top right</li>
+    <li>Go to Settings → Privacy and security → Cookies and other site data</li>
+    <li>Choose your cookie preferences or clear existing cookies</li>
+</ol>
+
+<p><strong>Mozilla Firefox:</strong></p>
+<ol>
+    <li>Click the three lines (≡) in the top right</li>
+    <li>Go to Settings → Privacy & Security → Cookies and Site Data</li>
+    <li>Manage or clear cookies</li>
+</ol>
+
+<p><strong>Safari:</strong></p>
+<ol>
+    <li>Click Safari → Preferences (or Settings)</li>
+    <li>Go to Privacy tab</li>
+    <li>Manage cookies and website data</li>
+</ol>
+
+<p><strong>Microsoft Edge:</strong></p>
+<ol>
+    <li>Click the three dots (...) in the top right</li>
+    <li>Go to Settings → Cookies and site permissions</li>
+    <li>Manage cookies</li>
+</ol>
+
+<h3>3.4 "Do Not Track" Signals</h3>
+<p>
+    Our website respects "Do Not Track" (DNT) browser signals. If you enable DNT in your browser 
+    settings, we will automatically disable analytics cookies even if you haven't explicitly declined 
+    them in our cookie banner.
+</p>
+
+<h3>3.5 Private/Incognito Browsing</h3>
+<p>
+    If you use your browser's private or incognito mode, cookies are automatically deleted when you 
+    close the window. In private mode, you'll see the cookie banner each time you visit because your 
+    previous choice isn't remembered.
+</p>
+
+<h2>4. Third-Party Cookies (Google Analytics)</h2>
+<p>
+    Google Analytics is a third-party service provided by Google LLC. When you consent to analytics 
+    cookies, Google may set cookies on our site.
+</p>
+
+<h3>What Google Does</h3>
+<ul>
+    <li>Processes website usage data on our behalf</li>
+    <li>Provides us with anonymized reports and statistics</li>
+    <li>Stores data on Google's servers (subject to Google's security measures)</li>
+</ul>
+
+<h3>What Google Does NOT Do (on our site)</h3>
+<ul>
+    <li>Use your data for Google's own advertising</li>
+    <li>Share your data with other Google services without our permission</li>
+    <li>Create advertising profiles based on your visit to our site</li>
+</ul>
+
+<h3>Google's Privacy Policy</h3>
+<p>
+    Google Analytics is subject to Google's privacy policy: 
+    <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a>
+</p>
+
+<h3>Opt Out of Google Analytics</h3>
+<p>You can opt out of Google Analytics across all websites by:</p>
+<ul>
+    <li>Installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-out Browser Add-on</a></li>
+    <li>Declining analytics cookies in our cookie banner</li>
+    <li>Blocking third-party cookies in your browser settings</li>
+</ul>
+
+<h2>5. What Happens If You Decline Cookies?</h2>
+<p><strong>Good news: Nothing changes!</strong></p>
+
+<p>If you decline analytics cookies:</p>
+<ul>
+    <li>✅ All website content remains fully accessible</li>
+    <li>✅ All features work exactly the same</li>
+    <li>✅ You can still contact us and request services</li>
+    <li>✅ Your text size preference still works (stored in local storage)</li>
+    <li>✅ No loss of functionality whatsoever</li>
+</ul>
+
+<p>The only difference:</p>
+<ul>
+    <li>📊 Your visit won't be counted in our website statistics</li>
+</ul>
+
+<p class="note">
+    <strong>Our commitment:</strong> We will never reduce functionality, hide content, or limit access 
+    based on your cookie choice. Your privacy is your right, not a bargaining chip.
+</p>
+
+<h2>6. Cookie Updates and Changes</h2>
+<p>If we make changes to our cookie usage:</p>
+<ul>
+    <li>We will update this Cookie Policy</li>
+    <li>We will update the "Last updated" date at the top</li>
+    <li>If we add new types of cookies (like marketing cookies), the cookie banner will reappear asking for your new consent</li>
+    <li>We will never add cookies that track you without your explicit consent</li>
+</ul>
+
+<p class="note important">
+    <strong>Promise:</strong> We will never add advertising or marketing cookies without updating this 
+    policy and getting your fresh consent through a new banner.
+</p>
+
+<h2>7. Children's Privacy</h2>
+<p>
+    Golden Connection is designed for adults (primarily age 55+). We do not knowingly use cookies to 
+    track anyone under 18 years old. If you are under 18, please ask a parent or guardian for 
+    permission before using our website.
+</p>
+
+<h2>8. International Visitors</h2>
+<p>
+    Golden Connection primarily serves U.S. residents, but our website is accessible worldwide. If 
+    you visit from outside the United States:
+</p>
+<ul>
+    <li>The same cookie policies apply to all visitors</li>
+    <li>Google Analytics may transfer data to the U.S. (Google is Privacy Shield certified and complies with GDPR)</li>
+    <li>European visitors have additional rights under GDPR (see our Privacy Policy)</li>
+</ul>
+
+<h2>9. Questions About Cookies?</h2>
+<p>If you have questions about our use of cookies or this Cookie Policy:</p>
+
+<p>
+    <strong>Contact Golden Connection:</strong><br>
+    Email: <a href="mailto:hello@goldenconnection.org">hello@goldenconnection.org</a><br>
+    Subject line: "Cookie Policy Question"
+</p>
+
+<p>We'll respond within 7 business days.</p>
+
+<h2>10. Additional Resources</h2>
+<p><strong>Learn more about cookies:</strong></p>
+<ul>
+    <li><a href="https://www.allaboutcookies.org/" target="_blank">All About Cookies</a> - 
+        Independent guide to cookies and online privacy</li>
+    <li><a href="https://www.cookiesandyou.com/" target="_blank">Cookies & You</a> - 
+        Simple explanations of cookies and how to manage them</li>
+</ul>
+
+<p><strong>Related policies:</strong></p>
+<ul>
+    <li><a href="privacy-policy.html">Golden Connection Privacy Policy</a></li>
+    <li><a href="terms-of-service.html">Terms of Service</a></li>
+</ul>
+
+<hr style="margin: 2rem 0;">
+
+<p style="font-size: .9rem; color: #777; text-align: center;">
+    <strong>Golden Connection</strong> is committed to transparency about our use of cookies and 
+    respecting your privacy choices. We use cookies responsibly and only when they help us serve 
+    you better.
+</p>
+
+<p style="text-align: center; margin-top: 2rem;">
+    <a href="index.html" class="back-link">← Return to Golden Connection Homepage</a>
 </p>
 
 </body>
